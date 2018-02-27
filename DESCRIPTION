@@ -2,14 +2,18 @@ Package: classyfireR
 Type: Package
 Title: R Interface to the ClassyFire API
 Version: 0.0.99
-Author: Tom Wilson <tpw2@aber.ac.uk>
-Maintainer: Tom Wilson <tpw2@aber.ac.uk>
+Authors@R: c(
+    person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-Imports: httr,
-         jsonlite
-Suggests: testthat
+Imports: 
+    httr,
+    jsonlite
+Suggests: 
+    testthat,
+    covr
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
