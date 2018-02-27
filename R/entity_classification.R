@@ -3,12 +3,15 @@
 #'
 #'
 #' @param INCHI_KEY a character string of a valid InChIKey
-#' @return a list of two elements
-#'   \itemize{
-#'       \item{ClassyFire}
-#'       \item{Meta}
-#'
-#'   }
+#' @return a list of two `tibbles`
+#'   - __ClassyFire__ a `tibble` containing the following;
+#'       - __Level__
+#'       - __Classification__
+#'       - __CHEMONT__
+#'   - __Meta__ a `tibble` containing the following;
+#'       - __Query__
+#'       - __Version__
+#'       - __Date__
 #'
 #' @examples
 #' entity_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
@@ -47,10 +50,10 @@ entity_classification <- function(INCHI_KEY)
     )
 
     entity_res <-
-      data.frame(Classification = unlist(entity_class),
+      tibble::tibble(Level = names(entity_class),Classification = unlist(entity_class),
                  CHEMONT = unlist(entity_ontid))
     entity_meta <-
-      data.frame(
+      tibble::tibble(
         Query = json_res$inchikey,
         Version = json_res$classification_version,
         Date = Sys.Date()
