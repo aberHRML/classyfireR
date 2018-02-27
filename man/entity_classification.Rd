@@ -10,12 +10,21 @@ entity_classification(INCHI_KEY)
 \item{INCHI_KEY}{a character string of a valid InChIKey}
 }
 \value{
-a list of two elements
-  \itemize{
-      \item{ClassyFire}
-      \item{Meta}
-
-  }
+a list of two \code{tibbles}
+\itemize{
+\item \strong{ClassyFire} a \code{tibble} containing the following;
+\itemize{
+\item \strong{Level}
+\item \strong{Classification}
+\item \strong{CHEMONT}
+}
+\item \strong{Meta} a \code{tibble} containing the following;
+\itemize{
+\item \strong{Query}
+\item \strong{Version}
+\item \strong{Date}
+}
+}
 }
 \description{
 Entity Classification
