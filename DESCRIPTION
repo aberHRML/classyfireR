@@ -4,8 +4,7 @@ Title: R Interface to the ClassyFire API
 Version: 0.0.99
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Access the ClassyFire REST API.
 Imports: 
     httr,
     jsonlite
