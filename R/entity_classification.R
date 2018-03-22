@@ -37,14 +37,14 @@ entity_classification <- function(INCHI_KEY)
 
     entity_class <- list(
       Kingdom = json_res$kingdom$name,
-      Superlcas = json_res$superclass$name,
+      Superclass = json_res$superclass$name,
       Class = json_res$class$name,
       Subclass = json_res$subclass$name
     )
 
     entity_ontid <- list(
       Kingdom = json_res$kingdom$chemont_id,
-      Superlcas = json_res$superclass$chemont_id,
+      Superclass = json_res$superclass$chemont_id,
       Class = json_res$class$chemont_id,
       Subclass = json_res$subclass$chemont_id
     )
