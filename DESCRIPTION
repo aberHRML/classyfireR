@@ -5,9 +5,14 @@ Version: 0.0.99
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
 Description: Access the ClassyFire REST API.
+Depends:
+  magrittr
 Imports: 
     httr,
-    jsonlite
+    jsonlite,
+    tibble,
+    crayon, 
+    clisymbols
 Suggests: 
     testthat,
     covr
