@@ -4,32 +4,34 @@
 \alias{entity_classification}
 \title{Entity Classification}
 \usage{
-entity_classification(INCHI_KEY)
+entity_classification(inchi_key)
 }
 \arguments{
-\item{INCHI_KEY}{a character string of a valid InChIKey}
+\item{inchi_key}{a character string of a valid InChIKey}
 }
 \value{
 a list of two \code{tibbles}
 \itemize{
 \item \strong{ClassyFire} a \code{tibble} containing the following;
 \itemize{
-\item \strong{Level}
-\item \strong{Classification}
-\item \strong{CHEMONT}
+\item \strong{Level} Classification level (kingdom, superclass, class and subclass)
+\item \strong{Classification} The compound classification
+\item \strong{CHEMONT} Chemical Ontology Identification code
 }
 \item \strong{Meta} a \code{tibble} containing the following;
 \itemize{
-\item \strong{Query}
-\item \strong{Version}
-\item \strong{Date}
+\item \strong{Query} the submitted InChI key
+\item \strong{Version} Version of classyFire
+\item \strong{Date} Date classification retrieved
 }
 }
 }
 \description{
-Entity Classification
+Retrive entity classification from `http://classyfire.wishartlab.com/entities/'
 }
 \examples{
 entity_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
+
+entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 
 }
