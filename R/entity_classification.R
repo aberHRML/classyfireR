@@ -40,6 +40,7 @@ entity_classification <- function(inchi_key)
 
     json_res <- jsonlite::fromJSON(text_content)
 
+
     list_output <-
       list(
         kingdom = json_res[['kingdom']],
@@ -66,6 +67,7 @@ entity_classification <- function(inchi_key)
         class_tibble[i, 'CHEMONT'] <- NA
       }
     }
+
 
     entity_meta <-
       tibble::tibble(
