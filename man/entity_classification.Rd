@@ -10,15 +10,10 @@ entity_classification(inchi_key)
 \item{inchi_key}{a character string of a valid InChIKey}
 }
 \value{
-a list of two \code{tibbles}
-\itemize{
-\item \strong{ClassyFire} a \code{tibble} containing the following;
-\itemize{
-\item \strong{Level} Classification level (kingdom, superclass, class and subclass)
-\item \strong{Classification} The compound classification
-\item \strong{CHEMONT} Chemical Ontology Identification code
-}
-}
+a \code{tibble} containing the following;
+- \strong{Level} Classification level (kingdom, superclass, class and subclass)
+- \strong{Classification} The compound classification
+- \strong{CHEMONT} Chemical Ontology Identification code
 }
 \description{
 Retrive entity classification from `http://classyfire.wishartlab.com/entities/'
