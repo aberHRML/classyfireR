@@ -5,9 +5,9 @@
 #'
 #' @param json_res the list output from `jsonlite::fromJSON(x)`
 #' @return a `tibble` containing the following;
-#'       - __Level__ Classification level (kingdom, superclass, class and subclass)
-#'       - __Classification__ The compound classification
-#'       - __CHEMONT__ Chemical Ontology Identification code
+#' * __Level__ Classification level (kingdom, superclass, class and subclass)
+#' * __Classification__ The compound classification
+#' * __CHEMONT__ Chemical Ontology Identification code
 #' @keywords internal
 
 parse_json_output <- function(json_res)

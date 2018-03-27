@@ -4,9 +4,9 @@
 #'
 #' @param inchi_key a character string of a valid InChIKey
 #' @return a `tibble` containing the following;
-#'       - __Level__ Classification level (kingdom, superclass, class and subclass)
-#'       - __Classification__ The compound classification
-#'       - __CHEMONT__ Chemical Ontology Identification code
+#' * __Level__ Classification level (kingdom, superclass, class and subclass)
+#' * __Classification__ The compound classification
+#' * __CHEMONT__ Chemical Ontology Identification code
 #'
 #' @examples
 #'
