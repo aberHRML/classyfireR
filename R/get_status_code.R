@@ -17,7 +17,7 @@ get_status_code <- function(query_id)
     httr::GET(
       paste0(
         "http://classyfire.wishartlab.com/queries/",
-        query = queryId,
+        query = query_id,
         "/status.json"
       )
     ) %>%
