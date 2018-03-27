@@ -18,12 +18,6 @@ a list of two \code{tibbles}
 \item \strong{Classification} The compound classification
 \item \strong{CHEMONT} Chemical Ontology Identification code
 }
-\item \strong{Meta} a \code{tibble} containing the following;
-\itemize{
-\item \strong{Query} the submitted InChI key
-\item \strong{Version} Version of classyFire
-\item \strong{Date} Date classification retrieved
-}
 }
 }
 \description{
