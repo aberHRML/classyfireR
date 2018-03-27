@@ -30,7 +30,7 @@ submit_classification <- function(query, label, type = 'STRUCTURE')
   query_id <-
     jsonlite::fromJSON(httr::content(submit, 'text')) %>% unlist() %>% as.list()
 
-  get_status_code(as.numeric(query_id$id[1]))
+  if(get_status_code(as.numeric(query_id$id[2])) == 'Done'){
 
   retrieve <-
     paste0('http://classyfire.wishartlab.com/queries/',
@@ -46,5 +46,5 @@ submit_classification <- function(query, label, type = 'STRUCTURE')
   classification <- parse_json_output(json_res$entities)
 
   return(classification)
-
+}
 }

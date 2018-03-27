@@ -9,9 +9,15 @@
 #'       - __CHEMONT__ Chemical Ontology Identification code
 #'
 #' @examples
+#'
+#' # Valid InChI key where all four classification levels are available
 #' entity_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
 #'
+#' # Valid InChI key where only three classification levels are available
 #' entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
+#'
+#' # Invalid InChI key
+#' entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
 #'
 #' @export
 entity_classification <- function(inchi_key)
