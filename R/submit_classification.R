@@ -5,16 +5,15 @@
 #' @param query a charatcer string of `InChI Code` or `SMILE`
 #' @param label a character string of the query name
 #' @param type the label type (`Default = STRUCTURE`)
-#' @return a `tibble` containing the following;
-#'       - __Level__ Classification level (kingdom, superclass, class and subclass)
-#'       - __Classification__ The compound classification
-#'       - __CHEMONT__ Chemical Ontology Identification code
-#'
+#' @return if the classification has completed;  a `tibble` containing the following;
+#' * __Level__ Classification level (kingdom, superclass, class and subclass)
+#' * __Classification__ The compound classification
+#' * __CHEMONT__ Chemical Ontology Identification code
 #' @export
 #' @importFrom magrittr "%>%"
 
 submit_classification <- function(query, label, type = 'STRUCTURE')
-  {
+{
   params <- list(label = label,
                  query_input = query,
                  query_type = type)
@@ -30,21 +29,14 @@ submit_classification <- function(query, label, type = 'STRUCTURE')
   query_id <-
     jsonlite::fromJSON(httr::content(submit, 'text')) %>% unlist() %>% as.list()
 
-  if(get_status_code(as.numeric(query_id$id[2])) == 'Done'){
 
-  retrieve <-
-    paste0('http://classyfire.wishartlab.com/queries/',
-           query_id$id,
-           '.json')
+  if (get_status_code(as.numeric(query_id$id))$status != 'Done') {
+    message(' Classification still in progress', '\n')
+    message(' Use `retrieve_classification` once submission is out of queue')
+    return(get_status_code(as.numeric(query_id$id)))
 
-  response <- httr::GET(retrieve)
-
-  text_content <- httr::content(response, 'text')
-
-  json_res <- jsonlite::fromJSON(text_content)
-
-  classification <- parse_json_output(json_res$entities)
-
-  return(classification)
-}
-}
+  } else{
+    classification <- retrieve_classification(query_id$id)
+    return(classification)
+  }
+  }
