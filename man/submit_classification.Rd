@@ -14,10 +14,12 @@ submit_classification(query, label, type = "STRUCTURE")
 \item{type}{the label type (\code{Default = STRUCTURE})}
 }
 \value{
-a \code{tibble} containing the following;
-- \strong{Level} Classification level (kingdom, superclass, class and subclass)
-- \strong{Classification} The compound classification
-- \strong{CHEMONT} Chemical Ontology Identification code
+if the classification has completed;  a \code{tibble} containing the following;
+\itemize{
+\item \strong{Level} Classification level (kingdom, superclass, class and subclass)
+\item \strong{Classification} The compound classification
+\item \strong{CHEMONT} Chemical Ontology Identification code
+}
 }
 \description{
 Submit and new entity for classification using the ClassyFire webserver

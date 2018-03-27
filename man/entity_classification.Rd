@@ -11,16 +11,24 @@ entity_classification(inchi_key)
 }
 \value{
 a \code{tibble} containing the following;
-- \strong{Level} Classification level (kingdom, superclass, class and subclass)
-- \strong{Classification} The compound classification
-- \strong{CHEMONT} Chemical Ontology Identification code
+\itemize{
+\item \strong{Level} Classification level (kingdom, superclass, class and subclass)
+\item \strong{Classification} The compound classification
+\item \strong{CHEMONT} Chemical Ontology Identification code
+}
 }
 \description{
 Retrive entity classification from `http://classyfire.wishartlab.com/entities/'
 }
 \examples{
+
+# Valid InChI key where all four classification levels are available
 entity_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
 
+# Valid InChI key where only three classification levels are available
 entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
+
+# Invalid InChI key
+entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
 
 }
