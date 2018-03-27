@@ -3,3 +3,5 @@
 export(entity_classification)
 export(get_status_code)
 export(submit_classification)
+importFrom(magrittr,"%>%")
+importFrom(utils,globalVariables)
