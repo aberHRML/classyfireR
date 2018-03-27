@@ -3,8 +3,7 @@
 #' Retrive entity classification from `http://classyfire.wishartlab.com/entities/'
 #'
 #' @param inchi_key a character string of a valid InChIKey
-#' @return a list of two `tibbles`
-#'   - __ClassyFire__ a `tibble` containing the following;
+#' @return a `tibble` containing the following;
 #'       - __Level__ Classification level (kingdom, superclass, class and subclass)
 #'       - __Classification__ The compound classification
 #'       - __CHEMONT__ Chemical Ontology Identification code
