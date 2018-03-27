@@ -11,6 +11,7 @@
 #'       - __CHEMONT__ Chemical Ontology Identification code
 #'
 #' @export
+#' @importFrom magrittr "%>%"
 
 submit_classification <- function(query, label, type = 'STRUCTURE')
   {
