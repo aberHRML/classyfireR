@@ -8,7 +8,6 @@
 #'       - __Level__ Classification level (kingdom, superclass, class and subclass)
 #'       - __Classification__ The compound classification
 #'       - __CHEMONT__ Chemical Ontology Identification code
-#'
 #' @keywords internal
 
 parse_json_output <- function(json_res)
@@ -22,7 +21,7 @@ list_output <-
         subclass = json_res[['subclass']]
       )
 
-    len <- purrr::map(list_output, length) %>% unlist()
+    len <- lapply(list_output, length) %>% unlist()
 
     class_tibble <-
       tibble::tibble(
