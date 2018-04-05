@@ -30,13 +30,11 @@ entity_classification <- function(inchi_key)
 
   if (response$status_code == 404) {
     message(crayon::red(
-      clisymbols::symbol$cross,
-      'no exisiting classification available'
-    ))
+      clisymbols::symbol$cross,inchi_key))
   }
 
   if (response$status_code == 200) {
-    message(crayon::green(clisymbols::symbol$tick, 'classification retrieved'))
+    message(crayon::green(clisymbols::symbol$tick, inchi_key))
     text_content <- httr::content(response, 'text')
 
     json_res <- jsonlite::fromJSON(text_content)
