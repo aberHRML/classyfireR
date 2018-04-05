@@ -13,7 +13,13 @@ devtools::install_github('wilsontom/classyfireR')
 library(classyfireR)
 ```
 
-> __For retrieval of classifications already available; a InChI Key is supplied to the  `entity_classification` function.__
+* [Entity Classification](#entity-classification)
+* [New Classification](#new-classification)
+* [Acknowledgements](#acknowledgements)
+
+### Entity Classification
+
+__For retrieval of classifications already available; a InChI Key is supplied to the  `entity_classification` function.__
 
 ```
 > inchi_keys <- c('BRMWTNUJHUMWMS-LURJTMIESA-N', 'MDHYEMXUFSJLGV-UHFFFAOYSA-N')
@@ -67,6 +73,10 @@ library(tidyverse)
   5 superclass Lipids and lipid-like molecules WHEUWNKSCXYKBU-QPWUGHHJSA-N
   6 superclass Organic acids and derivatives   WHBMMWSBFZVSSR-GSVOUGTGSA-N
 ```
+
+### New Classification
+
+### Acknowledgements
 
 If you use `classyfireR` you should cite the [ClassyFire](https://jcheminf.springeropen.com/articles/10.1186/s13321-016-0174-y) publication
 
