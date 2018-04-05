@@ -1,10 +1,10 @@
 Package: classyfireR
 Type: Package
-Title: R Interface to the ClassyFire API
-Version: 0.0.99
+Title: R Interface to the ClassyFire RESTful API
+Version: 0.1.0
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: Access the ClassyFire REST API (http://classyfire.wishartlab.com)
+Description: Access the ClassyFire RESTful API (http://classyfire.wishartlab.com)
 Depends:
   magrittr
 Imports: 
@@ -20,5 +20,7 @@ Suggests:
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/wilsontom/classyfireR
+BugReports: https://github.com/wilsontom/classyfireR/issues
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
