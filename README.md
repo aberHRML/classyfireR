@@ -72,7 +72,43 @@ __Using the `tidyverse` a vector of InChI Keys can be submitted and easily extra
 4 superclass Organic acids and derivatives   AFENDNXGAFYKQO-UHFFFAOYSA-N
 5 superclass Lipids and lipid-like molecules WHEUWNKSCXYKBU-QPWUGHHJSA-N
 6 superclass Organic acids and derivatives   WHBMMWSBFZVSSR-GSVOUGTGSA-N
+
+
+
+# To create a data.frame of all classification results
+
+classification_list <- map(classification_list, ~{select(.,-CHEMONT)})
+
+spread_tibble <- purrr:::map(classification_list, ~{
+  spread(., Level, Classification)  
+}) %>% bind_rows() %>% data.frame()
+
+rownames(spread_tibble) <- keys
+
+classification_df <-  data.frame(InChIKey = rownames(spread_tibble),
+    Kingdom = spread_tibble$kingdom,
+    SuperClass = spread_tibble$superclass,
+    Class = spread_tibble$class,
+    SubClass = spread_tibble$subclass)
+
+> classification_df
+                     InChIKey           Kingdom                      SuperClass
+1 BRMWTNUJHUMWMS-LURJTMIESA-N Organic compounds   Organic acids and derivatives
+2 XFNJVJPLKCPIBV-UHFFFAOYSA-N Organic compounds      Organic nitrogen compounds
+3 TYEYBOSBBBHJIV-UHFFFAOYSA-N Organic compounds   Organic acids and derivatives
+4 AFENDNXGAFYKQO-UHFFFAOYSA-N Organic compounds   Organic acids and derivatives
+5 WHEUWNKSCXYKBU-QPWUGHHJSA-N Organic compounds Lipids and lipid-like molecules
+6 WHBMMWSBFZVSSR-GSVOUGTGSA-N Organic compounds   Organic acids and derivatives
+                             Class                               SubClass
+1 Carboxylic acids and derivatives   Amino acids, peptides, and analogues
+2         Organonitrogen compounds                                 Amines
+3       Keto acids and derivatives Short-chain keto acids and derivatives
+4    Hydroxy acids and derivatives    Alpha hydroxy acids and derivatives
+5 Steroids and steroid derivatives                       Estrane steroids
+6    Hydroxy acids and derivatives     Beta hydroxy acids and derivatives
+
 ```
+
 
 ### New Classification
 
