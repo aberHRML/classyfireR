@@ -1,6 +1,6 @@
 # classyfireR
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![Build Status](https://travis-ci.org/wilsontom/classyfireR.svg?branch=master)](https://travis-ci.org/wilsontom/classyfireR) [![Build status](https://ci.appveyor.com/api/projects/status/ua94fiotdmc0ssq5/branch/master?svg=true)](https://ci.appveyor.com/project/wilsontom/classyfirer/branch/master) [![codecov](https://codecov.io/gh/wilsontom/classyfireR/branch/master/graph/badge.svg)](https://codecov.io/gh/wilsontom/classyfireR) ![License](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg "GNU GPL v3.0")
+[![Build Status](https://travis-ci.org/wilsontom/classyfireR.svg?branch=master)](https://travis-ci.org/wilsontom/classyfireR) [![Build status](https://ci.appveyor.com/api/projects/status/ua94fiotdmc0ssq5/branch/master?svg=true)](https://ci.appveyor.com/project/wilsontom/classyfirer/branch/master) [![codecov](https://codecov.io/gh/wilsontom/classyfireR/branch/master/graph/badge.svg)](https://codecov.io/gh/wilsontom/classyfireR) ![License](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg "GNU GPL v3.0") [![DOI](https://zenodo.org/badge/118162964.svg)](https://zenodo.org/badge/latestdoi/118162964)
 
 > __R Interface to the [ClassyFire REST API](http://classyfire.wishartlab.com)__
 
