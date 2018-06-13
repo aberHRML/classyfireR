@@ -31,12 +31,16 @@ submit_classification <- function(query, label, type = 'STRUCTURE')
 
 
   if (get_status_code(as.numeric(query_id$id))$status != 'Done') {
-    message(' Classification still in progress', '\n')
-    message(' Use `retrieve_classification` once submission is out of queue')
+    message(crayon::yellow('... classification still in progress', '\n'))
+    message(
+      crayon::yellow(
+        '... use `retrieve_classification` once submission is out of queue'
+      )
+    )
     return(get_status_code(as.numeric(query_id$id)))
 
   } else{
     classification <- retrieve_classification(query_id$id)
     return(classification)
   }
-  }
+}
