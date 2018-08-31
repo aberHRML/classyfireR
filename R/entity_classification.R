@@ -34,16 +34,6 @@
 #'
 #'  classification_list <- map(keys, entity_classification)
 #'
-#'
-#'
-#'
-
-
-
-
-#'
-#'
-#'
 #' @export
 entity_classification <- function(inchi_key)
 {
