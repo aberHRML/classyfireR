@@ -46,10 +46,4 @@ entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
 
  classification_list <- map(keys, entity_classification)
 
-
-
-
-
-
-
 }
