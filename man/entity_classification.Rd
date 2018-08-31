@@ -31,4 +31,25 @@ entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 # Invalid InChI key
 entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
 
+
+# Using `dplyr` a vector of InChI Keys can be submitted and easily parsed
+  library(dplyr)
+  library(purrr)
+
+  keys <- c(
+ 'BRMWTNUJHUMWMS-LURJTMIESA-N',
+ 'XFNJVJPLKCPIBV-UHFFFAOYSA-N',
+ 'TYEYBOSBBBHJIV-UHFFFAOYSA-N',
+ 'AFENDNXGAFYKQO-UHFFFAOYSA-N',
+ 'WHEUWNKSCXYKBU-QPWUGHHJSA-N',
+ 'WHBMMWSBFZVSSR-GSVOUGTGSA-N')
+
+ classification_list <- map(keys, entity_classification)
+
+
+
+
+
+
+
 }
