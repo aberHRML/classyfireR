@@ -8,7 +8,7 @@
 ### Installation & Usage
 
 ```R
-devtools::install_github('wilsontom/classyfireR')
+remotes::install_github('wilsontom/classyfireR')
 
 library(classyfireR)
 ```
