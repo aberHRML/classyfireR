@@ -18,6 +18,6 @@ a \code{tibble} containing the following;
 }
 }
 \description{
-Parse the JSON output the the \code{GET} or \code{POST} request
+Parse the JSON output from the \code{GET} or \code{POST} request
 }
 \keyword{internal}

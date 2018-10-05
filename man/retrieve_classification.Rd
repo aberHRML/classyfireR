@@ -20,3 +20,7 @@ a \code{tibble} containing the following;
 \description{
 Retrieve classification results from a new submission
 }
+\examples{
+
+retrieve_classification(2813259)
+}
