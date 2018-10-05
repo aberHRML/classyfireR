@@ -1,7 +1,7 @@
 Package: classyfireR
 Type: Package
 Title: R Interface to the ClassyFire RESTful API
-Version: 0.1.0
+Version: 0.1.1
 Date: 2018-10-05
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
