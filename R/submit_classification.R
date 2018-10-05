@@ -2,7 +2,7 @@
 #'
 #' Submit and new entity for classification using the ClassyFire webserver
 #'
-#' @param query a charatcer string of `InChI Code` or `SMILE`
+#' @param query a character string of `InChI Code` or `SMILE`
 #' @param label a character string of the query name
 #' @param type the label type (`Default = STRUCTURE`)
 #' @return if the classification has completed;  a `tibble` containing the following;

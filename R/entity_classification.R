@@ -1,6 +1,6 @@
 #' Entity Classification
 #'
-#' Retrive entity classification from `http://classyfire.wishartlab.com/entities/'
+#' Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'
 #'
 #'
 #' @param inchi_key a character string of a valid InChIKey

@@ -18,7 +18,7 @@ a \code{tibble} containing the following;
 }
 }
 \description{
-Retrive entity classification from `http://classyfire.wishartlab.com/entities/'
+Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'
 }
 \examples{
 

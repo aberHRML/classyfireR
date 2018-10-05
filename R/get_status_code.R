@@ -1,6 +1,6 @@
 #' Get Status Code
 #'
-#' Retreive the status code of a new submission for entity classification
+#' Retrieve the status code of a new submission for entity classification
 #'
 #' @param query_id a numeric value for the query id
 #' @return a list of `query_id` and classification status; either `In progress` or `Done`

@@ -7,7 +7,7 @@
 submit_classification(query, label, type = "STRUCTURE")
 }
 \arguments{
-\item{query}{a charatcer string of \code{InChI Code} or \code{SMILE}}
+\item{query}{a character string of \code{InChI Code} or \code{SMILE}}
 
 \item{label}{a character string of the query name}
 

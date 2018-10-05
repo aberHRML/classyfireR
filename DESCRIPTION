@@ -5,7 +5,7 @@ Version: 0.1.1
 Date: 2018-10-05
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
-Description: Access to the ClassyFire RESTful API (http://classyfire.wishartlab.com). Retrieve exisiting entity classifications and submit new entities for classification. 
+Description: Access to the ClassyFire RESTful API <http://classyfire.wishartlab.com>. Retrieve existing entity classifications and submit new entities for classification. 
 Depends:
   magrittr
 Imports: 
