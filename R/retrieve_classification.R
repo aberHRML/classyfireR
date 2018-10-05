@@ -9,9 +9,12 @@
 #' * __CHEMONT__ Chemical Ontology Identification code
 #'
 #' @export
-retrieve_classification <- function(query_id)
-  {
+#' @examples
+#'
+#' retrieve_classification(2813259)
 
+retrieve_classification <- function(query_id)
+{
   retrieve <-
     paste0('http://classyfire.wishartlab.com/queries/',
            query_id,
@@ -27,4 +30,4 @@ retrieve_classification <- function(query_id)
 
   return(classification)
 
-  }
+}
