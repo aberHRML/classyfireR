@@ -18,3 +18,7 @@
 * Debian Linux GCC r-patched (r-hub)
 * CentOS 6 r-epel (r-hub)
 
+### R CMD check results
+
+There were no ERRORS or WARNINGS
+
