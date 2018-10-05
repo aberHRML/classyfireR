@@ -50,7 +50,7 @@
 #'                                 Class = spread_tibble$class,
 #'                                 SubClass = spread_tibble$subclass)
 #'
-#'  print(classificatpion_df)
+#'  print(classification_df)
 #'
 #'
 #'
