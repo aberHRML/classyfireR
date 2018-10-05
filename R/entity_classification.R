@@ -2,6 +2,7 @@
 #'
 #' Retrive entity classification from `http://classyfire.wishartlab.com/entities/'
 #'
+#'
 #' @param inchi_key a character string of a valid InChIKey
 #' @return a `tibble` containing the following;
 #' * __Level__ Classification level (kingdom, superclass, class and subclass)
@@ -23,16 +24,35 @@
 #' # Using `dplyr` a vector of InChI Keys can be submitted and easily parsed
 #'   library(dplyr)
 #'   library(purrr)
+#'   library(tidyr)
 #'
-#'   keys <- c(
-#'  'BRMWTNUJHUMWMS-LURJTMIESA-N',
-#'  'XFNJVJPLKCPIBV-UHFFFAOYSA-N',
-#'  'TYEYBOSBBBHJIV-UHFFFAOYSA-N',
-#'  'AFENDNXGAFYKQO-UHFFFAOYSA-N',
-#'  'WHEUWNKSCXYKBU-QPWUGHHJSA-N',
-#'  'WHBMMWSBFZVSSR-GSVOUGTGSA-N')
+#'  keys <- c(
+#' 'BRMWTNUJHUMWMS-LURJTMIESA-N',
+#' 'XFNJVJPLKCPIBV-UHFFFAOYSA-N',
+#' 'TYEYBOSBBBHJIV-UHFFFAOYSA-N',
+#' 'AFENDNXGAFYKQO-UHFFFAOYSA-N',
+#' 'WHEUWNKSCXYKBU-QPWUGHHJSA-N',
+#' 'WHBMMWSBFZVSSR-GSVOUGTGSA-N')
 #'
 #'  classification_list <- map(keys, entity_classification)
+#'
+#'  classification_list <- map(classification_list, ~{select(.,-CHEMONT)})
+#'
+#'  spread_tibble <- purrr:::map(classification_list, ~{
+#'                   spread(., Level, Classification)
+#'                   }) %>% bind_rows() %>% data.frame()
+#'
+#'  rownames(spread_tibble) <- keys
+#'
+#'  classification_df <-  data.frame(InChIKey = rownames(spread_tibble),
+#'                                Kingdom = spread_tibble$kingdom,
+#'                                 SuperClass = spread_tibble$superclass,
+#'                                 Class = spread_tibble$class,
+#'                                 SubClass = spread_tibble$subclass)
+#'
+#'  print(classificatpion_df)
+#'
+#'
 #'
 #' @export
 entity_classification <- function(inchi_key)
@@ -44,8 +64,7 @@ entity_classification <- function(inchi_key)
   response <- httr::GET(entity_query)
 
   if (response$status_code == 404) {
-    message(crayon::red(
-      clisymbols::symbol$cross,inchi_key))
+    message(crayon::red(clisymbols::symbol$cross, inchi_key))
   }
 
   if (response$status_code == 200) {
