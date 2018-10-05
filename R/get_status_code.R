@@ -1,11 +1,13 @@
 #' Get Status Code
 #'
+#' Retreive the status code of a new submission for entity classification
+#'
 #' @param query_id a numeric value for the query id
 #' @return a list of `query_id` and classification status; either `In progress` or `Done`
+#'
 #' @export
 #' @examples
 #' get_status_code(2813259)
-
 
 get_status_code <- function(query_id)
 {
