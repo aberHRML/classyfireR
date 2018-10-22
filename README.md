@@ -7,11 +7,16 @@
 
 
 ### Installation & Usage
+`classyfireR` can be installed from CRAN using;
+
+```R
+install.packages('classyfireR')
+```
+
+Or from GitHub using the `remotes` package
 
 ```R
 remotes::install_github('wilsontom/classyfireR')
-
-library(classyfireR)
 ```
 
 * [Entity Classification](#entity-classification)
@@ -23,6 +28,8 @@ library(classyfireR)
 __For retrieval of classifications already available; a InChI Key is supplied to the  `entity_classification` function.__
 
 ```R
+library(classyfireR)
+
 > inchi_keys <- c('BRMWTNUJHUMWMS-LURJTMIESA-N', 'MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 
 > entity_classification(inchi_keys[1])
