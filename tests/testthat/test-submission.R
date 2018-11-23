@@ -12,10 +12,8 @@ test_that('submit-classification', {
                           label = 'package_test',
                           type = 'STRUCTURE')
 
-  if (is.list(inchi_sub)) {
+  if(!dplyr::is.tbl(inchi_sub)){
     expect_true(dplyr::is.tbl(retrieve_classification(inchi_sub$query_id)))
-  } else{
-    expect_true(dplyr::is.tbl(inchi_sub))
   }
-
 })
+
