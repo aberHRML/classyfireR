@@ -13,7 +13,7 @@ get_status_code(query_id)
 a list of \code{query_id} and classification status; either \code{In progress} or \code{Done}
 }
 \description{
-Get Status Code
+Retrieve the status code of a new submission for entity classification
 }
 \examples{
 get_status_code(2813259)
