@@ -2,7 +2,7 @@ Package: classyfireR
 Type: Package
 Title: R Interface to the ClassyFire RESTful API
 Version: 0.1.2
-Date: 2018-10-05
+Date: 2018-12-06
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")))
 Description: Access to the ClassyFire RESTful API <http://classyfire.wishartlab.com>. Retrieve existing entity classifications and submit new entities for classification. 
@@ -25,5 +25,5 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/wilsontom/classyfireR
 BugReports: https://github.com/wilsontom/classyfireR/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
