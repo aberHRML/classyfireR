@@ -8,6 +8,11 @@
 #' * __Classification__ The compound classification
 #' * __CHEMONT__ Chemical Ontology Identification code
 #' @keywords internal
+#' @importFrom dplyr bind_rows filter
+#' @importFrom purrr map map_chr
+#' @importFrom stringr str_c
+#' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 
 parse_json_output <- function(json_res)
 {
@@ -16,27 +21,34 @@ parse_json_output <- function(json_res)
       kingdom = json_res[['kingdom']],
       superclass = json_res[['superclass']],
       class = json_res[['class']],
-      subclass = json_res[['subclass']]
+      subclass = json_res[['subclass']],
+      intermediate_nodes = json_res[['intermediate_nodes']],
+      direct_parent = json_res[['direct_parent']]
     )
 
-  len <- lapply(list_output, length) %>% unlist()
-
-  class_tibble <-
-    tibble::tibble(Level = names(len),
-                   Classification = 'NA',
-                   CHEMONT = 'NA')
-
-  for (i in seq_along(len)) {
-    if (len[[i]] == 4) {
-      class_tibble[i, 'Classification'] <- list_output[[i]]$name
-      class_tibble[i, 'CHEMONT'] <- list_output[[i]]$chemont_id
-    } else{
-      class_tibble[i, 'Classification'] <- NA
-      class_tibble[i, 'CHEMONT'] <- NA
-    }
+  if (length(list_output$intermediate_nodes) == 0) {
+    list_output$intermediate_nodes <- NULL
   }
 
+  list_output <- list_output[!sapply(list_output,is.null)]
+
+  class_tibble <- map(1:length(list_output),~{
+    l <- list_output[[.]]
+    tibble(
+      Level = names(list_output)[.],
+      Classification = l$name,
+      CHEMONT = l$chemont_id
+    )
+  }) %>%
+    bind_rows() %>%
+    filter(!duplicated(Classification))
+
+  nIntermediate <- class_tibble %>%
+    filter(Level == 'intermediate_nodes') %>%
+    nrow()
+
+  class_tibble$Level[class_tibble$Level == 'intermediate_nodes'] <- map_chr(5:(5 + (nIntermediate - 1)),~{str_c('level ',.)})
+  class_tibble$Level[class_tibble$Level == 'direct_parent'] <- str_c('level ',5 + nIntermediate)
 
   return(class_tibble)
-
 }

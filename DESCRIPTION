@@ -13,12 +13,13 @@ Imports:
     jsonlite,
     tibble,
     crayon, 
-    clisymbols
+    clisymbols,
+    purrr,
+    dplyr,
+    stringr
 Suggests: 
     testthat,
     covr,
-    dplyr,
-    purrr,
     tidyr
 License: GPL (>= 3)
 Encoding: UTF-8
