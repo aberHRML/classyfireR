@@ -19,29 +19,31 @@ Or from GitHub using the `remotes` package
 remotes::install_github('wilsontom/classyfireR')
 ```
 
-* [Entity Classification](#entity-classification)
-* [New Classification](#new-classification)
+* [Get Classification](get-classification)
 * [Acknowledgements](#acknowledgements)
 
-### Entity Classification
+### Get Classification
 
-__For retrieval of classifications already available; a InChI Key is supplied to the  `entity_classification` function.__
+__For retrieval of classifications already available; a InChI Key is supplied to the  `get_classification` function.__
 
 ```R
 library(classyfireR)
 
 > inchi_keys <- c('BRMWTNUJHUMWMS-LURJTMIESA-N', 'MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 
-> entity_classification(inchi_keys[1])
+> get_classification(inchi_keys[1])
 
 ✔ classification retrieved
-# A tibble: 4 x 3
+# A tibble: 7 x 3
   Level      Classification                       CHEMONT          
   <chr>      <chr>                                <chr>            
 1 kingdom    Organic compounds                    CHEMONTID:0000000
 2 superclass Organic acids and derivatives        CHEMONTID:0000264
 3 class      Carboxylic acids and derivatives     CHEMONTID:0000265
 4 subclass   Amino acids, peptides, and analogues CHEMONTID:0000013
+5 level 5    Amino acids and derivatives          CHEMONTID:0000347
+6 level 6    Alpha amino acids and derivatives    CHEMONTID:0000060
+7 level 7    Histidine and derivatives            CHEMONTID:0004311
 ```
 
 __Using the `tidyverse` a vector of InChI Keys can be submitted and easily extracted.__
@@ -58,7 +60,7 @@ __Using the `tidyverse` a vector of InChI Keys can be submitted and easily extra
   'WHBMMWSBFZVSSR-GSVOUGTGSA-N'
 )
 
-> classification_list <- map(keys, entity_classification)
+> classification_list <- map(keys, get_classification)
 
 > classification_tibble <-
   map2(classification_list, keys, ~ {
@@ -93,27 +95,27 @@ spread_tibble <- purrr:::map(classification_list, ~{
 
 rownames(spread_tibble) <- keys
 
-classification_df <-  data.frame(InChIKey = rownames(spread_tibble),
-    Kingdom = spread_tibble$kingdom,
-    SuperClass = spread_tibble$superclass,
-    Class = spread_tibble$class,
-    SubClass = spread_tibble$subclass)
+classification_tibble <-  tibble(
+  InChIKey = rownames(spread_tibble),
+  Kingdom = spread_tibble$kingdom,
+  SuperClass = spread_tibble$superclass,
+  Class = spread_tibble$class,
+  SubClass = spread_tibble$subclass,
+  Level5 = spread_tibble$level.5,
+  Level6 = spread_tibble$level.6,
+  Level7 = spread_tibble$level.7
+)
 
-> classification_df
-                     InChIKey           Kingdom                      SuperClass
-1 BRMWTNUJHUMWMS-LURJTMIESA-N Organic compounds   Organic acids and derivatives
-2 XFNJVJPLKCPIBV-UHFFFAOYSA-N Organic compounds      Organic nitrogen compounds
-3 TYEYBOSBBBHJIV-UHFFFAOYSA-N Organic compounds   Organic acids and derivatives
-4 AFENDNXGAFYKQO-UHFFFAOYSA-N Organic compounds   Organic acids and derivatives
-5 WHEUWNKSCXYKBU-QPWUGHHJSA-N Organic compounds Lipids and lipid-like molecules
-6 WHBMMWSBFZVSSR-GSVOUGTGSA-N Organic compounds   Organic acids and derivatives
-                             Class                               SubClass
-1 Carboxylic acids and derivatives   Amino acids, peptides, and analogues
-2         Organonitrogen compounds                                 Amines
-3       Keto acids and derivatives Short-chain keto acids and derivatives
-4    Hydroxy acids and derivatives    Alpha hydroxy acids and derivatives
-5 Steroids and steroid derivatives                       Estrane steroids
-6    Hydroxy acids and derivatives     Beta hydroxy acids and derivatives
+
+> classification_tibble
+  InChIKey       Kingdom    SuperClass       Class        SubClass         Level5      Level6        Level7     
+  <chr>          <chr>      <chr>            <chr>        <chr>            <chr>       <chr>         <chr>      
+1 BRMWTNUJHUMWM… Organic c… Organic acids a… Carboxylic … Amino acids, pe… Amino acid… Alpha amino … Histidine …
+2 XFNJVJPLKCPIB… Organic c… Organic nitroge… Organonitro… Amines           Primary am… Monoalkylami… NA         
+3 TYEYBOSBBBHJI… Organic c… Organic acids a… Keto acids … Short-chain ket… NA          NA            NA         
+4 AFENDNXGAFYKQ… Organic c… Organic acids a… Hydroxy aci… Alpha hydroxy a… NA          NA            NA         
+5 WHEUWNKSCXYKB… Organic c… Lipids and lipi… Steroids an… Estrane steroids Estrogens … NA            NA         
+6 WHBMMWSBFZVSS… Organic c… Organic acids a… Hydroxy aci… Beta hydroxy ac… NA          NA            NA    
 
 ```
 
