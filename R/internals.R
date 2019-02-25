@@ -12,6 +12,7 @@
 #' @importFrom purrr map map_chr
 #' @importFrom stringr str_c
 #' @importFrom tibble tibble
+#' @importFrom magrittr %>%
 
 parse_json_output <- function(json_res)
 {
