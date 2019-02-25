@@ -10,3 +10,4 @@ cran_submission/
 _pkgdown.yml
 README_examples.R
 README.Rmd
+docs/
