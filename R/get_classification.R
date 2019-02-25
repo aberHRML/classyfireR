@@ -44,13 +44,18 @@
 #'
 #'  rownames(spread_tibble) <- keys
 #'
-#'  classification_df <-  data.frame(InChIKey = rownames(spread_tibble),
-#'                                Kingdom = spread_tibble$kingdom,
-#'                                 SuperClass = spread_tibble$superclass,
-#'                                 Class = spread_tibble$class,
-#'                                 SubClass = spread_tibble$subclass)
+#'  classification_tibble <-  tibble(
+#'      InChIKey = rownames(spread_tibble),
+#'      Kingdom = spread_tibble$kingdom,
+#'      SuperClass = spread_tibble$superclass,
+#'      Class = spread_tibble$class,
+#'      SubClass = spread_tibble$subclass,
+#'      Level5 = spread_tibble$level.5,
+#'      Level6 = spread_tibble$level.6,
+#'      Level7 = spread_tibble$level.7
+#'     )
 #'
-#'  print(classification_df)
+#'  print(classification_tibble)
 #'
 #'
 #'
