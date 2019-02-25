@@ -18,7 +18,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-home">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
 <li>
   <a href="index.html">
     <span class="fa fa-home fa-lg"></span>
-     
+
   </a>
 </li>
 <li>
@@ -53,7 +53,7 @@
 <li>
   <a href="https://github.com/wilsontom/classyfireR">
     <span class="fa fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul>
@@ -64,48 +64,51 @@
 </div>
 <!--/.navbar -->
 
-      
+
       </header><div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
+
+
+
+
 <div id="classyfirer" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#classyfirer" class="anchor"></a>classyfireR</h1></div>
-<p><a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a> <a href="https://travis-ci.org/wilsontom/classyfireR"><img src="https://travis-ci.org/wilsontom/classyfireR.svg?branch=master" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/wilsontom/classyfirer/branch/master"><img src="https://ci.appveyor.com/api/projects/status/ua94fiotdmc0ssq5/branch/master?svg=true" alt="Build status"></a> <a href="https://codecov.io/gh/wilsontom/classyfireR"><img src="https://codecov.io/gh/wilsontom/classyfireR/branch/master/graph/badge.svg" alt="codecov"></a> <img src="https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg" title="GNU GPL v3.0" alt="License"><a href="https://zenodo.org/badge/latestdoi/118162964"><img src="https://zenodo.org/badge/118162964.svg" alt="DOI"></a></p>
+<p><a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a> <a href="https://travis-ci.org/wilsontom/classyfireR"><img src="https://travis-ci.org/wilsontom/classyfireR.svg?branch=master" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/wilsontom/classyfirer/branch/master"><img src="https://ci.appveyor.com/api/projects/status/ua94fiotdmc0ssq5/branch/master?svg=true" alt="Build status"></a> <a href="https://codecov.io/gh/wilsontom/classyfireR"><img src="https://codecov.io/gh/wilsontom/classyfireR/branch/master/graph/badge.svg" alt="codecov"></a> <img src="https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg" title="GNU GPL v3.0" alt="License"> <a href="https://zenodo.org/badge/latestdoi/118162964"><img src="https://zenodo.org/badge/118162964.svg" alt="DOI"></a></p>
 <p><a href="https://cran.r-project.org/web/packages/classyfireR/index.html"><img src="https://www.r-pkg.org/badges/version/classyfireR" alt="CRAN"></a> <img src="https://cranlogs.r-pkg.org/badges/grand-total/classyfireR?color=red" alt="total downloads"></p>
-<blockquote>
-<p><strong>R Interface to the <a href="http://classyfire.wishartlab.com">ClassyFire REST API</a></strong></p>
-</blockquote>
 <div id="installation-usage" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation-usage" class="anchor"></a>Installation &amp; Usage</h3>
 <p><code>classyfireR</code> can be installed from CRAN using;</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">'classyfireR'</span>)</code></pre></div>
 <p>Or from GitHub using the <code>remotes</code> package</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">'wilsontom/classyfireR'</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">'wilsontom/classyfireR'</span>)</code></pre></div>
 <ul>
-<li><a href="#entity-classification">Entity Classification</a></li>
-<li><a href="#new-classification">New Classification</a></li>
+<li><a href="get-classification">Get Classification</a></li>
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul>
 </div>
-<div id="entity-classification" class="section level3">
+<div id="get-classification" class="section level3">
 <h3 class="hasAnchor">
-<a href="#entity-classification" class="anchor"></a>Entity Classification</h3>
-<p><strong>For retrieval of classifications already available; a InChI Key is supplied to the <code>entity_classification</code> function.</strong></p>
+<a href="#get-classification" class="anchor"></a>Get Classification</h3>
+<p><strong>For retrieval of classifications already available; a InChI Key is supplied to the <code>get_classification</code> function.</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(classyfireR)
 
 <span class="op">&gt;</span><span class="st"> </span>inchi_keys &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>, <span class="st">'MDHYEMXUFSJLGV-UHFFFAOYSA-N'</span>)
 
-<span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="reference/entity_classification.html">entity_classification</a></span>(inchi_keys[<span class="dv">1</span>])
+<span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="reference/get_classification.html">get_classification</a></span>(inchi_keys[<span class="dv">1</span>])
 
 ✔ classification retrieved
-<span class="co"># A tibble: 4 x 3</span>
-  Level      Classification                       CHEMONT          
+<span class="co"># A tibble: 7 x 3</span>
+  Level      Classification                       CHEMONT
   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                                </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">            </span>
 <span class="dv">1</span> kingdom    Organic compounds                    CHEMONTID<span class="op">:</span><span class="dv">0000000</span>
 <span class="dv">2</span> superclass Organic acids and derivatives        CHEMONTID<span class="op">:</span><span class="dv">0000264</span>
 <span class="dv">3</span> class      Carboxylic acids and derivatives     CHEMONTID<span class="op">:</span><span class="dv">0000265</span>
-<span class="dv">4</span> subclass   Amino acids, peptides, and analogues CHEMONTID<span class="op">:</span><span class="dv">0000013</span></code></pre></div>
+<span class="dv">4</span> subclass   Amino acids, peptides, and analogues CHEMONTID<span class="op">:</span><span class="dv">0000013</span>
+<span class="dv">5</span> level <span class="dv">5</span>    Amino acids and derivatives          CHEMONTID<span class="op">:</span><span class="dv">0000347</span>
+<span class="dv">6</span> level <span class="dv">6</span>    Alpha amino acids and derivatives    CHEMONTID<span class="op">:</span><span class="dv">0000060</span>
+<span class="dv">7</span> level <span class="dv">7</span>    Histidine and derivatives            CHEMONTID<span class="op">:</span><span class="dv">0004311</span></code></pre></div>
 <p><strong>Using the <code>tidyverse</code> a vector of InChI Keys can be submitted and easily extracted.</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)
 
@@ -118,7 +121,7 @@
   <span class="st">'WHBMMWSBFZVSSR-GSVOUGTGSA-N'</span>
 )
 
-<span class="op">&gt;</span><span class="st"> </span>classification_list &lt;-<span class="st"> </span><span class="kw">map</span>(keys, entity_classification)
+<span class="op">&gt;</span><span class="st"> </span>classification_list &lt;-<span class="st"> </span><span class="kw">map</span>(keys, get_classification)
 
 <span class="op">&gt;</span><span class="st"> </span>classification_tibble &lt;-
 <span class="st">  </span><span class="kw">map2</span>(classification_list, keys, <span class="op">~</span><span class="st"> </span>{
@@ -132,7 +135,7 @@
 
 <span class="op">&gt;</span><span class="st"> </span>superclass
 <span class="co"># A tibble: 6 x 3</span>
-  Level      Classification                  ID                         
+  Level      Classification                  ID
   <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                           </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                      </span>
 <span class="dv">1</span> superclass Organic acids and derivatives   BRMWTNUJHUMWMS<span class="op">-</span>LURJTMIESA<span class="op">-</span>N
 <span class="dv">2</span> superclass Organic nitrogen compounds      XFNJVJPLKCPIBV<span class="op">-</span>UHFFFAOYSA<span class="op">-</span>N
@@ -148,75 +151,32 @@
 classification_list &lt;-<span class="st"> </span><span class="kw">map</span>(classification_list, <span class="op">~</span>{<span class="kw">select</span>(.,<span class="op">-</span>CHEMONT)})
 
 spread_tibble &lt;-<span class="st"> </span>purrr<span class="op">:::</span><span class="kw">map</span>(classification_list, <span class="op">~</span>{
-  <span class="kw">spread</span>(., Level, Classification)  
+  <span class="kw">spread</span>(., Level, Classification)
 }) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">bind_rows</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>()
 
 <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/colnames">rownames</a></span>(spread_tibble) &lt;-<span class="st"> </span>keys
 
-classification_df &lt;-<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(<span class="dt">InChIKey =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/colnames">rownames</a></span>(spread_tibble),
-    <span class="dt">Kingdom =</span> spread_tibble<span class="op">$</span>kingdom,
-    <span class="dt">SuperClass =</span> spread_tibble<span class="op">$</span>superclass,
-    <span class="dt">Class =</span> spread_tibble<span class="op">$</span>class,
-    <span class="dt">SubClass =</span> spread_tibble<span class="op">$</span>subclass)
-
-<span class="op">&gt;</span><span class="st"> </span>classification_df
-                     InChIKey           Kingdom                      SuperClass
-<span class="dv">1</span> BRMWTNUJHUMWMS<span class="op">-</span>LURJTMIESA<span class="op">-</span>N Organic compounds   Organic acids and derivatives
-<span class="dv">2</span> XFNJVJPLKCPIBV<span class="op">-</span>UHFFFAOYSA<span class="op">-</span>N Organic compounds      Organic nitrogen compounds
-<span class="dv">3</span> TYEYBOSBBBHJIV<span class="op">-</span>UHFFFAOYSA<span class="op">-</span>N Organic compounds   Organic acids and derivatives
-<span class="dv">4</span> AFENDNXGAFYKQO<span class="op">-</span>UHFFFAOYSA<span class="op">-</span>N Organic compounds   Organic acids and derivatives
-<span class="dv">5</span> WHEUWNKSCXYKBU<span class="op">-</span>QPWUGHHJSA<span class="op">-</span>N Organic compounds Lipids and lipid<span class="op">-</span>like molecules
-<span class="dv">6</span> WHBMMWSBFZVSSR<span class="op">-</span>GSVOUGTGSA<span class="op">-</span>N Organic compounds   Organic acids and derivatives
-                             Class                               SubClass
-<span class="dv">1</span> Carboxylic acids and derivatives   Amino acids, peptides, and analogues
-<span class="dv">2</span>         Organonitrogen compounds                                 Amines
-<span class="dv">3</span>       Keto acids and derivatives Short<span class="op">-</span>chain keto acids and derivatives
-<span class="dv">4</span>    Hydroxy acids and derivatives    Alpha hydroxy acids and derivatives
-<span class="dv">5</span> Steroids and steroid derivatives                       Estrane steroids
-<span class="dv">6</span>    Hydroxy acids and derivatives     Beta hydroxy acids and derivatives</code></pre></div>
-</div>
-<div id="new-classification" class="section level3">
-<h3 class="hasAnchor">
-<a href="#new-classification" class="anchor"></a>New Classification</h3>
-<p><strong>For compounds which do not already have an available entity classification; a new classification can be generated by submitting the InChI code to the ClassyFire Server using a POST request</strong>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span>new_compound &lt;-<span class="st"> 'InChI=1S/C7H11N3O2/c1-10-3-5(9-4-10)2-6(8)7(11)12/h3-4,6H,2,8H2,1H3,(H,11,12)/t6-/m0/s1'</span>
-
-<span class="op">&gt;</span><span class="st"> </span>new_submission &lt;-<span class="st"> </span><span class="kw"><a href="reference/submit_classification.html">submit_classification</a></span>(new_compound, <span class="dt">label =</span> <span class="st">'test'</span>, <span class="dt">type =</span> <span class="st">'STRUCTURE'</span>)
-
-Classification still <span class="cf">in</span> progress
-
-Use <span class="st">`</span><span class="dt">retrieve_classification</span><span class="st">`</span> once submission is out of queue
-
-<span class="op">&gt;</span><span class="st"> </span>new_submission
-query_id
-[<span class="dv">1</span>] <span class="dv">2815613</span>
-
-<span class="op">$</span>status
-[<span class="dv">1</span>] <span class="st">"In Queue"</span>
+classification_tibble &lt;-<span class="st">  </span><span class="kw">tibble</span>(
+  <span class="dt">InChIKey =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/colnames">rownames</a></span>(spread_tibble),
+  <span class="dt">Kingdom =</span> spread_tibble<span class="op">$</span>kingdom,
+  <span class="dt">SuperClass =</span> spread_tibble<span class="op">$</span>superclass,
+  <span class="dt">Class =</span> spread_tibble<span class="op">$</span>class,
+  <span class="dt">SubClass =</span> spread_tibble<span class="op">$</span>subclass,
+  <span class="dt">Level5 =</span> spread_tibble<span class="op">$</span>level<span class="fl">.5</span>,
+  <span class="dt">Level6 =</span> spread_tibble<span class="op">$</span>level<span class="fl">.6</span>,
+  <span class="dt">Level7 =</span> spread_tibble<span class="op">$</span>level<span class="fl">.7</span>
+)
 
 
-<span class="co"># wait a few seconds</span>
-
-<span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="reference/get_status_code.html">get_status_code</a></span>(new_submission<span class="op">$</span>query_id)
-<span class="op">$</span>query_id
-[<span class="dv">1</span>] <span class="dv">2815613</span>
-
-<span class="op">$</span>status
-[<span class="dv">1</span>] <span class="st">"Done"</span>
-
-<span class="co"># then retrieve the results</span>
-
-<span class="op">&gt;</span><span class="st"> </span>classification_result &lt;-<span class="st"> </span><span class="kw"><a href="reference/retrieve_classification.html">retrieve_classification</a></span>(new_submission<span class="op">$</span>query_id)
-
-<span class="op">&gt;</span><span class="st"> </span>classification_result
-
-<span class="co"># A tibble: 4 x 3</span>
-  Level      Classification                       CHEMONT          
-  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">                                </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">            </span>
-<span class="dv">1</span> kingdom    Organic compounds                    CHEMONTID<span class="op">:</span><span class="dv">0000000</span>
-<span class="dv">2</span> superclass Organic acids and derivatives        CHEMONTID<span class="op">:</span><span class="dv">0000264</span>
-<span class="dv">3</span> class      Carboxylic acids and derivatives     CHEMONTID<span class="op">:</span><span class="dv">0000265</span>
-<span class="dv">4</span> subclass   Amino acids, peptides, and analogues CHEMONTID<span class="op">:</span><span class="dv">0000013</span></code></pre></div>
+<span class="op">&gt;</span><span class="st"> </span>classification_tibble
+  InChIKey       Kingdom    SuperClass       Class        SubClass         Level5      Level6        Level7
+  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">          </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">            </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">        </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">            </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">         </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">      </span>
+<span class="dv">1</span> BRMWTNUJHUMWM… Organic c… Organic acids a… Carboxylic … Amino acids, pe… Amino acid… Alpha amino … Histidine …
+<span class="dv">2</span> XFNJVJPLKCPIB… Organic c… Organic nitroge… Organonitro… Amines           Primary am… Monoalkylami… <span class="ot">NA</span>
+<span class="dv">3</span> TYEYBOSBBBHJI… Organic c… Organic acids a… Keto acids … Short<span class="op">-</span>chain ket… <span class="ot">NA</span>          <span class="ot">NA</span>            <span class="ot">NA</span>
+<span class="dv">4</span> AFENDNXGAFYKQ… Organic c… Organic acids a… Hydroxy aci… Alpha hydroxy a… <span class="ot">NA</span>          <span class="ot">NA</span>            <span class="ot">NA</span>
+<span class="dv">5</span> WHEUWNKSCXYKB… Organic c… Lipids and lipi… Steroids an… Estrane steroids Estrogens … <span class="ot">NA</span>            <span class="ot">NA</span>
+<span class="dv">6</span> WHBMMWSBFZVSS… Organic c… Organic acids a… Hydroxy aci… Beta hydroxy ac… <span class="ot">NA</span>          <span class="ot">NA</span>            <span class="ot">NA</span>    </code></pre></div>
 </div>
 <div id="acknowledgements" class="section level3">
 <h3 class="hasAnchor">
@@ -236,11 +196,11 @@ query_id
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=classyfireR">https://​cloud.r-project.org/​package=classyfireR</a>
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=classyfireR">https://cloud.r-project.org/package=classyfireR</a>
 </li>
-<li>Browse source code at <br><a href="https://github.com/wilsontom/classyfireR">https://​github.com/​wilsontom/​classyfireR</a>
+<li>Browse source code at <br><a href="https://github.com/wilsontom/classyfireR">https://github.com/wilsontom/classyfireR</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/wilsontom/classyfireR/issues">https://​github.com/​wilsontom/​classyfireR/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/wilsontom/classyfireR/issues">https://github.com/wilsontom/classyfireR/issues</a>
 </li>
 </ul>
 </div>
@@ -263,8 +223,10 @@ query_id
 </ul>
 </div>
 
-  </div>
+      </div>
+
 </div>
+
 
       <footer><div class="copyright">
   <p>Developed by Tom Wilson.</p>
@@ -276,7 +238,7 @@ query_id
       </footer>
 </div>
 
-  
+
 
   </body>
 </html>

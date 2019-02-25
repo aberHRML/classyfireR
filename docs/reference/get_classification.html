@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Entity Classification — entity_classification • classyfireR</title>
+<title>Get Entity Classification — get_classification • classyfireR</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="Entity Classification — entity_classification" />
+<meta property="og:title" content="Get Entity Classification — get_classification" />
 
 <meta property="og:description" content="Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'" />
 <meta name="twitter:card" content="summary" />
@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -102,9 +102,9 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Entity Classification</h1>
-    <small class="dont-index">Source: <a href='https://github.com/wilsontom/classyfireR/blob/master/R/entity_classification.R'><code>R/entity_classification.R</code></a></small>
-    <div class="hidden name"><code>entity_classification.Rd</code></div>
+    <h1>Get Entity Classification</h1>
+    <small class="dont-index">Source: <a href='https://github.com/wilsontom/classyfireR/blob/master/R/get_classification.R'><code>R/get_classification.R</code></a></small>
+    <div class="hidden name"><code>get_classification.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -113,7 +113,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>entity_classification</span>(<span class='no'>inchi_key</span>)</pre>
+    <pre class="usage"><span class='fu'>get_classification</span>(<span class='no'>inchi_key</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,23 +137,25 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># Valid InChI key where all four classification levels are available</span>
-<span class='fu'>entity_classification</span>(<span class='st'>'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 4 x 3</span><span>
+<span class='fu'>get_classification</span>(<span class='st'>'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 7 x 3</span><span>
 #&gt;   Level      Classification                       CHEMONT          
 #&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                                </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> kingdom    Organic compounds                    CHEMONTID:0000000
 #&gt; </span><span style='color: #BCBCBC;'>2</span><span> superclass Organic acids and derivatives        CHEMONTID:0000264
 #&gt; </span><span style='color: #BCBCBC;'>3</span><span> class      Carboxylic acids and derivatives     CHEMONTID:0000265
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> subclass   Amino acids, peptides, and analogues CHEMONTID:0000013</div><div class='input'>
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> subclass   Amino acids, peptides, and analogues CHEMONTID:0000013
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> level 5    Amino acids and derivatives          CHEMONTID:0000347
+#&gt; </span><span style='color: #BCBCBC;'>6</span><span> level 6    Alpha amino acids and derivatives    CHEMONTID:0000060
+#&gt; </span><span style='color: #BCBCBC;'>7</span><span> level 7    Histidine and derivatives            CHEMONTID:0004311</div><div class='input'>
 <span class='co'># Valid InChI key where only three classification levels are available</span>
-<span class='fu'>entity_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-N'</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ MDHYEMXUFSJLGV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 4 x 3</span><span>
+<span class='fu'>get_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-N'</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ MDHYEMXUFSJLGV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 3</span><span>
 #&gt;   Level      Classification                      CHEMONT          
 #&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                               </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> kingdom    Organic compounds                   CHEMONTID:0000000
 #&gt; </span><span style='color: #BCBCBC;'>2</span><span> superclass Benzenoids                          CHEMONTID:0002448
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> class      Benzene and substituted derivatives CHEMONTID:0002279
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> subclass   </span><span style='color: #BB0000;'>NA</span><span>                                  </span><span style='color: #BB0000;'>NA</span><span>               </div><div class='input'>
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> class      Benzene and substituted derivatives CHEMONTID:0002279</div><div class='input'>
 <span class='co'># Invalid InChI key</span>
-<span class='fu'>entity_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-B'</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #BB0000;'>✖ MDHYEMXUFSJLGV-UHFFFAOYSA-B</span><span></span></div><div class='input'>
+<span class='fu'>get_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-B'</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #BB0000;'>✖ MDHYEMXUFSJLGV-UHFFFAOYSA-B</span><span></span></div><div class='input'>
 
 <span class='co'># Using `dplyr` a vector of InChI Keys can be submitted and easily parsed</span>
   <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
@@ -180,7 +182,7 @@
 <span class='st'>'WHEUWNKSCXYKBU-QPWUGHHJSA-N'</span>,
 <span class='st'>'WHBMMWSBFZVSSR-GSVOUGTGSA-N'</span>)
 
- <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>keys</span>, <span class='no'>entity_classification</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ XFNJVJPLKCPIBV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ TYEYBOSBBBHJIV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ AFENDNXGAFYKQO-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ WHEUWNKSCXYKBU-QPWUGHHJSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ WHBMMWSBFZVSSR-GSVOUGTGSA-N</span><span></span></div><div class='input'>
+ <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>keys</span>, <span class='no'>get_classification</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ XFNJVJPLKCPIBV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ TYEYBOSBBBHJIV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ AFENDNXGAFYKQO-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ WHEUWNKSCXYKBU-QPWUGHHJSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ WHBMMWSBFZVSSR-GSVOUGTGSA-N</span><span></span></div><div class='input'>
  <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>classification_list</span>, ~{<span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='no'>.</span>,-<span class='no'>CHEMONT</span>)})
 
  <span class='no'>spread_tibble</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>purrr</span><span class='kw ns'>:::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>classification_list</span>, ~{

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Submit InChI Code for Classification — submit_classification • classyfireR</title>
+<title>Changelog • classyfireR</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,7 @@
 
 
 
-<meta property="og:title" content="Submit InChI Code for Classification — submit_classification" />
-
-<meta property="og:description" content="Submit and new entity for classification using the ClassyFire webserver" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -50,7 +47,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -63,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -102,56 +99,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Submit InChI Code for Classification</h1>
-    <small class="dont-index">Source: <a href='https://github.com/wilsontom/classyfireR/blob/master/R/submit_classification.R'><code>R/submit_classification.R</code></a></small>
-    <div class="hidden name"><code>submit_classification.Rd</code></div>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/wilsontom/classyfireR/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    
-    <p>Submit and new entity for classification using the ClassyFire webserver</p>
-    
-    </div>
-
-    <pre class="usage"><span class='fu'>submit_classification</span>(<span class='no'>query</span>, <span class='no'>label</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"STRUCTURE"</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>query</th>
-      <td><p>a character string of <code>InChI Code</code> or <code>SMILE</code></p></td>
-    </tr>
-    <tr>
-      <th>label</th>
-      <td><p>a character string of the query name</p></td>
-    </tr>
-    <tr>
-      <th>type</th>
-      <td><p>the label type (<code>Default = STRUCTURE</code>)</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>if the classification has completed;  a <code>tibble</code> containing the following;</p><ul>
-<li><p><strong>Level</strong> Classification level (kingdom, superclass, class and subclass)</p></li>
-<li><p><strong>Classification</strong> The compound classification</p></li>
-<li><p><strong>CHEMONT</strong> Chemical Ontology Identification code</p></li>
+    <div id="classyfirer-0-2-0" class="section level1">
+<h1 class="page-header">
+<a href="#classyfirer-0-2-0" class="anchor"></a>classyfireR 0.2.0<small> Unreleased </small>
+</h1>
+<ul>
+<li>Remove POST submission functions. ClassyFire database is now extensive enough that new submission are rarely needed. This will prevent the intermitent failing of checks on CRAN aswell.</li>
+<li>Add <code>pkgdown</code> website for docs</li>
+<li>
+<code>entity_classification</code> renamed to <code>get_classification</code>
+</li>
+<li>All available classificatons now returned (<a href='https://github.com/jasenfinch'>@jasenfinch</a>)</li>
 </ul>
-
-    
-
+</div>
+    <div id="classyfirer-0-1-2" class="section level1">
+<h1 class="page-header">
+<a href="#classyfirer-0-1-2" class="anchor"></a>classyfireR 0.1.2<small> 2018-12-06 </small>
+</h1>
+<ul>
+<li>Fix unit test to catch when server is unresponsive. This will fix intermittent CRAN check fails</li>
+</ul>
+</div>
+    <div id="classyfirer-0-1-1" class="section level1">
+<h1 class="page-header">
+<a href="#classyfirer-0-1-1" class="anchor"></a>classyfireR 0.1.1<small> 2018-10-14 </small>
+</h1>
+<ul>
+<li>Add more detailed examples ready for CRAN submission</li>
+</ul>
+</div>
+    <div id="classyfirer-0-1-0" class="section level1">
+<h1 class="page-header">
+<a href="#classyfirer-0-1-0" class="anchor"></a>classyfireR 0.1.0<small> Unreleased </small>
+</h1>
+<ul>
+<li>Low level access to the ClassyFire RESTful API</li>
+<li>Retrieve existing classifications using InChI Keys</li>
+<li>Submit new classifications to the server using InChI Codes and retrieve the results</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-          </ul>
-
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#classyfirer-0-2-0">0.2.0</a></li>
+        <li><a href="#classyfirer-0-1-2">0.1.2</a></li>
+        <li><a href="#classyfirer-0-1-1">0.1.1</a></li>
+        <li><a href="#classyfirer-0-1-0">0.1.0</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
       <footer>

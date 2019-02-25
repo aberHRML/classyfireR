@@ -1,7 +1,7 @@
 citHeader('To cite classyfireR in publications please use:')
 
-citEntry(
-  entry = 'Article',
+bibentry(
+  bibtype = 'Manual',
   title = 'ClassyFire: Automated Chemical Classification With A Comprehensive, Computable Taxonomy',
   author = personList(as.person('Djoumbou Feunang Y'), as.person('Eisner R'), as.person('Knox C'),
                       as.person('Chepelev L'), as.person('Hastings J'), as.person('Owen G'),
@@ -10,8 +10,5 @@ citEntry(
   journal = 'Journal of Cheminformatics',
   volume = '8:61',
   year = '2016',
-  url = 'https://doi.org/10.1186/s13321-016-0174-y',
-
-  textVersion = paste('Wishart et al; (2016). ClassyFire: Automated Chemical Classification With A Comprehensive, Computable Taxonomy.
-  Journal of Cheminformatics, 8:61')
+  url = 'https://doi.org/10.1186/s13321-016-0174-y'
 )
