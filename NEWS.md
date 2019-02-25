@@ -1,7 +1,10 @@
 # v0.2.0
 
+
 * Remove POST submission functions. ClassyFire database is now extensive enough that new submission are rarely needed. This will prevent the intermitent failing of checks on CRAN aswell. 
 * Add `pkgdown` website for docs
+* `entity_classification` renamed to `get_classification`
+* All available classificatons now returned
 
 # v0.1.2
 
