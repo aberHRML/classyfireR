@@ -1,4 +1,4 @@
-#' Entity Classification
+#' Get Entity Classification
 #'
 #' Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'
 #'
@@ -12,13 +12,13 @@
 #' @examples
 #'
 #' # Valid InChI key where all four classification levels are available
-#' entity_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
+#' get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
 #'
 #' # Valid InChI key where only three classification levels are available
-#' entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
+#' get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 #'
 #' # Invalid InChI key
-#' entity_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
+#' get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
 #'
 #'
 #' # Using `dplyr` a vector of InChI Keys can be submitted and easily parsed
@@ -34,7 +34,7 @@
 #' 'WHEUWNKSCXYKBU-QPWUGHHJSA-N',
 #' 'WHBMMWSBFZVSSR-GSVOUGTGSA-N')
 #'
-#'  classification_list <- map(keys, entity_classification)
+#'  classification_list <- map(keys, get_classification)
 #'
 #'  classification_list <- map(classification_list, ~{select(.,-CHEMONT)})
 #'
@@ -55,7 +55,7 @@
 #'
 #'
 #' @export
-entity_classification <- function(inchi_key)
+get_classification <- function(inchi_key)
 {
   entity_url <- 'http://classyfire.wishartlab.com/entities/'
 

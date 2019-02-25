@@ -1,16 +1,21 @@
-### NEWS
+# v0.2.0
 
-#### v0.1.2
+* Remove POST submission functions. ClassyFire database is now extensive enough that new submission are rarely needed. This will prevent the intermitent failing of checks on CRAN aswell. 
+* Add `pkgdown` website for docs
 
-- Fix unit test to catch when server is unresponsive. This will fix intermittent CRAN check fails
-
-#### v0.1.1
-
-- Add more detailed examples ready for CRAN submission
-
-#### V0.1.0
+# v0.1.2
 
 
-- Low level access to the ClassyFire RESTful API
-- Retrieve existing classifications using InChI Keys
-- Submit new classifications to the server using InChI Codes and retrieve the results
+* Fix unit test to catch when server is unresponsive. This will fix intermittent CRAN check fails
+
+# v0.1.1
+
+
+* Add more detailed examples ready for CRAN submission
+
+# V0.1.0
+
+
+* Low level access to the ClassyFire RESTful API
+* Retrieve existing classifications using InChI Keys
+* Submit new classifications to the server using InChI Codes and retrieve the results
