@@ -52,7 +52,7 @@ parse_json_output <- function(json_res)
     class_tibble$Level[class_tibble$Level == 'direct_parent'] <- str_c('level ',5 + nIntermediate)
 
   } else {
-    class_tibble <- tibble()
+    class_tibble <- NULL
   }
 
   return(class_tibble)
