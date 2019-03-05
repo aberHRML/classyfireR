@@ -14,10 +14,10 @@
 install.packages('classyfireR')
 ```
 
-Or from GitHub using the `remotes` package
+Or the latest development version can be installed form GitHub using the `remotes` package
 
 ```R
-remotes::install_github('wilsontom/classyfireR')
+remotes::install_github('aberHRML/classyfireR')
 ```
 
 * [Get Classification](get-classification)
