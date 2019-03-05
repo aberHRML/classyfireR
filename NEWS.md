@@ -1,3 +1,8 @@
+# classyfireR 0.2.1
+
+* Fix internal parsing function so that entries with no classifications returns `NULL`
+* Add @jasenfinch as package contributor
+
 # classyfireR 0.2.0
 
 * Remove POST submission functions. ClassyFire database is now extensive enough that new submission are rarely needed. This will prevent the intermitent failing of checks on CRAN aswell. 
