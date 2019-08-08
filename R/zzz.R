@@ -1,3 +1,4 @@
 #' @importFrom utils globalVariables
 
-globalVariables('.')
+globalVariables(c('.', 'Level', 'Classification'))
+
