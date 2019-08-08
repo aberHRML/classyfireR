@@ -1,6 +1,7 @@
 context('entity-classification')
 
 test_that('entity-classification', {
+
   expect_true(dplyr::is.tbl(get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')))
 
   expect_true(dplyr::is.tbl(get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')))
