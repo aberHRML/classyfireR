@@ -32,23 +32,28 @@ parse_json_output <- function(json_res)
 
   list_output <- list_output[!sapply(list_output,is.null)]
 
-  class_tibble <- map(1:length(list_output),~{
-    l <- list_output[[.]]
-    tibble(
-      Level = names(list_output)[.],
-      Classification = l$name,
-      CHEMONT = l$chemont_id
-    )
-  }) %>%
-    bind_rows() %>%
-    filter(!duplicated(Classification))
+  if (length(list_output) > 0) {
+    class_tibble <- map(1:length(list_output),~{
+      l <- list_output[[.]]
+      tibble(
+        Level = names(list_output)[.],
+        Classification = l$name,
+        CHEMONT = l$chemont_id
+      )
+    }) %>%
+      bind_rows() %>%
+      filter(!duplicated(Classification))
 
-  nIntermediate <- class_tibble %>%
-    filter(Level == 'intermediate_nodes') %>%
-    nrow()
+    nIntermediate <- class_tibble %>%
+      filter(Level == 'intermediate_nodes') %>%
+      nrow()
 
-  class_tibble$Level[class_tibble$Level == 'intermediate_nodes'] <- map_chr(5:(5 + (nIntermediate - 1)),~{str_c('level ',.)})
-  class_tibble$Level[class_tibble$Level == 'direct_parent'] <- str_c('level ',5 + nIntermediate)
+    class_tibble$Level[class_tibble$Level == 'intermediate_nodes'] <- map_chr(5:(5 + (nIntermediate - 1)),~{str_c('level ',.)})
+    class_tibble$Level[class_tibble$Level == 'direct_parent'] <- str_c('level ',5 + nIntermediate)
+
+  } else {
+    class_tibble <- NULL
+  }
 
   return(class_tibble)
 }

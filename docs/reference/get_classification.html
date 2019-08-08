@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -85,7 +85,7 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/wilsontom/classyfireR">
+  <a href="https://github.com/aberHRML/classyfireR">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -103,7 +103,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get Entity Classification</h1>
-    <small class="dont-index">Source: <a href='https://github.com/wilsontom/classyfireR/blob/master/R/get_classification.R'><code>R/get_classification.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/aberHRML/classyfireR/blob/master/R/get_classification.R'><code>R/get_classification.R</code></a></small>
     <div class="hidden name"><code>get_classification.Rd</code></div>
     </div>
 
@@ -191,26 +191,26 @@
 
  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>spread_tibble</span>) <span class='kw'>&lt;-</span> <span class='no'>keys</span>
 
- <span class='no'>classification_df</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='kw'>InChIKey</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>spread_tibble</span>),
-                               <span class='kw'>Kingdom</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>kingdom</span>,
-                                <span class='kw'>SuperClass</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>superclass</span>,
-                                <span class='kw'>Class</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>class</span>,
-                                <span class='kw'>SubClass</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>subclass</span>)
+ <span class='no'>classification_tibble</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(
+     <span class='kw'>InChIKey</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>rownames</a></span>(<span class='no'>spread_tibble</span>),
+     <span class='kw'>Kingdom</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>kingdom</span>,
+     <span class='kw'>SuperClass</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>superclass</span>,
+     <span class='kw'>Class</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>class</span>,
+     <span class='kw'>SubClass</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>subclass</span>,
+     <span class='kw'>Level5</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>level.5</span>,
+     <span class='kw'>Level6</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>level.6</span>,
+     <span class='kw'>Level7</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>level.7</span>
+    )
 
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>classification_df</span>)</div><div class='output co'>#&gt;                      InChIKey           Kingdom                      SuperClass
-#&gt; 1 BRMWTNUJHUMWMS-LURJTMIESA-N Organic compounds   Organic acids and derivatives
-#&gt; 2 XFNJVJPLKCPIBV-UHFFFAOYSA-N Organic compounds      Organic nitrogen compounds
-#&gt; 3 TYEYBOSBBBHJIV-UHFFFAOYSA-N Organic compounds   Organic acids and derivatives
-#&gt; 4 AFENDNXGAFYKQO-UHFFFAOYSA-N Organic compounds   Organic acids and derivatives
-#&gt; 5 WHEUWNKSCXYKBU-QPWUGHHJSA-N Organic compounds Lipids and lipid-like molecules
-#&gt; 6 WHBMMWSBFZVSSR-GSVOUGTGSA-N Organic compounds   Organic acids and derivatives
-#&gt;                              Class                               SubClass
-#&gt; 1 Carboxylic acids and derivatives   Amino acids, peptides, and analogues
-#&gt; 2         Organonitrogen compounds                                 Amines
-#&gt; 3       Keto acids and derivatives Short-chain keto acids and derivatives
-#&gt; 4    Hydroxy acids and derivatives    Alpha hydroxy acids and derivatives
-#&gt; 5 Steroids and steroid derivatives                       Estrane steroids
-#&gt; 6    Hydroxy acids and derivatives     Beta hydroxy acids and derivatives</div><div class='input'>
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>classification_tibble</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 6 x 8</span><span>
+#&gt;   InChIKey   Kingdom  SuperClass   Class    SubClass    Level5  Level6   Level7 
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> BRMWTNUJH… Organic… Organic aci… Carboxy… Amino acid… Amino … Alpha a… Histid…
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> XFNJVJPLK… Organic… Organic nit… Organon… Amines      Primar… Monoalk… </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> TYEYBOSBB… Organic… Organic aci… Keto ac… Short-chai… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> AFENDNXGA… Organic… Organic aci… Hydroxy… Alpha hydr… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> WHEUWNKSC… Organic… Lipids and … Steroid… Estrane st… Estrog… </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'>6</span><span> WHBMMWSBF… Organic… Organic aci… Hydroxy… Beta hydro… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     </div><div class='input'>
 
 
 </div></span></pre>
