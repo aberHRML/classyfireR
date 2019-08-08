@@ -4,7 +4,7 @@ Title: R Interface to the ClassyFire RESTful API
 Version: 0.2.1
 Date: 2019-03-05
 Authors@R: c(
-    person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre")),
+    person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre"),  comment = c(ORCID = "0000-0003-3112-4682"))
     person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"))
 Description: Access to the ClassyFire RESTful API <http://classyfire.wishartlab.com>. Retrieve existing entity classifications and submit new entities for classification. 
 Depends:
