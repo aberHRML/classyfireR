@@ -10,6 +10,7 @@
 #' * __CHEMONT__ Chemical Ontology Identification code
 #'
 #' @examples
+#' \dontrun{
 #'
 #' # Valid InChI key where all four classification levels are available
 #' get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
@@ -54,7 +55,7 @@
 #'     )
 #'
 #'  print(classification_tibble)
-#'
+#'}
 #'
 #'
 #' @export
