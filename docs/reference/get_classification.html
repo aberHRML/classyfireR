@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -178,11 +178,9 @@
 <span class='st'>'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>,
 <span class='st'>'XFNJVJPLKCPIBV-UHFFFAOYSA-N'</span>,
 <span class='st'>'TYEYBOSBBBHJIV-UHFFFAOYSA-N'</span>,
-<span class='st'>'AFENDNXGAFYKQO-UHFFFAOYSA-N'</span>,
-<span class='st'>'WHEUWNKSCXYKBU-QPWUGHHJSA-N'</span>,
-<span class='st'>'WHBMMWSBFZVSSR-GSVOUGTGSA-N'</span>)
+<span class='st'>'AFENDNXGAFYKQO-UHFFFAOYSA-N'</span>)
 
- <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>keys</span>, <span class='no'>get_classification</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ XFNJVJPLKCPIBV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ TYEYBOSBBBHJIV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ AFENDNXGAFYKQO-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ WHEUWNKSCXYKBU-QPWUGHHJSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ WHBMMWSBFZVSSR-GSVOUGTGSA-N</span><span></span></div><div class='input'>
+ <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>keys</span>, <span class='no'>get_classification</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ XFNJVJPLKCPIBV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ TYEYBOSBBBHJIV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ AFENDNXGAFYKQO-UHFFFAOYSA-N</span><span></span></div><div class='input'>
  <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>classification_list</span>, ~{<span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='no'>.</span>,-<span class='no'>CHEMONT</span>)})
 
  <span class='no'>spread_tibble</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>purrr</span><span class='kw ns'>:::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>classification_list</span>, ~{
@@ -202,15 +200,13 @@
      <span class='kw'>Level7</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>level.7</span>
     )
 
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>classification_tibble</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 6 x 8</span><span>
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>classification_tibble</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 4 x 8</span><span>
 #&gt;   InChIKey   Kingdom  SuperClass   Class    SubClass    Level5  Level6   Level7 
 #&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> BRMWTNUJH… Organic… Organic aci… Carboxy… Amino acid… Amino … Alpha a… Histid…
 #&gt; </span><span style='color: #BCBCBC;'>2</span><span> XFNJVJPLK… Organic… Organic nit… Organon… Amines      Primar… Monoalk… </span><span style='color: #BB0000;'>NA</span><span>     
 #&gt; </span><span style='color: #BCBCBC;'>3</span><span> TYEYBOSBB… Organic… Organic aci… Keto ac… Short-chai… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> AFENDNXGA… Organic… Organic aci… Hydroxy… Alpha hydr… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span> WHEUWNKSC… Organic… Lipids and … Steroid… Estrane st… Estrog… </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span> WHBMMWSBF… Organic… Organic aci… Hydroxy… Beta hydro… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     </div><div class='input'>
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> AFENDNXGA… Organic… Organic aci… Hydroxy… Alpha hydr… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     </div><div class='input'>
 
 
 </div></span></pre>
@@ -230,7 +226,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tom Wilson.</p>
+  <p>Developed by Tom Wilson, Jasen Finch.</p>
 </div>
 
 <div class="pkgdown">

@@ -1,5 +1,9 @@
 # classyfireR 0.2.1
 
+* `get_classification` now checks if the ClassyFire server rate limit has been exceeded
+
+# classyfireR 0.2.1
+
 * Fix internal parsing function so that entries with no classifications returns `NULL`
 * Add @jasenfinch as package contributor
 
