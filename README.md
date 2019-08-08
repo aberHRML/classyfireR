@@ -90,7 +90,7 @@ __Using the `tidyverse` a vector of InChI Keys can be submitted and easily extra
 
 classification_list <- map(classification_list, ~{select(.,-CHEMONT)})
 
-spread_tibble <- purrr:::map(classification_list, ~{
+spread_tibble <- map(classification_list, ~{
   spread(., Level, Classification)  
 }) %>% bind_rows() %>% data.frame()
 
