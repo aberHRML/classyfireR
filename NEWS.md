@@ -1,4 +1,4 @@
-# classyfireR 0.2.1
+# classyfireR 0.2.2
 
 * `get_classification` now checks if the ClassyFire server rate limit has been exceeded
 
