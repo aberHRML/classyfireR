@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.3</span>
       </span>
     </div>
 
@@ -135,52 +135,30 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
 <span class='co'># Valid InChI key where all four classification levels are available</span>
-<span class='fu'>get_classification</span>(<span class='st'>'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 7 x 3</span><span>
-#&gt;   Level      Classification                       CHEMONT          
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                                </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> kingdom    Organic compounds                    CHEMONTID:0000000
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> superclass Organic acids and derivatives        CHEMONTID:0000264
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> class      Carboxylic acids and derivatives     CHEMONTID:0000265
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> subclass   Amino acids, peptides, and analogues CHEMONTID:0000013
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span> level 5    Amino acids and derivatives          CHEMONTID:0000347
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span> level 6    Alpha amino acids and derivatives    CHEMONTID:0000060
-#&gt; </span><span style='color: #BCBCBC;'>7</span><span> level 7    Histidine and derivatives            CHEMONTID:0004311</div><div class='input'>
+<span class='fu'>get_classification</span>(<span class='st'>'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>)
+
 <span class='co'># Valid InChI key where only three classification levels are available</span>
-<span class='fu'>get_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-N'</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ MDHYEMXUFSJLGV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 3</span><span>
-#&gt;   Level      Classification                      CHEMONT          
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                               </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>            
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> kingdom    Organic compounds                   CHEMONTID:0000000
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> superclass Benzenoids                          CHEMONTID:0002448
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> class      Benzene and substituted derivatives CHEMONTID:0002279</div><div class='input'>
+<span class='fu'>get_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-N'</span>)
+
 <span class='co'># Invalid InChI key</span>
-<span class='fu'>get_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-B'</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #BB0000;'>✖ MDHYEMXUFSJLGV-UHFFFAOYSA-B</span><span></span></div><div class='input'>
+<span class='fu'>get_classification</span>(<span class='st'>'MDHYEMXUFSJLGV-UHFFFAOYSA-B'</span>)
+
 
 <span class='co'># Using `dplyr` a vector of InChI Keys can be submitted and easily parsed</span>
-  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:testthat’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    matches</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>purrr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘purrr’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:testthat’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    is_null</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:magrittr’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    set_names</span></div><div class='input'>  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>tidyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘tidyr’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:magrittr’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    extract</span></div><div class='input'>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>dplyr</span>)
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>purrr</span>)
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>tidyr</span>)
+
  <span class='no'>keys</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(
 <span class='st'>'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>,
 <span class='st'>'XFNJVJPLKCPIBV-UHFFFAOYSA-N'</span>,
 <span class='st'>'TYEYBOSBBBHJIV-UHFFFAOYSA-N'</span>,
 <span class='st'>'AFENDNXGAFYKQO-UHFFFAOYSA-N'</span>)
 
- <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>keys</span>, <span class='no'>get_classification</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ XFNJVJPLKCPIBV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ TYEYBOSBBBHJIV-UHFFFAOYSA-N</span><span></span></div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BB00;'>✔ AFENDNXGAFYKQO-UHFFFAOYSA-N</span><span></span></div><div class='input'>
+ <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>keys</span>, <span class='no'>get_classification</span>)
+
  <span class='no'>classification_list</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>classification_list</span>, ~{<span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='no'>.</span>,-<span class='no'>CHEMONT</span>)})
 
  <span class='no'>spread_tibble</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>purrr</span><span class='kw ns'>:::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span>(<span class='no'>classification_list</span>, ~{
@@ -200,16 +178,10 @@
      <span class='kw'>Level7</span> <span class='kw'>=</span> <span class='no'>spread_tibble</span>$<span class='no'>level.7</span>
     )
 
- <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>classification_tibble</span>)</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 4 x 8</span><span>
-#&gt;   InChIKey   Kingdom  SuperClass   Class    SubClass    Level5  Level6   Level7 
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> BRMWTNUJH… Organic… Organic aci… Carboxy… Amino acid… Amino … Alpha a… Histid…
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> XFNJVJPLK… Organic… Organic nit… Organon… Amines      Primar… Monoalk… </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> TYEYBOSBB… Organic… Organic aci… Keto ac… Short-chai… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> AFENDNXGA… Organic… Organic aci… Hydroxy… Alpha hydr… </span><span style='color: #BB0000;'>NA</span><span>      </span><span style='color: #BB0000;'>NA</span><span>       </span><span style='color: #BB0000;'>NA</span><span>     </div><div class='input'>
+ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>classification_tibble</span>)
+<span class='co'># }</span><div class='input'>
 
-
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
