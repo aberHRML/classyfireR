@@ -1,3 +1,7 @@
+# classyfireR 0.2.3
+
+* `stringr`, `dplyr` and `purrr` functions are now imported
+
 # classyfireR 0.2.2
 
 * `get_classification` now checks if the ClassyFire server rate limit has been exceeded
