@@ -82,7 +82,38 @@ get_classification <- function(inchi_key)
     json_res <- jsonlite::fromJSON(text_content)
 
     classification <- parse_json_output(json_res)
-    return(classification)
+
+
+    object <- methods::new('ClassyFire')
+
+
+    object@meta <-
+      list(
+        inchikey = json_res$inchikey,
+        smiles = json_res$smiles,
+        version = json_res$classification_version
+      )
+
+    object@classification <- classification
+
+    object@direct_parent <- json_res$direct_parent
+
+    object@alternative_parents <-
+      tibble::tibble(
+        name = json_res$alternative_parents$name,
+        description = json_res$alternative_parents$description,
+        chemont_id = json_res$alternative_parents$chemont_id,
+        url = json_res$alternative_parents$url
+      )
+
+    object@predicted_chebi <- json_res$predicted_chebi_terms
+
+    object@external_descriptors <- parse_external_desc(json_res)
+
+    object@description <- json_res$description
+
+
+    return(object)
   }
 
 }
