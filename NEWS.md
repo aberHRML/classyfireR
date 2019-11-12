@@ -1,4 +1,12 @@
-# classyfireR 0.2.1
+# classyfireR 0.3.0
+
+* Use `S4` object orientation (OO) for storing and accessing results
+
+# classyfireR 0.2.3
+
+* `stringr`, `dplyr` and `purrr` functions are now imported
+
+# classyfireR 0.2.2
 
 * `get_classification` now checks if the ClassyFire server rate limit has been exceeded
 

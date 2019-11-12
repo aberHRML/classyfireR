@@ -21,6 +21,7 @@ a \code{tibble} containing the following;
 Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'
 }
 \examples{
+\dontrun{
 
 # Valid InChI key where all four classification levels are available
 get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
@@ -65,7 +66,7 @@ get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
     )
 
  print(classification_tibble)
-
+}
 
 
 }
