@@ -1,25 +1,20 @@
 context('entity-classification')
 
 test_that('entity-classification', {
-
-  Sys.sleep(4)
   cl1 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
-  Sys.sleep(4)
-  cl2 <- get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
-  Sys.sleep(4)
-  cl3 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA-B')
 
-  expect_true(dplyr::is.tbl(cl1))
+  expect_true(isS4(cl1))
+  expect_true(is.list(meta(cl1)))
+  expect_true(tibble::is_tibble(classification(cl1)))
+  expect_true(is.list(direct_parent(cl1)))
+  expect_true(tibble::is_tibble(alternative_parents(cl1)))
+  expect_true(is.vector(chebi(cl1)))
+  expect_true(tibble::is_tibble(descriptors(cl1)))
+  expect_true(is.character(description(cl1)))
 
-  expect_true(dplyr::is.tbl(cl2))
+  cl2 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA')
 
-  expect_true(nrow(cl1) == 7)
-  expect_true(nrow(cl2) == 3)
+  expect_true(is.null(cl2))
 
-  expect_true(ncol(cl1) == 3)
-
-  expect_true(ncol(cl2) == 3)
-
-  expect_true(is.null(cl3))
 
 })

@@ -10,12 +10,7 @@ get_classification(inchi_key)
 \item{inchi_key}{a character string of a valid InChIKey}
 }
 \value{
-a \code{tibble} containing the following;
-\itemize{
-\item \strong{Level} Classification level (kingdom, superclass, class and subclass)
-\item \strong{Classification} The compound classification
-\item \strong{CHEMONT} Chemical Ontology Identification code
-}
+a \code{ClassyFire} S4 object.
 }
 \description{
 Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'
@@ -31,42 +26,8 @@ get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 
 # Invalid InChI key
 get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
-
-
-# Using `dplyr` a vector of InChI Keys can be submitted and easily parsed
-  library(dplyr)
-  library(purrr)
-  library(tidyr)
-
- keys <- c(
-'BRMWTNUJHUMWMS-LURJTMIESA-N',
-'XFNJVJPLKCPIBV-UHFFFAOYSA-N',
-'TYEYBOSBBBHJIV-UHFFFAOYSA-N',
-'AFENDNXGAFYKQO-UHFFFAOYSA-N')
-
- classification_list <- map(keys, get_classification)
-
- classification_list <- map(classification_list, ~{select(.,-CHEMONT)})
-
- spread_tibble <- purrr:::map(classification_list, ~{
-                  spread(., Level, Classification)
-                  }) \%>\% bind_rows() \%>\% data.frame()
-
- rownames(spread_tibble) <- keys
-
- classification_tibble <-  tibble(
-     InChIKey = rownames(spread_tibble),
-     Kingdom = spread_tibble$kingdom,
-     SuperClass = spread_tibble$superclass,
-     Class = spread_tibble$class,
-     SubClass = spread_tibble$subclass,
-     Level5 = spread_tibble$level.5,
-     Level6 = spread_tibble$level.6,
-     Level7 = spread_tibble$level.7
-    )
-
- print(classification_tibble)
 }
-
-
+}
+\seealso{
+ClassyFire-class
 }

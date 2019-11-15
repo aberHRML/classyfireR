@@ -1,3 +1,7 @@
+# classyfireR 0.3.0
+
+* Use `S4` object orientation (OO) for storing and accessing results
+
 # classyfireR 0.2.3
 
 * `stringr`, `dplyr` and `purrr` functions are now imported

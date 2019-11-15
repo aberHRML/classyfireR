@@ -32,92 +32,29 @@ library(classyfireR)
 
 > inchi_keys <- c('BRMWTNUJHUMWMS-LURJTMIESA-N', 'MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 
-> get_classification(inchi_keys[1])
+> classification_result <- get_classification(inchi_keys[1])
 
-✔ classification retrieved
-# A tibble: 7 x 3
-  Level      Classification                       CHEMONT          
-  <chr>      <chr>                                <chr>            
-1 kingdom    Organic compounds                    CHEMONTID:0000000
-2 superclass Organic acids and derivatives        CHEMONTID:0000264
-3 class      Carboxylic acids and derivatives     CHEMONTID:0000265
-4 subclass   Amino acids, peptides, and analogues CHEMONTID:0000013
-5 level 5    Amino acids and derivatives          CHEMONTID:0000347
-6 level 6    Alpha amino acids and derivatives    CHEMONTID:0000060
-7 level 7    Histidine and derivatives            CHEMONTID:0004311
-```
+✔ BRMWTNUJHUMWMS-LURJTMIESA-N
 
-__Using the `tidyverse` a vector of InChI Keys can be submitted and easily extracted.__
+> classification_result
 
-```R
-> library(tidyverse)
-
-> keys <- c(
-  'BRMWTNUJHUMWMS-LURJTMIESA-N',
-  'XFNJVJPLKCPIBV-UHFFFAOYSA-N',
-  'TYEYBOSBBBHJIV-UHFFFAOYSA-N',
-  'AFENDNXGAFYKQO-UHFFFAOYSA-N',
-  'WHEUWNKSCXYKBU-QPWUGHHJSA-N',
-  'WHBMMWSBFZVSSR-GSVOUGTGSA-N'
-)
-
-> classification_list <- map(keys, get_classification)
-
-> classification_tibble <-
-  map2(classification_list, keys, ~ {
-    add_column(.x, ID = rep(.y))
-  }) %>% bind_rows()
-
-# To create a table of just the superclass designation
-
-> superclass <-
-  classification_tibble %>% filter(Level == 'superclass') %>% select(-c(CHEMONT))
-
-> superclass
-# A tibble: 6 x 3
-  Level      Classification                  ID                         
-  <chr>      <chr>                           <chr>                      
-1 superclass Organic acids and derivatives   BRMWTNUJHUMWMS-LURJTMIESA-N
-2 superclass Organic nitrogen compounds      XFNJVJPLKCPIBV-UHFFFAOYSA-N
-3 superclass Organic acids and derivatives   TYEYBOSBBBHJIV-UHFFFAOYSA-N
-4 superclass Organic acids and derivatives   AFENDNXGAFYKQO-UHFFFAOYSA-N
-5 superclass Lipids and lipid-like molecules WHEUWNKSCXYKBU-QPWUGHHJSA-N
-6 superclass Organic acids and derivatives   WHBMMWSBFZVSSR-GSVOUGTGSA-N
-
-
-
-# To create a data.frame of all classification results
-
-classification_list <- map(classification_list, ~{select(.,-CHEMONT)})
-
-spread_tibble <- map(classification_list, ~{
-  spread(., Level, Classification)  
-}) %>% bind_rows() %>% data.frame()
-
-rownames(spread_tibble) <- keys
-
-classification_tibble <-  tibble(
-  InChIKey = rownames(spread_tibble),
-  Kingdom = spread_tibble$kingdom,
-  SuperClass = spread_tibble$superclass,
-  Class = spread_tibble$class,
-  SubClass = spread_tibble$subclass,
-  Level5 = spread_tibble$level.5,
-  Level6 = spread_tibble$level.6,
-  Level7 = spread_tibble$level.7
-)
-
-
-> classification_tibble
-  InChIKey       Kingdom    SuperClass       Class        SubClass         Level5      Level6        Level7     
-  <chr>          <chr>      <chr>            <chr>        <chr>            <chr>       <chr>         <chr>      
-1 BRMWTNUJHUMWM… Organic c… Organic acids a… Carboxylic … Amino acids, pe… Amino acid… Alpha amino … Histidine …
-2 XFNJVJPLKCPIB… Organic c… Organic nitroge… Organonitro… Amines           Primary am… Monoalkylami… NA         
-3 TYEYBOSBBBHJI… Organic c… Organic acids a… Keto acids … Short-chain ket… NA          NA            NA         
-4 AFENDNXGAFYKQ… Organic c… Organic acids a… Hydroxy aci… Alpha hydroxy a… NA          NA            NA         
-5 WHEUWNKSCXYKB… Organic c… Lipids and lipi… Steroids an… Estrane steroids Estrogens … NA            NA         
-6 WHBMMWSBFZVSS… Organic c… Organic acids a… Hydroxy aci… Beta hydroxy ac… NA          NA            NA    
-
+── ClassyFire Object ────────────────────────────────────────────────────────────────────────── classyfireR v0.3.0
+Object Size: 18.2 Kb 
+ 
+Info: 
+● InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N
+	 
+● [H][C@](N)(CC1=CN(C)C=N1)C(O)=O
+	 
+● Classification Version: 2.1
+	 
+kingdom : Organic compounds
+└─superclass : Organic acids and derivatives
+  └─class : Carboxylic acids and derivatives
+    └─subclass : Amino acids, peptides, and analogues
+      └─level 5 : Amino acids and derivatives
+        └─level 6 : Alpha amino acids and derivatives
+          └─level 7 : Histidine and derivatives
 ```
 
 
