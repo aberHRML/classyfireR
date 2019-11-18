@@ -2,7 +2,7 @@ Package: classyfireR
 Type: Package
 Title: R Interface to the ClassyFire RESTful API
 Version: 0.3.0
-Date: 2019-11-15
+Date: 2019-11-18
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre"),  comment = c(ORCID = "0000-0003-3112-4682")),
     person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"))
