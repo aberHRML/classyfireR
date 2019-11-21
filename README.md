@@ -21,7 +21,7 @@ Or the latest development version can be installed form GitHub using the `remote
 remotes::install_github('aberHRML/classyfireR')
 ```
 
-* [Get Classification](get-classification)
+* [Get Classification](#get-classification)
 * [Acknowledgements](#acknowledgements)
 
 ### Get Classification
