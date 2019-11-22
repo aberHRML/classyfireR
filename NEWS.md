@@ -1,3 +1,7 @@
+# classyfireR 0.3.1
+
+* Add length checks in `get_classification` for when elements of the `json` output is missing (ie, no external descriptors present)
+
 # classyfireR 0.3.0
 
 * Use `S4` object orientation (OO) for storing and accessing results
