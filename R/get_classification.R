@@ -68,7 +68,12 @@ get_classification <- function(inchi_key)
 
     object@predicted_chebi <- json_res$predicted_chebi_terms
 
-    object@external_descriptors <- parse_external_desc(json_res)
+    if(length(json_res$external_descriptors) > 0) {
+      object@external_descriptors <- parse_external_desc(json_res)
+    }else{
+      object@external_descriptors <- tibble::tibble()
+    }
+
 
     object@description <- json_res$description
 
