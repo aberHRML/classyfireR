@@ -66,9 +66,19 @@ get_classification <- function(inchi_key)
         url = json_res$alternative_parents$url
       )
 
-    object@predicted_chebi <- json_res$predicted_chebi_terms
+    if(length(json_res$predicted_chebi_terms) > 0) {
+      object@predicted_chebi <- json_res$predicted_chebi_terms
+    }else{
+      object@predicted_chebi <- vector(mode = 'character')
+    }
 
-    object@external_descriptors <- parse_external_desc(json_res)
+
+    if(length(json_res$external_descriptors) > 0) {
+      object@external_descriptors <- parse_external_desc(json_res)
+    }else{
+      object@external_descriptors <- tibble::tibble()
+    }
+
 
     object@description <- json_res$description
 
