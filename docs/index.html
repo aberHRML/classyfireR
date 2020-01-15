@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
       </span>
     </div>
 
@@ -73,7 +73,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#classyfirer" class="anchor"></a>classyfireR</h1></div>
 <p><a href="http://www.repostatus.org/#active"><img src="http://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active - The project has reached a stable, usable state and is being actively developed."></a> <a href="https://travis-ci.org/aberHRML/classyfireR"><img src="https://travis-ci.org/aberHRML/classyfireR.svg?branch=master" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/wilsontom/classyfirer/branch/master"><img src="https://ci.appveyor.com/api/projects/status/ua94fiotdmc0ssq5/branch/master?svg=true" alt="Build status"></a> <a href="https://codecov.io/gh/aberHRML/classyfireR"><img src="https://codecov.io/gh/aberHRML/classyfireR/branch/master/graph/badge.svg" alt="codecov"></a> <img src="https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg" title="GNU GPL v3.0" alt="License"><a href="https://zenodo.org/badge/latestdoi/118162964"><img src="https://zenodo.org/badge/118162964.svg" alt="DOI"></a></p>
-<p><a href="https://cran.r-project.org/web/packages/classyfireR/index.html"><img src="https://www.r-pkg.org/badges/version/classyfireR" alt="CRAN"></a> <img src="https://cranlogs.r-pkg.org/badges/grand-total/classyfireR?color=red" alt="total downloads"></p>
+<p><a href="https://cran.r-project.org/web/packages/classyfireR/index.html"><img src="https://www.r-pkg.org/badges/version/classyfireR" alt="CRAN"></a> <img src="https://cranlogs.r-pkg.org/badges/grand-total/classyfireR?color=red" alt="total downloads"><a href="https://github.com/aberHRML/classyfireR/releases"><img src="https://img.shields.io/github/v/release/aberHRML/classyfireR?color=brightgreen&amp;label=GitHub%20Version" alt="GitHub"></a></p>
 <blockquote>
 <p><strong>R Interface to the <a href="http://classyfire.wishartlab.com">ClassyFire REST API</a></strong></p>
 </blockquote>
@@ -81,11 +81,11 @@
 <h3 class="hasAnchor">
 <a href="#installation-usage" class="anchor"></a>Installation &amp; Usage</h3>
 <p><code>classyfireR</code> can be installed from CRAN using;</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">'classyfireR'</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">'classyfireR'</span>)</code></pre></div>
 <p>Or the latest development version can be installed form GitHub using the <code>remotes</code> package</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">'aberHRML/classyfireR'</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">'aberHRML/classyfireR'</span>)</code></pre></div>
 <ul>
-<li><a href="get-classification">Get Classification</a></li>
+<li><a href="#get-classification">Get Classification</a></li>
 <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ul>
 </div>
@@ -93,33 +93,33 @@
 <h3 class="hasAnchor">
 <a href="#get-classification" class="anchor"></a>Get Classification</h3>
 <p><strong>For retrieval of classifications already available; a InChI Key is supplied to the <code>get_classification</code> function.</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(classyfireR)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="op">&gt;</span><span class="st"> </span>inchi_keys &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>, <span class="st">'MDHYEMXUFSJLGV-UHFFFAOYSA-N'</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="op">&gt;</span><span class="st"> </span>classification_result &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_classification.html">get_classification</a></span>(inchi_keys[<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">✔ BRMWTNUJHUMWMS<span class="op">-</span>LURJTMIESA<span class="op">-</span>N</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="op">&gt;</span><span class="st"> </span>classification_result</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">── ClassyFire Object ────────────────────────────────────────────────────────────────────────── classyfireR v0.<span class="fl">3.0</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">Object Size<span class="op">:</span><span class="st"> </span><span class="fl">18.2</span> Kb </a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"> </a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">Info<span class="op">:</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">● InChIKey=BRMWTNUJHUMWMS<span class="op">-</span>LURJTMIESA<span class="op">-</span>N</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">     </a>
-<a class="sourceLine" id="cb3-17" data-line-number="17">● [H][C<span class="op">@</span>](N)(<span class="dt">CC1=</span><span class="kw">CN</span>(C)<span class="dt">C=</span>N1)<span class="kw"><a href="https://rdrr.io/r/stats/zC.html">C</a></span>(O)=O</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18">     </a>
-<a class="sourceLine" id="cb3-19" data-line-number="19">● Classification Version<span class="op">:</span><span class="st"> </span><span class="fl">2.1</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20">     </a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">kingdom <span class="op">:</span><span class="st"> </span>Organic compounds</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">└─superclass <span class="op">:</span><span class="st"> </span>Organic acids and derivatives</a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">  └─class <span class="op">:</span><span class="st"> </span>Carboxylic acids and derivatives</a>
-<a class="sourceLine" id="cb3-24" data-line-number="24">    └─subclass <span class="op">:</span><span class="st"> </span>Amino acids, peptides, and analogues</a>
-<a class="sourceLine" id="cb3-25" data-line-number="25">      └─level <span class="dv">5</span> <span class="op">:</span><span class="st"> </span>Amino acids and derivatives</a>
-<a class="sourceLine" id="cb3-26" data-line-number="26">        └─level <span class="dv">6</span> <span class="op">:</span><span class="st"> </span>Alpha amino acids and derivatives</a>
-<a class="sourceLine" id="cb3-27" data-line-number="27">          └─level <span class="dv">7</span> <span class="op">:</span><span class="st"> </span>Histidine and derivatives</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(classyfireR)
+
+<span class="op">&gt;</span><span class="st"> </span>inchi_keys &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'BRMWTNUJHUMWMS-LURJTMIESA-N'</span>, <span class="st">'MDHYEMXUFSJLGV-UHFFFAOYSA-N'</span>)
+
+<span class="op">&gt;</span><span class="st"> </span>classification_result &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_classification.html">get_classification</a></span>(inchi_keys[<span class="dv">1</span>])
+
+✔ BRMWTNUJHUMWMS<span class="op">-</span>LURJTMIESA<span class="op">-</span>N
+
+<span class="op">&gt;</span><span class="st"> </span>classification_result
+
+── ClassyFire Object ────────────────────────────────────────────────────────────────────────── classyfireR v0.<span class="fl">3.0</span>
+Object Size<span class="op">:</span><span class="st"> </span><span class="fl">18.2</span> Kb 
+ 
+Info<span class="op">:</span><span class="st"> </span>
+● InChIKey=BRMWTNUJHUMWMS<span class="op">-</span>LURJTMIESA<span class="op">-</span>N
+     
+● [H][C<span class="op">@</span>](N)(<span class="dt">CC1=</span><span class="kw">CN</span>(C)<span class="dt">C=</span>N1)<span class="kw"><a href="https://rdrr.io/r/stats/zC.html">C</a></span>(O)=O
+     
+● Classification Version<span class="op">:</span><span class="st"> </span><span class="fl">2.1</span>
+     
+kingdom <span class="op">:</span><span class="st"> </span>Organic compounds
+└─superclass <span class="op">:</span><span class="st"> </span>Organic acids and derivatives
+  └─class <span class="op">:</span><span class="st"> </span>Carboxylic acids and derivatives
+    └─subclass <span class="op">:</span><span class="st"> </span>Amino acids, peptides, and analogues
+      └─level <span class="dv">5</span> <span class="op">:</span><span class="st"> </span>Amino acids and derivatives
+        └─level <span class="dv">6</span> <span class="op">:</span><span class="st"> </span>Alpha amino acids and derivatives
+          └─level <span class="dv">7</span> <span class="op">:</span><span class="st"> </span>Histidine and derivatives</code></pre></div>
 </div>
 <div id="acknowledgements" class="section level3">
 <h3 class="hasAnchor">
@@ -129,7 +129,7 @@
 <p><strong><em>Djoumbou Feunang Y, Eisner R, Knox C, Chepelev L, Hastings J, Owen G, Fahy E, Steinbeck C, Subramanian S, Bolton E, Greiner R, and Wishart DS</em></strong>. ClassyFire: Automated Chemical Classification With A Comprehensive, Computable Taxonomy. Journal of Cheminformatics, 2016, 8:61.</p>
 </blockquote>
 <blockquote>
-<p><strong>DOI:</strong> <a href="https://jcheminf.springeropen.com/articles/10.1186/s13321-016-0174-y">10.1186/s13321-016-0174-y</a></p>
+<p>__<a href="DOI:__" class="uri">DOI:__</a> <a href="https://jcheminf.springeropen.com/articles/10.1186/s13321-016-0174-y">10.1186/s13321-016-0174-y</a></p>
 </blockquote>
 </div>
 </div>

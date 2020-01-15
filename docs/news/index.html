@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
       </span>
     </div>
 
@@ -110,6 +110,23 @@
       <small>Source: <a href='https://github.com/aberHRML/classyfireR/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="classyfirer-0-3-2" class="section level1">
+<h1 class="page-header">
+<a href="#classyfirer-0-3-2" class="anchor"></a>classyfireR 0.3.2<small> Unreleased </small>
+</h1>
+<ul>
+<li><p>Add check to <code>get_classification</code> for when a valid http status code (200) is returned but the content of the return is <code>{}</code>. This appears to be an error during InChIKey validation.</p></li>
+<li><p>Add further length checks in <code>get_classification</code> for when there are no <code>alternative_parents</code> returned.</p></li>
+</ul>
+</div>
+    <div id="classyfirer-0-3-1" class="section level1">
+<h1 class="page-header">
+<a href="#classyfirer-0-3-1" class="anchor"></a>classyfireR 0.3.1<small> Unreleased </small>
+</h1>
+<ul>
+<li>Add length checks in <code>get_classification</code> for when elements of the <code>json</code> output is missing (ie, no external descriptors present)</li>
+</ul>
+</div>
     <div id="classyfirer-0-3-0" class="section level1">
 <h1 class="page-header">
 <a href="#classyfirer-0-3-0" class="anchor"></a>classyfireR 0.3.0<small> 2019-11-18 </small>
@@ -191,6 +208,8 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#classyfirer-0-3-2">0.3.2</a></li>
+        <li><a href="#classyfirer-0-3-1">0.3.1</a></li>
         <li><a href="#classyfirer-0-3-0">0.3.0</a></li>
         <li><a href="#classyfirer-0-2-3">0.2.3</a></li>
         <li><a href="#classyfirer-0-2-2">0.2.2</a></li>
