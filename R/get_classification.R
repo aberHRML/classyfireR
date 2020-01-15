@@ -36,8 +36,15 @@ get_classification <- function(inchi_key)
   }
 
   if (response$status_code == 200) {
-    message(crayon::green(clisymbols::symbol$tick, inchi_key))
     text_content <- httr::content(response, 'text')
+
+    if (text_content == '{}') {
+      message(crayon::red(clisymbols::symbol$cross, inchi_key))
+      return(invisible(NULL))
+    } else{
+      message(crayon::green(clisymbols::symbol$tick, inchi_key))
+    }
+
 
     json_res <- jsonlite::fromJSON(text_content)
 
@@ -58,24 +65,28 @@ get_classification <- function(inchi_key)
 
     object@direct_parent <- json_res$direct_parent
 
-    object@alternative_parents <-
-      tibble::tibble(
-        name = json_res$alternative_parents$name,
-        description = json_res$alternative_parents$description,
-        chemont_id = json_res$alternative_parents$chemont_id,
-        url = json_res$alternative_parents$url
-      )
+    if (length(json_res$alternative_parents) > 0) {
+      object@alternative_parents <-
+        tibble::tibble(
+          name = json_res$alternative_parents$name,
+          description = json_res$alternative_parents$description,
+          chemont_id = json_res$alternative_parents$chemont_id,
+          url = json_res$alternative_parents$url
+        )
+    } else{
+      object@alternative_parents <- tibble::tibble()
+    }
 
-    if(length(json_res$predicted_chebi_terms) > 0) {
+    if (length(json_res$predicted_chebi_terms) > 0) {
       object@predicted_chebi <- json_res$predicted_chebi_terms
-    }else{
+    } else{
       object@predicted_chebi <- vector(mode = 'character')
     }
 
 
-    if(length(json_res$external_descriptors) > 0) {
+    if (length(json_res$external_descriptors) > 0) {
       object@external_descriptors <- parse_external_desc(json_res)
-    }else{
+    } else{
       object@external_descriptors <- tibble::tibble()
     }
 
