@@ -63,7 +63,9 @@ get_classification <- function(inchi_key)
 
     object@classification <- classification
 
-    object@direct_parent <- json_res$direct_parent
+    if (length(json_res$direct_parent) > 0) {
+      object@direct_parent <- json_res$direct_parent
+    }
 
     if (length(json_res$alternative_parents) > 0) {
       object@alternative_parents <-
@@ -90,9 +92,9 @@ get_classification <- function(inchi_key)
       object@external_descriptors <- tibble::tibble()
     }
 
-
-    object@description <- json_res$description
-
+    if (length(json_res$description) > 0) {
+      object@description <- json_res$description
+    }
 
     return(object)
   }

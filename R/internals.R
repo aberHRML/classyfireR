@@ -52,7 +52,7 @@ parse_json_output <- function(json_res)
       stringr::str_c('level ', 5 + nIntermediate)
 
   } else {
-    class_tibble <- NULL
+    class_tibble <- tibble()
   }
   return(class_tibble)
 }
