@@ -1,17 +1,20 @@
 context('entity-classification')
 
 test_that('entity-classification', {
-  expect_true(dplyr::is.tbl(get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')))
+  cl1 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
 
-  expect_true(dplyr::is.tbl(get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')))
+  expect_true(isS4(cl1))
+  expect_true(is.list(meta(cl1)))
+  expect_true(tibble::is_tibble(classification(cl1)))
+  expect_true(is.list(direct_parent(cl1)))
+  expect_true(tibble::is_tibble(alternative_parents(cl1)))
+  expect_true(is.vector(chebi(cl1)))
+  expect_true(tibble::is_tibble(descriptors(cl1)))
+  expect_true(is.character(description(cl1)))
 
-  expect_true(nrow(get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')) == 7)
-  expect_true(nrow(get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')) == 3)
+  cl2 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA')
 
-  expect_true(ncol(get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')) == 3)
+  expect_true(is.null(cl2))
 
-  expect_true(ncol(get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')) == 3)
-
-  expect_true(is.null(get_classification('BRMWTNUJHUMWMS-LURJTMIESA-B')))
 
 })

@@ -1,2 +1,0 @@
-
-globalVariables(c('Level','Classification'))
