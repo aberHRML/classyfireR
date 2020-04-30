@@ -36,5 +36,6 @@ Collate:
     'accessor-methods.R'
     'get_classification.R'
     'internals.R'
+    'query.R'
     'show-method.R'
     'zzz.R'
