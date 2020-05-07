@@ -19,7 +19,8 @@ Imports:
     purrr,
     dplyr,
     stringr,
-    methods
+    methods,
+    rjson
 Suggests: 
     testthat,
     covr
