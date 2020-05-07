@@ -1,8 +1,8 @@
 #' Submits a ClassyFire query in a JSON format.
 #'
-#' @param label [String] the label of the query.
-#' @param input A named list or vector of SMILES strings.
-#' @param type [String] the type of the query.
+#' @param label a string the label of the query.
+#' @param input a named list or vector of SMILES strings.
+#' @param type a string the type of the query.
 #'
 #' @return A list of tibbles named by input name.
 #' @export
@@ -52,10 +52,10 @@ submit_query <- function(label, input, type = 'STRUCTURE'){
 
 #'Retrieves the classification results for a given query.
 #'
-#' @param query_id query_id [Integer] the ID of the query.
-#' @param format format [String] the format of the query (either JSON, CSV, or SDF)
+#' @param query_id query_id a numeric value for the ID of the query.
+#' @param format a string of the format of the query (either JSON, CSV, or SDF)
 #'
-#' @return [Text] A text file displaying the classification results for
+#' @return the parsed text output displaying the classification results for
 #    the query's entities in the specified format.
 #' @export
 #'
