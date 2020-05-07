@@ -42,7 +42,7 @@ submit_query <- function(label, input, type = 'STRUCTURE'){
     json_res <- get_query(query_id = post_cont$id, format = 'json')
     classification <-
       purrr::map(json_res$entities, parse_json_output)
-    out <- setNames(classification, sapply(json_res$entities, function(x){x$identifier}))
+    out <- stats::setNames(classification, sapply(json_res$entities, function(x){x$identifier}))
   } else {
     out <- NA
   }
