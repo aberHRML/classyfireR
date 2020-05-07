@@ -29,7 +29,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/aberHRML/classyfireR
 BugReports: https://github.com/aberHRML/classyfireR/issues
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE)
 Collate: 
     'allGenerics.R'

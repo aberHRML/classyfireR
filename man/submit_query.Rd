@@ -7,11 +7,11 @@
 submit_query(label, input, type = "STRUCTURE")
 }
 \arguments{
-\item{label}{\link{String} the label of the query.}
+\item{label}{a string the label of the query.}
 
-\item{input}{A named list or vector of SMILES strings.}
+\item{input}{a named list or vector of SMILES strings.}
 
-\item{type}{\link{String} the type of the query.}
+\item{type}{a string the type of the query.}
 }
 \value{
 A list of tibbles named by input name.
@@ -20,7 +20,8 @@ A list of tibbles named by input name.
 Submits a ClassyFire query in a JSON format.
 }
 \examples{
+\dontrun{
 input <- c(MOL1 = 'CCCOCC', MOL2 = 'COCC=CCC')
 submit_query(label = 'query_test', input = input, type = 'STRUCTURE')
-
+}
 }

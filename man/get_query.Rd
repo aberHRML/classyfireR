@@ -7,12 +7,12 @@
 get_query(query_id, format = c("json", "sdf", "csv"))
 }
 \arguments{
-\item{query_id}{query_id \link{Integer} the ID of the query.}
+\item{query_id}{query_id a numeric value for the ID of the query.}
 
-\item{format}{format \link{String} the format of the query (either JSON, CSV, or SDF)}
+\item{format}{a string of the format of the query (either JSON, CSV, or SDF)}
 }
 \value{
-\link{Text} A text file displaying the classification results for
+the parsed text output displaying the classification results for
 }
 \description{
 Retrieves the classification results for a given query.
