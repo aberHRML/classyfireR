@@ -1,4 +1,9 @@
+# classyfire  0.3.4
+
+* Access to the ClassyFire POST methods using SMILES input provided by @gjgetzinger. See ?classyfireR::submit_query for more details.
+
 # classyfireR 0.3.3
+
 
 * Fix error when `get_classification` runs with no error codes, but no classification data is returned
 
