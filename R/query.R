@@ -8,9 +8,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' input <- c(MOL1 = 'CCCOCC', MOL2 = 'COCC=CCC')
 #' submit_query(label = 'query_test', input = input, type = 'STRUCTURE')
-#'
+#' }
 submit_query <- function(label, input, type = 'STRUCTURE'){
   base_url <- 'http://classyfire.wishartlab.com/queries'
   query_input <- paste(names(input), input, sep = '\t', collapse = '\n')
