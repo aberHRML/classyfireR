@@ -33,8 +33,6 @@ get_classification <- function(inchi_key)
     quiet = T
     )
 
-  httr::stop_for_status(response)
-
   if (response$status_code == 429) {
     stop('Request rate limit exceeded!')
   }
