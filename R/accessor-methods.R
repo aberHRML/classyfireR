@@ -14,6 +14,12 @@ setMethod('classification', signature = 'ClassyFire',
             object@classification
           })
 
+
+setMethod('classification', signature = 'Query',
+          function(object) {
+            object@classification
+          })
+
 #' meta
 #' @rdname meta
 #' @description Get the `ClassyFire` meta data
@@ -24,6 +30,12 @@ setMethod('meta', signature = 'ClassyFire',
           function(object) {
             object@meta
           })
+
+setMethod('meta', signature = 'Query',
+          function(object) {
+            object@meta
+          })
+
 
 #' description
 #' @rdname description
@@ -36,6 +48,13 @@ setMethod('description', signature = 'ClassyFire',
             object@description
           })
 
+
+setMethod('description', signature = 'Query',
+          function(object) {
+            object@description
+          })
+
+
 #' chebi
 #' @rdname chebi
 #' @description Get the predicted ChEBI identifications
@@ -43,6 +62,11 @@ setMethod('description', signature = 'ClassyFire',
 #' @export
 
 setMethod('chebi', signature = 'ClassyFire',
+          function(object) {
+            object@predicted_chebi
+          })
+
+setMethod('chebi', signature = 'Query',
           function(object) {
             object@predicted_chebi
           })
@@ -58,6 +82,11 @@ setMethod('descriptors', signature = 'ClassyFire',
             object@external_descriptors
           })
 
+setMethod('descriptors', signature = 'Query',
+          function(object) {
+            object@external_descriptors
+          })
+
 #' alternative_parents
 #' @rdname alternative_parents
 #' @description Get the alternative_parents
@@ -69,6 +98,12 @@ setMethod('alternative_parents', signature = 'ClassyFire',
             object@alternative_parents
           })
 
+setMethod('alternative_parents', signature = 'Query',
+          function(object) {
+            object@alternative_parents
+          })
+
+
 #' direct_parent
 #' @rdname direct_parent
 #' @description Get the direct_parent
@@ -76,6 +111,11 @@ setMethod('alternative_parents', signature = 'ClassyFire',
 #' @export
 
 setMethod('direct_parent', signature = 'ClassyFire',
+          function(object) {
+            object@direct_parent
+          })
+
+setMethod('direct_parent', signature = 'Query',
           function(object) {
             object@direct_parent
           })
