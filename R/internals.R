@@ -10,6 +10,7 @@
 #' @keywords internal
 #' @importFrom magrittr %>%
 
+
 parse_json_output <- function(json_res)
 {
   list_output <-
@@ -58,7 +59,6 @@ parse_json_output <- function(json_res)
 }
 
 
-
 #' Parse External Descriptors
 #'
 #' Parse the list output of returned External Descriptors
@@ -73,19 +73,18 @@ parse_json_output <- function(json_res)
 
 parse_external_desc <- function(x)
 {
+  external_ann <- list()
+  for (i in seq_along(x$external_descriptors$annotations)) {
+    external_ann[[i]] <-
+      paste(x$external_descriptors$annotations[[i]], collapse = ' // ')
+  }
 
-    external_ann <- list()
-    for (i in seq_along(x$external_descriptors$annotations)) {
-      external_ann[[i]] <-
-        paste(x$external_descriptors$annotations[[i]], collapse = ' // ')
-    }
-
-    external_desc <-
-      tibble(
-        source = x$external_descriptors$source,
-        source_id = x$external_descriptors$source_id,
-        annotations = unlist(external_ann)
-      )
+  external_desc <-
+    tibble(
+      source = x$external_descriptors$source,
+      source_id = x$external_descriptors$source_id,
+      annotations = unlist(external_ann)
+    )
 
   return(external_desc)
 }
