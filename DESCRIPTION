@@ -6,7 +6,7 @@ Date: 2020-08-07
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre"),  comment = c(ORCID = "0000-0003-3112-4682")),
     person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"),
-    person("Gordon", "Getzinger", "gordon.getzinger@duke.edu", "ctb"))
+    person("Gordon", "Getzinger", ,"gordon.getzinger@duke.edu", "ctb"))
 Description: Access to the ClassyFire RESTful API <http://classyfire.wishartlab.com>. Retrieve existing entity classifications and submit new entities for classification. 
 Depends:
   magrittr
