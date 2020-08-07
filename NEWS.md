@@ -2,6 +2,7 @@
 
 * New S4 class for storing query results
 * Improved handling of `json` parsing using `tidyjson` 
+* Add @gjgetzinger as package contributor
 
 # classyfire  0.3.4
 
