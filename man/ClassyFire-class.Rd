@@ -5,7 +5,7 @@
 \alias{ClassyFire-class}
 \title{ClassyFire Class}
 \description{
-A S4 class to store the results from the ClassFire RESTful API
+A S4 class to store the results from the ClassyFire RESTful API
 }
 \section{Slots}{
 
