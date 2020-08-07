@@ -2,7 +2,7 @@ setOldClass(c('tbl_df', 'tbl', 'data.frame'))
 
 #' ClassyFire Class
 #'
-#' @description A S4 class to store the results from the ClassFire RESTful API
+#' @description A S4 class to store the results from the ClassyFire RESTful API
 #'
 #' @slot meta a list of the input SMILE, InChI Key and classification version used
 #' @slot classification a `tibble` of the ClassyFire classification results
@@ -26,3 +26,36 @@ setClass(
     description = 'character'
   )
 )
+
+
+setOldClass(c('tbl_df', 'tbl', 'data.frame'))
+
+#' ClassyFire Query Class
+#'
+#' @description A S4 class to store the results from the ClassyFire RESTful API Queries
+#'
+#' @slot meta a list of the input SMILE, InChI Key and classification version used
+#' @slot classification a list of `tibbles` of the ClassyFire classification results
+#' @slot direct_parent a list of `tibbles` the direct parent
+#' @slot alternative_parents a list of `tibbles` of alternative parents
+#' @slot predicted_chebi a list of character vectors of the predicted ChEBI terms
+#' @slot external_descriptors a list of `tibbles` of any external identificatons
+#' @slot description a character string of the compound description
+#'
+#' @export
+
+setClass(
+  Class = 'Query',
+  representation = representation(
+    meta = 'list',
+    classification = 'list',
+    direct_parent = 'tbl_df',
+    alternative_parents = 'tbl_df',
+    predicted_chebi = 'list',
+    external_descriptors = 'list',
+    description = 'list'
+  )
+)
+
+
+
