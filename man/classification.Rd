@@ -3,15 +3,20 @@
 \name{classification}
 \alias{classification}
 \alias{classification,ClassyFire-method}
+\alias{classification,Query-method}
 \title{Accessor Methods for the ClassyFire S4 class}
 \usage{
 classification(object)
 
 \S4method{classification}{ClassyFire}(object)
+
+\S4method{classification}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
+Get the \code{ClassyFire} classification results
+
 Get the \code{ClassyFire} classification results
 }

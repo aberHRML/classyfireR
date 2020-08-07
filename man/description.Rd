@@ -3,15 +3,20 @@
 \name{description}
 \alias{description}
 \alias{description,ClassyFire-method}
+\alias{description,Query-method}
 \title{description}
 \usage{
 description(object)
 
 \S4method{description}{ClassyFire}(object)
+
+\S4method{description}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
+Get the \code{ClassyFire} description
+
 Get the \code{ClassyFire} description
 }

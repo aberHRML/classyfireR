@@ -3,15 +3,20 @@
 \name{descriptors}
 \alias{descriptors}
 \alias{descriptors,ClassyFire-method}
+\alias{descriptors,Query-method}
 \title{descriptors}
 \usage{
 descriptors(object)
 
 \S4method{descriptors}{ClassyFire}(object)
+
+\S4method{descriptors}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
+Get the external descriptors
+
 Get the external descriptors
 }

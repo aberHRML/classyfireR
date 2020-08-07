@@ -3,15 +3,20 @@
 \name{chebi}
 \alias{chebi}
 \alias{chebi,ClassyFire-method}
+\alias{chebi,Query-method}
 \title{chebi}
 \usage{
 chebi(object)
 
 \S4method{chebi}{ClassyFire}(object)
+
+\S4method{chebi}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
+Get the predicted ChEBI identifications
+
 Get the predicted ChEBI identifications
 }
