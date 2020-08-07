@@ -54,7 +54,7 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
 
     json_list <- json_parse$..JSON
 
-    object <- new('Query')
+    object <- methods::new('Query')
 
     object@meta <-
       json_tib %>% dplyr::select(identifier, inchikey, smiles, classification_version)
