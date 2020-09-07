@@ -3,15 +3,20 @@
 \name{alternative_parents}
 \alias{alternative_parents}
 \alias{alternative_parents,ClassyFire-method}
+\alias{alternative_parents,Query-method}
 \title{alternative_parents}
 \usage{
 alternative_parents(object)
 
 \S4method{alternative_parents}{ClassyFire}(object)
+
+\S4method{alternative_parents}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
+Get the alternative_parents
+
 Get the alternative_parents
 }

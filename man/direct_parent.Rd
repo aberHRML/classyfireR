@@ -3,15 +3,20 @@
 \name{direct_parent}
 \alias{direct_parent}
 \alias{direct_parent,ClassyFire-method}
+\alias{direct_parent,Query-method}
 \title{direct_parent}
 \usage{
 direct_parent(object)
 
 \S4method{direct_parent}{ClassyFire}(object)
+
+\S4method{direct_parent}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
+Get the direct_parent
+
 Get the direct_parent
 }

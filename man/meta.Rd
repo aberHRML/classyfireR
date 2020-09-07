@@ -3,15 +3,20 @@
 \name{meta}
 \alias{meta}
 \alias{meta,ClassyFire-method}
+\alias{meta,Query-method}
 \title{meta}
 \usage{
 meta(object)
 
 \S4method{meta}{ClassyFire}(object)
+
+\S4method{meta}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
+Get the \code{ClassyFire} meta data
+
 Get the \code{ClassyFire} meta data
 }

@@ -25,7 +25,13 @@ get_classification <- function(inchi_key)
 
   entity_query <- paste0(entity_url, inchi_key, '.json')
 
-  response <- httr::GET(entity_query)
+  response <- httr::RETRY(
+    verb = "GET",
+    url = entity_query,
+    times = 10,
+    terminate_on = c(404),
+    quiet = T
+    )
 
   if (response$status_code == 429) {
     stop('Request rate limit exceeded!')

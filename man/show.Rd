@@ -2,13 +2,18 @@
 % Please edit documentation in R/show-method.R
 \name{show,ClassyFire-method}
 \alias{show,ClassyFire-method}
+\alias{show,Query-method}
 \title{show-ClassyFire}
 \usage{
 \S4method{show}{ClassyFire}(object)
+
+\S4method{show}{Query}(object)
 }
 \arguments{
-\item{object}{a \code{ClassyFire} S4 object}
+\item{object}{a \code{Query} S4 object}
 }
 \description{
 show-ClassyFire
+
+show-Query
 }
