@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Accessor Methods for the ClassyFire S4 class — classification • classyfireR</title>
+<title>Retrieves the classification results for a given query. — get_query • classyfireR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Accessor Methods for the ClassyFire S4 class — classification" />
-<meta property="og:description" content="Get the ClassyFire classification results
-Get the ClassyFire classification results" />
+<meta property="og:title" content="Retrieves the classification results for a given query. — get_query" />
+<meta property="og:description" content="Retrieves the classification results for a given query." />
 
 
 
@@ -124,33 +123,33 @@ Get the ClassyFire classification results" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Accessor Methods for the ClassyFire S4 class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/aberHRML/classyfireR/blob/master/R/allGenerics.R'><code>R/allGenerics.R</code></a>, <a href='https://github.com/aberHRML/classyfireR/blob/master/R/accessor-methods.R'><code>R/accessor-methods.R</code></a></small>
-    <div class="hidden name"><code>classification.Rd</code></div>
+    <h1>Retrieves the classification results for a given query.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/aberHRML/classyfireR/blob/master/R/query.R'><code>R/query.R</code></a></small>
+    <div class="hidden name"><code>get_query.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get the <code>ClassyFire</code> classification results</p>
-<p>Get the <code>ClassyFire</code> classification results</p>
+    <p>Retrieves the classification results for a given query.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>classification</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
-
-<span class='co'># S4 method for ClassyFire</span>
-<span class='fu'>classification</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
-
-<span class='co'># S4 method for Query</span>
-<span class='fu'>classification</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_query</span><span class='op'>(</span><span class='va'>query_id</span>, format <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"json"</span>, <span class='st'>"sdf"</span>, <span class='st'>"csv"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>a <code>Query</code> S4 object</p></td>
+      <th>query_id</th>
+      <td><p>query_id a numeric value for the ID of the query.</p></td>
+    </tr>
+    <tr>
+      <th>format</th>
+      <td><p>a string of the format of the query (either JSON, CSV, or SDF)</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>the parsed text output displaying the classification results for</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
