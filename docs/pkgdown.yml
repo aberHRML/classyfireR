@@ -2,6 +2,6 @@ pandoc: 2.9.2.1
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
-  Introduction_to_classyfireR: Introduction_to_classyfireR.html
-last_built: 2020-12-14T22:35Z
+  Introduction: Introduction.html
+last_built: 2020-12-14T22:38Z
 

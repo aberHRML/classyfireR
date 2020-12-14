@@ -1,12 +1,12 @@
 ---
-title: "Introduction"
+title: "Introduction to classyfireR"
 author:
   - name: Thomas Wilson
     affiliation: Institute of Biological, Environmental & Rural Sciences (IBERS), Aberystwyth University, UK
     email: tpw2@aber.ac.uk
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction_to_metabolighteR}
+  %\VignetteIndexEntry{Introduction_to_classyfireR}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
