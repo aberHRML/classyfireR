@@ -21,7 +21,7 @@ Or the latest development version can be installed form GitHub using the `remote
 remotes::install_github('aberHRML/classyfireR', build_vignettes = TRUE')
 ```
 
-### Useage
+### Usage
 
 The package documentation can be found at https://aberHRML.github.io/classyfireR or view the [vignette](https://aberhrml.github.io/classyfireR/articles/Introduction_to_classyfireR.html) for an introduction into the package. 
 
