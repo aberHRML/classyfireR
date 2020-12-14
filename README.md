@@ -1,14 +1,14 @@
 # classyfireR
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![Build Status](https://travis-ci.org/aberHRML/classyfireR.svg?branch=master)](https://travis-ci.org/aberHRML/classyfireR) [![Build status](https://ci.appveyor.com/api/projects/status/ua94fiotdmc0ssq5/branch/master?svg=true)](https://ci.appveyor.com/project/wilsontom/classyfirer/branch/master) [![codecov](https://codecov.io/gh/aberHRML/classyfireR/branch/master/graph/badge.svg)](https://codecov.io/gh/aberHRML/classyfireR) ![License](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg "GNU GPL v3.0") [![DOI](https://zenodo.org/badge/118162964.svg)](https://zenodo.org/badge/latestdoi/118162964)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable) ![R-CMD-check](https://github.com/aberHRML/classyfireR/workflows/R-CMD-check/badge.svg?branch=master) [![codecov](https://codecov.io/gh/aberHRML/classyfireR/branch/master/graph/badge.svg)](https://codecov.io/gh/aberHRML/classyfireR) ![License](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg "GNU GPL v3.0") [![DOI](https://zenodo.org/badge/118162964.svg)](https://zenodo.org/badge/latestdoi/118162964)
 
 [![CRAN](https://www.r-pkg.org/badges/version/classyfireR)](https://cran.r-project.org/web/packages/classyfireR/index.html) ![total downloads](https://cranlogs.r-pkg.org/badges/grand-total/classyfireR?color=red) [![GitHub](https://img.shields.io/github/v/release/aberHRML/classyfireR?color=brightgreen&label=GitHub%20Version)](https://github.com/aberHRML/classyfireR/releases)
+
 > __R Interface to the [ClassyFire REST API](http://classyfire.wishartlab.com)__ 
 
 
 
-### Installation & Usage
+### Installation
 `classyfireR` can be installed from CRAN using;
 
 ```R
@@ -18,45 +18,12 @@ install.packages('classyfireR')
 Or the latest development version can be installed form GitHub using the `remotes` package
 
 ```R
-remotes::install_github('aberHRML/classyfireR')
+remotes::install_github('aberHRML/classyfireR', build_vignettes = TRUE')
 ```
 
-* [Get Classification](#get-classification)
-* [Acknowledgements](#acknowledgements)
+### Useage
 
-### Get Classification
-
-__For retrieval of classifications already available; a InChI Key is supplied to the  `get_classification` function.__
-
-```R
-library(classyfireR)
-
-> inchi_keys <- c('BRMWTNUJHUMWMS-LURJTMIESA-N', 'MDHYEMXUFSJLGV-UHFFFAOYSA-N')
-
-> classification_result <- get_classification(inchi_keys[1])
-
-✔ BRMWTNUJHUMWMS-LURJTMIESA-N
-
-> classification_result
-
-── ClassyFire Object ────────────────────────────────────────────────────────────────────────── classyfireR v0.3.0
-Object Size: 18.2 Kb 
- 
-Info: 
-● InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N
-	 
-● [H][C@](N)(CC1=CN(C)C=N1)C(O)=O
-	 
-● Classification Version: 2.1
-	 
-kingdom : Organic compounds
-└─superclass : Organic acids and derivatives
-  └─class : Carboxylic acids and derivatives
-    └─subclass : Amino acids, peptides, and analogues
-      └─level 5 : Amino acids and derivatives
-        └─level 6 : Alpha amino acids and derivatives
-          └─level 7 : Histidine and derivatives
-```
+The package documentation can be found at https://aberHRML.github.io/classyfireR or view the [vignette]() for an introduction into the package. 
 
 
 ### Acknowledgements
