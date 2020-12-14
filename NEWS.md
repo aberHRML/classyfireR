@@ -1,3 +1,7 @@
+# classyfire 0.3.6
+
+* Add vignette 
+
 # classyfire 0.3.5
 
 * New S4 class for storing query results

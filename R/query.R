@@ -81,6 +81,8 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
       dplyr::select(-TYPE)
 
 
+
+
     DirectParents <- json_tib %>%
       dplyr::select(inchikey, dplyr::starts_with("direct_parent.")) %>%
       dplyr::rename(
@@ -90,12 +92,14 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
         url = direct_parent.url
       ) %>% dplyr::ungroup()
 
+    object@direct_parent <-
+      DirectParents %>% dplyr::left_join(object@meta, ., by = 'inchikey') %>%
+      dplyr::select(-smiles, -classification_version)
+
 
     AltParents <- purrr::map(json_list, ~ {
       .$alternative_parents
     })
-
-
 
     AltParents_List <- list()
     for (i in seq_along(AltParents)) {
@@ -106,8 +110,6 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
 
     object@alternative_parents <-
       AltParents_List %>% dplyr::bind_rows()
-
-
 
 
     PredChebi <- purrr::map(json_list, ~ {
@@ -127,22 +129,6 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
 
     object@description <- Desc
 
-
-    object@classification <- Classification
-
-    object@direct_parent <-
-      DirectParents %>% dplyr::left_join(object@meta, ., by = 'inchikey') %>%
-      dplyr::select(-smiles, -classification_version)
-
-    object@alternative_parents <-
-      AltParents_List %>% dplyr::bind_rows()
-
-
-
-
-
-    class_tibble <- dplyr::left_join(Classification, CHEMONT) %>%
-      dplyr::ungroup()
 
     return(object)
   }
