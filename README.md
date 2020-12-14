@@ -23,7 +23,7 @@ remotes::install_github('aberHRML/classyfireR', build_vignettes = TRUE')
 
 ### Useage
 
-The package documentation can be found at https://aberHRML.github.io/classyfireR or view the [vignette]() for an introduction into the package. 
+The package documentation can be found at https://aberHRML.github.io/classyfireR or view the [vignette](https://aberhrml.github.io/classyfireR/articles/Introduction_to_classyfireR.html) for an introduction into the package. 
 
 
 ### Acknowledgements
