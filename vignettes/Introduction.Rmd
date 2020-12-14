@@ -1,5 +1,5 @@
 ---
-title: "Introduction to classyfireR"
+title: "Introduction"
 author:
   - name: Thomas Wilson
     affiliation: Institute of Biological, Environmental & Rural Sciences (IBERS), Aberystwyth University, UK
