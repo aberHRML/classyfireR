@@ -2,7 +2,9 @@
 
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable) ![R-CMD-check](https://github.com/aberHRML/classyfireR/workflows/R-CMD-check/badge.svg?branch=master) [![codecov](https://codecov.io/gh/aberHRML/classyfireR/branch/master/graph/badge.svg)](https://codecov.io/gh/aberHRML/classyfireR) ![License](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg "GNU GPL v3.0") [![DOI](https://zenodo.org/badge/118162964.svg)](https://zenodo.org/badge/latestdoi/118162964)
 
-[![CRAN](https://www.r-pkg.org/badges/version/classyfireR)](https://cran.r-project.org/web/packages/classyfireR/index.html) ![total downloads](https://cranlogs.r-pkg.org/badges/grand-total/classyfireR?color=red) [![GitHub](https://img.shields.io/github/v/release/aberHRML/classyfireR?color=brightgreen&label=GitHub%20Version)](https://github.com/aberHRML/classyfireR/releases)
+[![CRAN](https://www.r-pkg.org/badges/version/classyfireR)](https://cran.r-project.org/web/packages/classyfireR/index.html) ![total downloads](https://cranlogs.r-pkg.org/badges/grand-total/classyfireR?color=red) 
+
+[![GitHub](https://img.shields.io/github/v/release/aberHRML/classyfireR?color=brightgreen&label=GitHub%20Version)](https://github.com/aberHRML/classyfireR/releases)
 
 > __R Interface to the [ClassyFire REST API](http://classyfire.wishartlab.com)__ 
 
