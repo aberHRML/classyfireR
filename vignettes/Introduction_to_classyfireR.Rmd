@@ -103,9 +103,9 @@ chebi(Query)
 
 ## Acknowledgements
 
-If you use `classyfireR` you should cite the [ClassyFire](https://jcheminf.springeropen.com/articles/10.1186/s13321-016-0174-y) publication
+If you use `classyfireR` you should cite the [ClassyFire](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0174-y) publication
 
 > ___Djoumbou Feunang Y, Eisner R, Knox C, Chepelev L, Hastings J, Owen G, Fahy E, Steinbeck C, Subramanian S, Bolton E, Greiner R, and Wishart DS___. ClassyFire: Automated Chemical Classification With A Comprehensive, Computable Taxonomy. Journal of Cheminformatics, 2016, 8:61.
 
-> __DOI:__ [10.1186/s13321-016-0174-y](https://jcheminf.springeropen.com/articles/10.1186/s13321-016-0174-y)
+> __DOI:__ [10.1186/s13321-016-0174-y](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0174-y)
 
