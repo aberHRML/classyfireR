@@ -31,7 +31,6 @@ Suggests:
     rmarkdown
 License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 URL: https://github.com/aberHRML/classyfireR
 BugReports: https://github.com/aberHRML/classyfireR/issues
 RoxygenNote: 7.1.1
