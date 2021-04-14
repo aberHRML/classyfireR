@@ -130,6 +130,13 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
     object@description <- Desc
 
 
+    if(nrow(object@meta) == length(input)){
+      return(object)
+    }else{
+      unclassified <- input[which(!names(input) %in% object@meta$identifier)]
+      object@unclassified <- unclassified
+    }
+
     return(object)
   }
 
