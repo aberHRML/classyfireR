@@ -1,3 +1,9 @@
+# classyfire 0.3.7
+
+* Fix CRAN warnings & re-submit.
+* Add a slot the `Query` objects for identifiers of any inputs that are not successfully classified.
+* Update `Query` show method accordingly.
+
 # classyfire 0.3.6
 
 * Add vignette 
