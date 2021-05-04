@@ -13,6 +13,7 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  
   collapse = TRUE,
   comment = "#>"
 )
@@ -66,10 +67,12 @@ Classification_List <- purrr::map(InChI_Keys, get_classification)
 
 ## Submit Multiple Queries
 
-For classification submission using SMILES, this can be performed by supplying multiple SMILES to the `submit_query` function. The results from all of the inputs, will be returned to a single S4 `Query` class. 
+For classification submission using SMILES, this can be performed by supplying multiple SMILES to the `submit_query` function. The results from **all** of the inputs, will be returned to a single S4 `Query` class. 
+
+If any of the inputs are not successfully classified, then these will be stored in the `unclassified` slot and can be accessed using the `unclassified` accessor method.
 
 ```{r Query}
-Input <- c(MOL1 = 'CCCOCC', MOL2 = 'CNC(CC1=CN=CN1)C(=O)O')
+Input <- c(MOL1 = 'CCCOCC', MOL2 = 'CNC(CC1=CN=CN1)C(=O)O', MOL3 = 'CXN')
 
 Query <-
   submit_query(label = 'query_test',
@@ -80,6 +83,8 @@ Query <-
 
 Query
 
+
+unclassified(Query)
 ```
 
 ## Accessor Methods
