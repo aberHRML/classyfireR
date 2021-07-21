@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.7</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -65,7 +65,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/aberHRML/classyfireR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -79,7 +79,7 @@
 
       
 
-      </header><script src="Introduction_to_classyfireR_files/header-attrs-2.4/header-attrs.js"></script><script src="Introduction_to_classyfireR_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="Introduction_to_classyfireR_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to classyfireR</h1>
@@ -123,15 +123,15 @@
 <span class="co">#&gt; ✔ BRMWTNUJHUMWMS-LURJTMIESA-N</span>
 
 <span class="va">Classification</span>
-<span class="co">#&gt; ── ClassyFire Object ───────────────────────────────────── classyfireR v0.3.6 ── </span>
+<span class="co">#&gt; ── ClassyFire Object ───────────────────────────────────── classyfireR v0.3.7 ── </span>
 <span class="co">#&gt; Object Size: 18.2 Kb </span>
 <span class="co">#&gt;  </span>
 <span class="co">#&gt; Info: </span>
-<span class="co">#&gt; ● InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N</span>
+<span class="co">#&gt; • InChIKey=BRMWTNUJHUMWMS-LURJTMIESA-N</span>
 <span class="co">#&gt;   </span>
-<span class="co">#&gt; ● [H][C@](N)(CC1=CN(C)C=N1)C(O)=O</span>
+<span class="co">#&gt; • [H][C@](N)(CC1=CN(C)C=N1)C(O)=O</span>
 <span class="co">#&gt;   </span>
-<span class="co">#&gt; ● Classification Version: 2.1</span>
+<span class="co">#&gt; • Classification Version: 2.1</span>
 <span class="co">#&gt;   </span>
 <span class="co">#&gt; kingdom : Organic compounds</span>
 <span class="co">#&gt; └─superclass : Organic acids and derivatives</span>
@@ -156,9 +156,10 @@
 <div id="submit-multiple-queries" class="section level2">
 <h2 class="hasAnchor">
 <a href="#submit-multiple-queries" class="anchor"></a>Submit Multiple Queries</h2>
-<p>For classification submission using SMILES, this can be performed by supplying multiple SMILES to the <code>submit_query</code> function. The results from all of the inputs, will be returned to a single S4 <code>Query</code> class.</p>
+<p>For classification submission using SMILES, this can be performed by supplying multiple SMILES to the <code>submit_query</code> function. The results from <strong>all</strong> of the inputs, will be returned to a single S4 <code>Query</code> class.</p>
+<p>If any of the inputs are not successfully classified, then these will be stored in the <code>unclassified</code> slot and can be accessed using the <code>unclassified</code> accessor method.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>MOL1 <span class="op">=</span> <span class="st">'CCCOCC'</span>, MOL2 <span class="op">=</span> <span class="st">'CNC(CC1=CN=CN1)C(=O)O'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">Input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>MOL1 <span class="op">=</span> <span class="st">'CCCOCC'</span>, MOL2 <span class="op">=</span> <span class="st">'CNC(CC1=CN=CN1)C(=O)O'</span>, MOL3 <span class="op">=</span> <span class="st">'CXN'</span><span class="op">)</span>
 
 <span class="va">Query</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="../reference/submit_query.html">submit_query</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">'query_test'</span>,
@@ -168,12 +169,20 @@
 
 
 <span class="va">Query</span>
-<span class="co">#&gt; ── ClassyFire Query Object ─────────────────────────────── classyfireR v0.3.6 ── </span>
-<span class="co">#&gt; Object Size: 27.2 Kb </span>
+<span class="co">#&gt; ── ClassyFire Query Object ─────────────────────────────── classyfireR v0.3.7 ── </span>
+<span class="co">#&gt; Object Size: 17.1 Kb </span>
 <span class="co">#&gt;  </span>
-<span class="co">#&gt; 2 structures classified </span>
-<span class="co">#&gt; ● MOL1 : InChIKey=NVJUHMXYKCUMQA-UHFFFAOYSA-N</span>
-<span class="co">#&gt; ● MOL2 : InChIKey=CYZKJBZEIFWZSR-UHFFFAOYSA-N</span></code></pre></div>
+<span class="co">#&gt; 1 structures classified </span>
+<span class="co">#&gt; • MOL1 : InChIKey=NVJUHMXYKCUMQA-UHFFFAOYSA-N</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; 2 structures not classified </span>
+<span class="co">#&gt; • MOL2 : CNC(CC1=CN=CN1)C(=O)O</span>
+<span class="co">#&gt; • MOL3 : CXN</span>
+
+
+<span class="fu"><a href="../reference/unclassified.html">unclassified</a></span><span class="op">(</span><span class="va">Query</span><span class="op">)</span>
+<span class="co">#&gt;                    MOL2                    MOL3 </span>
+<span class="co">#&gt; "CNC(CC1=CN=CN1)C(=O)O"                   "CXN"</span></code></pre></div>
 </div>
 <div id="accessor-methods" class="section level2">
 <h2 class="hasAnchor">
@@ -193,20 +202,15 @@
 <span class="co">#&gt; 6 level 6    Alpha amino acids and derivatives    CHEMONTID:0000060</span>
 <span class="co">#&gt; 7 level 7    Histidine and derivatives            CHEMONTID:0004311</span>
 <span class="fu"><a href="../reference/classification.html">classification</a></span><span class="op">(</span><span class="va">Query</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 10 x 4</span>
-<span class="co">#&gt; # Groups:   inchikey [2]</span>
-<span class="co">#&gt;    identifier inchikey                   Level      Classification              </span>
-<span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;                      &lt;chr&gt;      &lt;chr&gt;                       </span>
-<span class="co">#&gt;  1 MOL1       InChIKey=NVJUHMXYKCUMQA-U… kingdom    Organic compounds           </span>
-<span class="co">#&gt;  2 MOL1       InChIKey=NVJUHMXYKCUMQA-U… superclass Organic oxygen compounds    </span>
-<span class="co">#&gt;  3 MOL1       InChIKey=NVJUHMXYKCUMQA-U… class      Organooxygen compounds      </span>
-<span class="co">#&gt;  4 MOL1       InChIKey=NVJUHMXYKCUMQA-U… subclass   Ethers                      </span>
-<span class="co">#&gt;  5 MOL1       InChIKey=NVJUHMXYKCUMQA-U… direct_pa… Dialkyl ethers              </span>
-<span class="co">#&gt;  6 MOL2       InChIKey=CYZKJBZEIFWZSR-U… kingdom    Organic compounds           </span>
-<span class="co">#&gt;  7 MOL2       InChIKey=CYZKJBZEIFWZSR-U… superclass Organic acids and derivativ…</span>
-<span class="co">#&gt;  8 MOL2       InChIKey=CYZKJBZEIFWZSR-U… class      Carboxylic acids and deriva…</span>
-<span class="co">#&gt;  9 MOL2       InChIKey=CYZKJBZEIFWZSR-U… subclass   Amino acids, peptides, and …</span>
-<span class="co">#&gt; 10 MOL2       InChIKey=CYZKJBZEIFWZSR-U… direct_pa… Histidine and derivatives</span>
+<span class="co">#&gt; # A tibble: 5 x 4</span>
+<span class="co">#&gt; # Groups:   inchikey [1]</span>
+<span class="co">#&gt;   identifier inchikey                         Level       Classification        </span>
+<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;                            &lt;chr&gt;       &lt;chr&gt;                 </span>
+<span class="co">#&gt; 1 MOL1       InChIKey=NVJUHMXYKCUMQA-UHFFFAO… kingdom     Organic compounds     </span>
+<span class="co">#&gt; 2 MOL1       InChIKey=NVJUHMXYKCUMQA-UHFFFAO… superclass  Organic oxygen compou…</span>
+<span class="co">#&gt; 3 MOL1       InChIKey=NVJUHMXYKCUMQA-UHFFFAO… class       Organooxygen compounds</span>
+<span class="co">#&gt; 4 MOL1       InChIKey=NVJUHMXYKCUMQA-UHFFFAO… subclass    Ethers                </span>
+<span class="co">#&gt; 5 MOL1       InChIKey=NVJUHMXYKCUMQA-UHFFFAO… direct_par… Dialkyl ethers</span>
 
 
 <span class="fu"><a href="../reference/meta.html">meta</a></span><span class="op">(</span><span class="va">Classification</span><span class="op">)</span>
@@ -219,12 +223,11 @@
 <span class="co">#&gt; $version</span>
 <span class="co">#&gt; [1] "2.1"</span>
 <span class="fu"><a href="../reference/meta.html">meta</a></span><span class="op">(</span><span class="va">Query</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 2 x 4</span>
-<span class="co">#&gt; # Groups:   inchikey [2]</span>
-<span class="co">#&gt;   identifier inchikey                     smiles            classification_vers…</span>
-<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;                        &lt;chr&gt;             &lt;chr&gt;               </span>
-<span class="co">#&gt; 1 MOL1       InChIKey=NVJUHMXYKCUMQA-UHF… CCCOCC            2.1                 </span>
-<span class="co">#&gt; 2 MOL2       InChIKey=CYZKJBZEIFWZSR-UHF… CNC(CC1=CN=CN1)C… 2.1</span>
+<span class="co">#&gt; # A tibble: 1 x 4</span>
+<span class="co">#&gt; # Groups:   inchikey [1]</span>
+<span class="co">#&gt;   identifier inchikey                             smiles classification_version</span>
+<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;                                &lt;chr&gt;  &lt;chr&gt;                 </span>
+<span class="co">#&gt; 1 MOL1       InChIKey=NVJUHMXYKCUMQA-UHFFFAOYSA-N CCCOCC 2.1</span>
 
 
 <span class="fu"><a href="../reference/chebi.html">chebi</a></span><span class="op">(</span><span class="va">Classification</span><span class="op">)</span>
@@ -257,51 +260,22 @@
 <span class="co">#&gt; [27] "primary amine (CHEBI:32877)"</span>
 <span class="fu"><a href="../reference/chebi.html">chebi</a></span><span class="op">(</span><span class="va">Query</span><span class="op">)</span>
 <span class="co">#&gt; $MOL1</span>
-<span class="co">#&gt; [1] "chemical entity (CHEBI:24431)"         </span>
-<span class="co">#&gt; [2] "organic molecular entity (CHEBI:50860)"</span>
-<span class="co">#&gt; [3] "ether (CHEBI:25698)"                   </span>
-<span class="co">#&gt; [4] "organooxygen compound (CHEBI:36963)"   </span>
-<span class="co">#&gt; [5] "organic molecule (CHEBI:72695)"        </span>
-<span class="co">#&gt; [6] "oxygen molecular entity (CHEBI:25806)" </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $MOL2</span>
-<span class="co">#&gt;  [1] "chemical entity (CHEBI:24431)"                     </span>
-<span class="co">#&gt;  [2] "organic molecular entity (CHEBI:50860)"            </span>
-<span class="co">#&gt;  [3] "monocarboxylic acid (CHEBI:25384)"                 </span>
-<span class="co">#&gt;  [4] "imidazoles (CHEBI:24780)"                          </span>
-<span class="co">#&gt;  [5] "carboxylic acid anion (CHEBI:29067)"               </span>
-<span class="co">#&gt;  [6] "organonitrogen compound (CHEBI:35352)"             </span>
-<span class="co">#&gt;  [7] "secondary amino compound (CHEBI:50995)"            </span>
-<span class="co">#&gt;  [8] "imidazolyl carboxylic acid (CHEBI:38307)"          </span>
-<span class="co">#&gt;  [9] "amine (CHEBI:32952)"                               </span>
-<span class="co">#&gt; [10] "aralkylamine (CHEBI:18000)"                        </span>
-<span class="co">#&gt; [11] "secondary amine (CHEBI:32863)"                     </span>
-<span class="co">#&gt; [12] "alpha-amino acid (CHEBI:33704)"                    </span>
-<span class="co">#&gt; [13] "organonitrogen heterocyclic compound (CHEBI:38101)"</span>
-<span class="co">#&gt; [14] "carboxylic acid (CHEBI:33575)"                     </span>
-<span class="co">#&gt; [15] "amino acid (CHEBI:33709)"                          </span>
-<span class="co">#&gt; [16] "peptide (CHEBI:16670)"                             </span>
-<span class="co">#&gt; [17] "organooxygen compound (CHEBI:36963)"               </span>
-<span class="co">#&gt; [18] "histidine derivative (CHEBI:24599)"                </span>
-<span class="co">#&gt; [19] "organic aromatic compound (CHEBI:33659)"           </span>
-<span class="co">#&gt; [20] "organic acid (CHEBI:64709)"                        </span>
-<span class="co">#&gt; [21] "organic molecule (CHEBI:72695)"                    </span>
-<span class="co">#&gt; [22] "carbonyl compound (CHEBI:36586)"                   </span>
-<span class="co">#&gt; [23] "organic heterocyclic compound (CHEBI:24532)"       </span>
-<span class="co">#&gt; [24] "azole (CHEBI:68452)"                               </span>
-<span class="co">#&gt; [25] "nitrogen molecular entity (CHEBI:51143)"           </span>
-<span class="co">#&gt; [26] "oxygen molecular entity (CHEBI:25806)"             </span>
-<span class="co">#&gt; [27] "organic oxide (CHEBI:25701)"</span></code></pre></div>
+<span class="co">#&gt; [1] "organic molecule (CHEBI:72695)"        </span>
+<span class="co">#&gt; [2] "ether (CHEBI:25698)"                   </span>
+<span class="co">#&gt; [3] "chemical entity (CHEBI:24431)"         </span>
+<span class="co">#&gt; [4] "oxygen molecular entity (CHEBI:25806)" </span>
+<span class="co">#&gt; [5] "organic molecular entity (CHEBI:50860)"</span>
+<span class="co">#&gt; [6] "organooxygen compound (CHEBI:36963)"</span></code></pre></div>
 </div>
 <div id="acknowledgements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
-<p>If you use <code>classyfireR</code> you should cite the <a href="https://jcheminf.springeropen.com/articles/10.1186/s13321-016-0174-y">ClassyFire</a> publication</p>
+<p>If you use <code>classyfireR</code> you should cite the <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0174-y">ClassyFire</a> publication</p>
 <blockquote>
 <p><strong><em>Djoumbou Feunang Y, Eisner R, Knox C, Chepelev L, Hastings J, Owen G, Fahy E, Steinbeck C, Subramanian S, Bolton E, Greiner R, and Wishart DS</em></strong>. ClassyFire: Automated Chemical Classification With A Comprehensive, Computable Taxonomy. Journal of Cheminformatics, 2016, 8:61.</p>
 </blockquote>
 <blockquote>
-<p><strong>DOI:</strong> <a href="https://jcheminf.springeropen.com/articles/10.1186/s13321-016-0174-y">10.1186/s13321-016-0174-y</a></p>
+<p><strong>DOI:</strong> <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0174-y">10.1186/s13321-016-0174-y</a></p>
 </blockquote>
 </div>
   </div>

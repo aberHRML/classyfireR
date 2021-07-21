@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.7</span>
       </span>
     </div>
 
@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -106,7 +106,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/aberHRML/classyfireR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -139,19 +139,21 @@
     
 
 <dl>
-<dt><code>meta</code></dt><dd><p>a list of the input SMILE, InChI Key and classification version used</p></dd>
+<dt><code>meta</code></dt><dd><p>a 'tibble` of the input SMILE, InChI Key and classification version used</p></dd>
 
-<dt><code>classification</code></dt><dd><p>a list of <code>tibbles</code> of the ClassyFire classification results</p></dd>
+<dt><code>classification</code></dt><dd><p>a <code>tibbles</code> of the ClassyFire classification results</p></dd>
 
-<dt><code>direct_parent</code></dt><dd><p>a list of <code>tibbles</code> the direct parent</p></dd>
+<dt><code>direct_parent</code></dt><dd><p>a <code>tibbles</code> the direct parent</p></dd>
 
-<dt><code>alternative_parents</code></dt><dd><p>a list of <code>tibbles</code> of alternative parents</p></dd>
+<dt><code>alternative_parents</code></dt><dd><p>a <code>tibbles</code> of alternative parents</p></dd>
 
 <dt><code>predicted_chebi</code></dt><dd><p>a list of character vectors of the predicted ChEBI terms</p></dd>
 
-<dt><code>external_descriptors</code></dt><dd><p>a list of <code>tibbles</code> of any external identificatons</p></dd>
+<dt><code>external_descriptors</code></dt><dd><p>a list of <code>tibbles</code> of any external identifications</p></dd>
 
-<dt><code>description</code></dt><dd><p>a character string of the compound description</p></dd>
+<dt><code>description</code></dt><dd><p>a list of character vectors for the compound descriptions</p></dd>
+
+<dt><code>unclassified</code></dt><dd><p>a character string of any input structures that failed the ClassyFire classification</p></dd>
 
 </dl>
 
