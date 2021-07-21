@@ -42,3 +42,10 @@ setGeneric('alternative_parents', function(object) {
 setGeneric('direct_parent', function(object) {
   standardGeneric('direct_parent')
 })
+
+
+#' @rdname unclassified
+
+setGeneric('unclassified', function(object) {
+  standardGeneric('unclassified')
+})

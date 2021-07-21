@@ -10,18 +10,20 @@ A S4 class to store the results from the ClassyFire RESTful API Queries
 \section{Slots}{
 
 \describe{
-\item{\code{meta}}{a list of the input SMILE, InChI Key and classification version used}
+\item{\code{meta}}{a 'tibble` of the input SMILE, InChI Key and classification version used}
 
-\item{\code{classification}}{a list of \code{tibbles} of the ClassyFire classification results}
+\item{\code{classification}}{a \code{tibbles} of the ClassyFire classification results}
 
-\item{\code{direct_parent}}{a list of \code{tibbles} the direct parent}
+\item{\code{direct_parent}}{a \code{tibbles} the direct parent}
 
-\item{\code{alternative_parents}}{a list of \code{tibbles} of alternative parents}
+\item{\code{alternative_parents}}{a \code{tibbles} of alternative parents}
 
 \item{\code{predicted_chebi}}{a list of character vectors of the predicted ChEBI terms}
 
-\item{\code{external_descriptors}}{a list of \code{tibbles} of any external identificatons}
+\item{\code{external_descriptors}}{a list of \code{tibbles} of any external identifications}
 
-\item{\code{description}}{a character string of the compound description}
+\item{\code{description}}{a list of character vectors for the compound descriptions}
+
+\item{\code{unclassified}}{a character string of any input structures that failed the ClassyFire classification}
 }}
 
