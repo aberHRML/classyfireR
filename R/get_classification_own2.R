@@ -31,11 +31,13 @@ get_classification_own <- function(inchi_key, conn=NULL)
                   "SELECT InChiKey,Classification FROM classyfire WHERE InChiKey=?")
     dbBind(qry, inchi_key)
     key <- dbFetch(qry)
-    #dbClearResult(qry)
-  }
+    count <-dbGetRowCount(qry)
+    dbClearResult(qry)
+    }
 
-  if (! identical(key$InChikey, character(0))) {
+  if (count==1) {
     object <- unserialize(charToRaw(key$Classification))
+    return(object)
   } else {
     entity_url <- 'http://classyfire.wishartlab.com/entities/'
 
@@ -118,6 +120,7 @@ get_classification_own <- function(inchi_key, conn=NULL)
         object@description <- json_res$description
       }
 
+
       if (! is.null(conn))  {
         qry2 <-
           dbSendQuery(
@@ -129,8 +132,11 @@ get_classification_own <- function(inchi_key, conn=NULL)
         )))
         dbClearResult(qry2)
       }
+      return(object)
     }
   }
-  return(object)
 }
-get_classification_own("TYCTXYVLCWMDDR-UHFFFAOYSA-N",conn)
+get_classification_own("TYCTXYVLCWMDDR-UHFFFAOYSA-N",conn) #new inchikey
+get_classification_own("TYCTXYVLCWMDDR-UHFFFAOYSA",conn) #wrong inchikey
+get_classification_own("TYCTXYVLCWMDDR-UHFFFAOYSA-N",conn) #inchikey in db
+get_classification_own("YBJFSDXUCGYJSK-UHFFFAOYSA-N",conn) #other inchikey
