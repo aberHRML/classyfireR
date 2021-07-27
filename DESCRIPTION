@@ -44,6 +44,6 @@ Collate:
     'internals.R'
     'query.R'
     'show-method.R'
-    'test_classification'
+    'test_classification.R'
     'zzz.R'
 VignetteBuilder: knitr
