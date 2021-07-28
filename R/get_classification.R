@@ -3,8 +3,8 @@
 #' Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'.
 #' The optional local cache function enables classification requests with less waiting time.
 #' Furthermore, there will be fewer traffic on the classyFire servers. There is an option for
-#' creating a SQLight database. This database includes already queried Inchikeys and the serialized
-#' classification object.
+#' creating a SQLight database for the local caching. This database includes already queried Inchikeys
+#' and the serialized classification object.
 #'
 #' @param inchi_key a character string of a valid InChIKey
 #' @param conn a DBIConnection object, as produced by dbConnect
@@ -36,6 +36,8 @@ get_classification <- function(inchi_key, conn=NULL)
     key <- dbFetch(qry)
     count <-dbGetRowCount(qry)
     dbClearResult(qry)
+  } else {
+    count<-0
   }
 
   if (count==1) {
@@ -75,7 +77,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       json_res <- jsonlite::fromJSON(text_content)
 
-      classification <- classyfireR:::parse_json_output(json_res)
+      classification <- parse_json_output(json_res)
 
 
       object <- methods::new('ClassyFire')
@@ -115,7 +117,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       if (length(json_res$external_descriptors) > 0) {
         object@external_descriptors <-
-          classyfireR:::parse_external_desc(json_res)
+          parse_external_desc(json_res)
       } else{
         object@external_descriptors <- tibble::tibble()
       }
@@ -140,3 +142,4 @@ get_classification <- function(inchi_key, conn=NULL)
     }
   }
 }
+
