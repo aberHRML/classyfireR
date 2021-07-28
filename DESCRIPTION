@@ -22,6 +22,7 @@ Imports:
     stringr,
     methods,
     rjson,
+    RSQLite,
     tidyjson,
     tidyr
 Suggests: 
@@ -44,6 +45,5 @@ Collate:
     'internals.R'
     'query.R'
     'show-method.R'
-    'test_classification.R'
     'zzz.R'
 VignetteBuilder: knitr

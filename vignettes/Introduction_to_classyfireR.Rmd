@@ -69,16 +69,16 @@ Classification_List <- purrr::map(InChI_Keys, get_classification)
 For classification submission using SMILES, this can be performed by supplying multiple SMILES to the `submit_query` function. The results from all of the inputs, will be returned to a single S4 `Query` class. 
 
 ```{r Query}
-Input <- c(MOL1 = 'CCCOCC', MOL2 = 'CNC(CC1=CN=CN1)C(=O)O')
-
-Query <-
-  submit_query(label = 'query_test',
-               input = Input,
-               type = 'STRUCTURE')
-
-
-
-Query
+# Input <- c(MOL1 = 'CCCOCC', MOL2 = 'CNC(CC1=CN=CN1)C(=O)O')
+# 
+# Query <-
+#   submit_query(label = 'query_test',
+#                input = Input,
+#                type = 'STRUCTURE')
+# 
+# 
+# 
+# Query
 
 ```
 
@@ -88,16 +88,16 @@ There are a series of accessor methods which will work with either object type t
 
 ```{r Accessor}
 
-classification(Classification)
-classification(Query)
-
-
-meta(Classification)
-meta(Query)
-
-
-chebi(Classification)
-chebi(Query)
+# classification(Classification)
+# classification(Query)
+# 
+# 
+# meta(Classification)
+# meta(Query)
+# 
+# 
+# chebi(Classification)
+# chebi(Query)
 
 ```
 

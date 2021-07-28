@@ -24,23 +24,22 @@
 #'get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
 #' }
 #' @export
-# inchi_key<-as.character("YBJFSDXUCGYJSK-UHFFFAOYSA-N")
+#' @import RSQLite
 
 get_classification <- function(inchi_key, conn=NULL)
 {
+  cache_hits <- 0
   if (! is.null(conn))  {
     qry <-
       dbSendQuery(conn,
                   "SELECT InChiKey,Classification FROM classyfire WHERE InChiKey=?")
     dbBind(qry, inchi_key)
     key <- dbFetch(qry)
-    count <-dbGetRowCount(qry)
+    cache_hits <-dbGetRowCount(qry)
     dbClearResult(qry)
-  } else {
-    count<-0
   }
 
-  if (count==1) {
+  if (cache_hits==1) {
     object <- unserialize(charToRaw(key$Classification))
     message(crayon::green(clisymbols::symbol$tick, 'cached: ', inchi_key))
     return(object)
@@ -77,7 +76,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       json_res <- jsonlite::fromJSON(text_content)
 
-      classification <- classyfireR:::parse_json_output(json_res)
+      classification <- parse_json_output(json_res)
 
 
       object <- methods::new('ClassyFire')
@@ -117,7 +116,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       if (length(json_res$external_descriptors) > 0) {
         object@external_descriptors <-
-          classyfireR:::parse_external_desc(json_res)
+          parse_external_desc(json_res)
       } else{
         object@external_descriptors <- tibble::tibble()
       }
@@ -142,4 +141,4 @@ get_classification <- function(inchi_key, conn=NULL)
     }
   }
 }
-get_classification("BRMWTNUJHUMWMS-LURJTMIESA-N")
+

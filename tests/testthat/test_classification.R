@@ -1,5 +1,4 @@
-library(testthat)
-library(RSQLite)
+context('entity-classification')
 
 test_that('inchikey in/out db',{
   no_db <-get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
@@ -28,7 +27,7 @@ test_that('inchikey in/out db',{
 })
 
 test_that('entity-classification', {
-  cl1 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N',temp_conn)
+  cl1 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
 
   expect_true(isS4(cl1))
   expect_true(is.list(meta(cl1)))
@@ -38,6 +37,11 @@ test_that('entity-classification', {
   expect_true(is.vector(chebi(cl1)))
   expect_true(tibble::is_tibble(descriptors(cl1)))
   expect_true(is.character(description(cl1)))
+
+  cl2 <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA')
+
+  expect_true(is.null(cl2))
+
 
 })
 
