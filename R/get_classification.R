@@ -77,7 +77,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       json_res <- jsonlite::fromJSON(text_content)
 
-      classification <- parse_json_output(json_res)
+      classification <- classyfireR:::parse_json_output(json_res)
 
 
       object <- methods::new('ClassyFire')
@@ -117,7 +117,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       if (length(json_res$external_descriptors) > 0) {
         object@external_descriptors <-
-          parse_external_desc(json_res)
+          classyfireR:::parse_external_desc(json_res)
       } else{
         object@external_descriptors <- tibble::tibble()
       }
@@ -142,4 +142,4 @@ get_classification <- function(inchi_key, conn=NULL)
     }
   }
 }
-
+get_classification("BRMWTNUJHUMWMS-LURJTMIESA-N")

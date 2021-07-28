@@ -2,6 +2,10 @@ library(testthat)
 library(RSQLite)
 
 test_that('inchikey in/out db',{
+  no_db <-get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
+  expect_false(exists("temp_conn"))
+  expect_equal(no_db@meta[["inchikey"]],"InChIKey=MDHYEMXUFSJLGV-UHFFFAOYSA-N")
+
   temp_conn <- dbConnect(RSQLite::SQLite(), ":memory:")
 
   dbExecute(temp_conn,"CREATE TABLE IF NOT EXISTS 'classyfire' (
@@ -21,9 +25,6 @@ test_that('inchikey in/out db',{
   key_not_in_db <- dbGetQuery(temp_conn, "SELECT InChiKey FROM classyfire WHERE InChiKey='TYCTXYVLCWMDDR-UHFFFAOYSA-N'")
   expect_true(is.na(key_not_in_db[1,1]))
 
-  no_db <-get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
-  expect_false(exists("conn"))
-  expect_equal(no_db@meta[["inchikey"]],"InChIKey=MDHYEMXUFSJLGV-UHFFFAOYSA-N")
 })
 
 test_that('entity-classification', {
