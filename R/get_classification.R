@@ -2,9 +2,9 @@
 #'
 #' Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'.
 #' The optional local cache function enables classification requests with less waiting time.
-#' Furthermore, there will be fewer traffic on the classyFire servers. There is an option for
-#' creating a SQLight database for the local caching. This database includes already queried Inchikeys
-#' and the serialized classification object.
+#' Furthermore, there will be fewer traffic on the classyFire servers. For best high efficiency
+#' there is an option for creating a SQLight database for the local caching.
+#' This database includes already queried Inchikeys and the serialized classification object.
 #'
 #' @param inchi_key a character string of a valid InChIKey
 #' @param conn a DBIConnection object, as produced by dbConnect
@@ -21,7 +21,7 @@
 #' get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
 #'
 #' # Invalid InChI key
-#'get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
+#' get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-B')
 #' }
 #' @export
 #' @import RSQLite
@@ -31,12 +31,12 @@ get_classification <- function(inchi_key, conn=NULL)
   cache_hits <- 0
   if (! is.null(conn))  {
     qry <-
-      dbSendQuery(conn,
-                  "SELECT InChiKey,Classification FROM classyfire WHERE InChiKey=?")
-    dbBind(qry, inchi_key)
-    key <- dbFetch(qry)
-    cache_hits <-dbGetRowCount(qry)
-    dbClearResult(qry)
+      RSQLite::dbSendQuery(conn,
+                           "SELECT InChiKey,Classification FROM classyfire WHERE InChiKey=?")
+    RSQLite::dbBind(qry, inchi_key)
+    key <- RSQLite::dbFetch(qry)
+    cache_hits <-RSQLite::dbGetRowCount(qry)
+    RSQLite::dbClearResult(qry)
   }
 
   if (cache_hits==1) {
@@ -76,7 +76,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       json_res <- jsonlite::fromJSON(text_content)
 
-      classification <- parse_json_output(json_res)
+      classification <- classyfireR:::parse_json_output(json_res)
 
 
       object <- methods::new('ClassyFire')
@@ -116,7 +116,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       if (length(json_res$external_descriptors) > 0) {
         object@external_descriptors <-
-          parse_external_desc(json_res)
+          classyfireR:::parse_external_desc(json_res)
       } else{
         object@external_descriptors <- tibble::tibble()
       }
@@ -128,17 +128,27 @@ get_classification <- function(inchi_key, conn=NULL)
 
       if (! is.null(conn))  {
         qry2 <-
-          dbSendQuery(
+          RSQLite::dbSendQuery(
             conn,
             "INSERT INTO classyfire (InChiKey,InChi,Classification) VALUES(?,?,?)"
           )
-        dbBind(qry2, list(inchi_key, "NULL", rawToChar(
+        RSQLite::dbBind(qry2, list(inchi_key, "NULL", rawToChar(
           serialize(object, connection = NULL, ascii = TRUE)
         )))
-        dbClearResult(qry2)
+        RSQLite::dbClearResult(qry2)
       }
       return(object)
     }
   }
 }
 
+open_cache <- function(db_path=":memory:"){
+  conn <<- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
+
+  RSQLite::dbExecute(conn,"CREATE TABLE IF NOT EXISTS 'classyfire' (
+          InChikey CHAR(27) PRIMARY KEY,
+          InChi TEXT,
+          Classification TEXT)")
+  RSQLite::dbListFields(conn,"classyfire")
+  return(conn)
+}
