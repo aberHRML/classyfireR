@@ -93,16 +93,16 @@ There are a series of accessor methods which will work with either object type t
 
 ```{r Accessor}
 
-classification(Classification)
-classification(Query)
-
-
-meta(Classification)
-meta(Query)
-
-
-chebi(Classification)
-chebi(Query)
+# classification(Classification)
+# classification(Query)
+# 
+# 
+# meta(Classification)
+# meta(Query)
+# 
+# 
+# chebi(Classification)
+# chebi(Query)
 
 ```
 

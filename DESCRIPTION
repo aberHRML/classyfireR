@@ -22,13 +22,15 @@ Imports:
     stringr,
     methods,
     rjson,
+    RSQLite,
     tidyjson,
     tidyr
 Suggests: 
     testthat,
     covr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    stringi
 License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://github.com/aberHRML/classyfireR
