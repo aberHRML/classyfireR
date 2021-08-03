@@ -1,6 +1,6 @@
 # classyfireR
 
-[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable) ![R-CMD-check](https://github.com/aberHRML/classyfireR/workflows/R-CMD-check/badge.svg?branch=master) [![codecov](https://codecov.io/gh/aberHRML/classyfireR/branch/master/graph/badge.svg)](https://codecov.io/gh/aberHRML/classyfireR) ![License](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg "GNU GPL v3.0") [![DOI](https://zenodo.org/badge/118162964.svg)](https://zenodo.org/badge/latestdoi/118162964)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable) [![R-CMD-check](https://github.com/aberHRML/classyfireR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/aberHRML/classyfireR/actions/workflows/R-CMD-check.yaml) [![codecov](https://codecov.io/gh/aberHRML/classyfireR/branch/master/graph/badge.svg)](https://codecov.io/gh/aberHRML/classyfireR) ![License](https://img.shields.io/badge/license-GNU%20GPL%20v3.0-blue.svg "GNU GPL v3.0") [![DOI](https://zenodo.org/badge/118162964.svg)](https://zenodo.org/badge/latestdoi/118162964)
 
 [![CRAN](https://www.r-pkg.org/badges/version/classyfireR)](https://cran.r-project.org/web/packages/classyfireR/index.html) ![total downloads](https://cranlogs.r-pkg.org/badges/grand-total/classyfireR?color=red) 
 

@@ -158,3 +158,14 @@ setMethod('direct_parent', signature = 'Query',
           function(object) {
             object@direct_parent
           })
+
+#' unclassified
+#' @rdname unclassified
+#' @description Get the identifiers of any inputs that were not classified
+#' @param object a `Query` S4 object
+#' @export
+
+setMethod('unclassified', signature = 'Query',
+          function(object) {
+            object@unclassified
+          })
