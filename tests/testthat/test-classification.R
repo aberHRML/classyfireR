@@ -1,11 +1,11 @@
 context('entity-classification')
 
 test_that('inchikey in/out db',{
-  no_db <-get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
+  no_db <- get_classification('MDHYEMXUFSJLGV-UHFFFAOYSA-N')
   expect_false(exists("conn"))
   expect_equal(no_db@meta[["inchikey"]],"InChIKey=MDHYEMXUFSJLGV-UHFFFAOYSA-N")
 
-  open_cache()
+  conn <- open_cache()
 
   key_wrong <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA',conn)
   expect_true(is.null(key_wrong))

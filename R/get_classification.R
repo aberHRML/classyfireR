@@ -3,8 +3,7 @@
 #' Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'.
 #' The optional local cache function enables classification requests with less waiting time.
 #' Furthermore, there will be fewer traffic on the classyFire servers. For best high efficiency
-#' there is an option for creating a SQLight database for the local caching.
-#' This database includes already queried Inchikeys and the serialized classification object.
+#' there is an option for creating a SQLight database to cache results.
 #'
 #' @param inchi_key a character string of a valid InChIKey
 #' @param conn a DBIConnection object, as produced by dbConnect
@@ -76,7 +75,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       json_res <- jsonlite::fromJSON(text_content)
 
-      classification <- classyfireR:::parse_json_output(json_res)
+      classification <- parse_json_output(json_res)
 
 
       object <- methods::new('ClassyFire')
@@ -116,7 +115,7 @@ get_classification <- function(inchi_key, conn=NULL)
 
       if (length(json_res$external_descriptors) > 0) {
         object@external_descriptors <-
-          classyfireR:::parse_external_desc(json_res)
+          parse_external_desc(json_res)
       } else{
         object@external_descriptors <- tibble::tibble()
       }
@@ -142,13 +141,29 @@ get_classification <- function(inchi_key, conn=NULL)
   }
 }
 
-open_cache <- function(db_path=":memory:"){
-  conn <<- RSQLite::dbConnect(RSQLite::SQLite(), db_path)
+
+#' Open Cache
+#'
+#' Creates a SQLight database for the local caching. This database includes already
+#' queried Inchikeys and the serialized classification object.
+#'
+#' @param dbname The path to the database file. SQLite keeps each database instance
+#' in one single file. The name of the database is the file name, thus database names
+#' should be legal file names in the running platform. There are two exceptions:
+#' "" will create a temporary on-disk database. The file will be deleted when the connection is closed.
+#' ":memory:" or "file::memory:" will create a temporary in-memory database.
+
+#' @return `conn` a DBIConnection object, as produced by dbConnect
+#'
+#' @export
+#' @import RSQLite
+
+open_cache <- function(dbname=":memory:"){
+  conn <- RSQLite::dbConnect(RSQLite::SQLite(), dbname)
 
   RSQLite::dbExecute(conn,"CREATE TABLE IF NOT EXISTS 'classyfire' (
           InChikey CHAR(27) PRIMARY KEY,
           InChi TEXT,
           Classification TEXT)")
-  RSQLite::dbListFields(conn,"classyfire")
   return(conn)
 }
