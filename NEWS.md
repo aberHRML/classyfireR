@@ -1,3 +1,10 @@
+# classyfire 0.3.8
+
+* Fix CRAN warnings & re-submit.
+* Local cache functionality added by @Flow191.
+* Add @Flow191 as package contributor
+* Update vignette
+
 # classyfire 0.3.7
 
 * Fix CRAN warnings & re-submit.
