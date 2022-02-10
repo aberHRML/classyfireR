@@ -18,7 +18,7 @@ a \code{ClassyFire} S4 object.
 Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'.
 The optional local cache function enables classification requests with less waiting time.
 Furthermore, there will be fewer traffic on the classyFire servers. For best high efficiency
-there is an option for creating a SQLight database for the local caching.
+there is an option for creating a SQLight database to cache results.
 }
 \examples{
 \dontrun{
