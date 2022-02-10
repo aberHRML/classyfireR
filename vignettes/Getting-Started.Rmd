@@ -1,0 +1,150 @@
+---
+title: "Getting Stated with classyfireR"
+author:
+  - name: Thomas Wilson
+    affiliation: Institute of Biological, Environmental & Rural Sciences (IBERS), Aberystwyth University, UK
+    email: tpw2@aber.ac.uk
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting-Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Introduction
+
+[ClassyFire](http://classyfire.wishartlab.com/) is a web-based application for automated structural classification of chemical compounds. 
+
+The `classyfireR` R package provides access to the ClassyFire RESTful API for retrieving existing compound classifications and submitted structures to the web-server for classification. 
+
+## Installation
+
+classyfireR can be installed from CRAN or, for the latest development version, directly from GitHub using the `remotes` package.
+
+```{r install_cran, echo=TRUE, eval=FALSE}
+install.packages('classyfireR')
+
+remotes::install_github('aberHRML/classyfireR')
+```
+
+
+## Retrieving Classifications
+
+To retrieve classifications that are already available simply provide an InChI key to the `get_classification` function. 
+
+
+```{r GetClassification}
+library(classyfireR)
+
+Classification <- get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N')
+
+Classification
+
+```
+
+The result of each classification is stored in a single S4 (ClassyFire) object. To retrieve multiple classification, simply iterate over a vector of InChI Keys'
+
+```{r GetClassification_Map}
+InChI_Keys <-
+  c('BRMWTNUJHUMWMS-LURJTMIESA-N',
+    'MDHYEMXUFSJLGV-UHFFFAOYSA-N',
+    'MYYIAHXIVFADCU-QMMMGPOBSA-N')
+
+
+Classification_List <- purrr::map(InChI_Keys, get_classification)
+
+```
+
+
+## Submit Multiple Queries
+
+For classification submission using SMILES, this can be performed by supplying multiple SMILES to the `submit_query` function. The results from **all** of the inputs, will be returned to a single S4 `Query` class. 
+
+If any of the inputs are not successfully classified, then these will be stored in the `unclassified` slot and can be accessed using the `unclassified` accessor method.
+
+```r
+Input <- c(MOL1 = 'CCCOCC', MOL2 = 'CNC(CC1=CN=CN1)C(=O)O', MOL3 = 'CXN')
+
+Query <-
+  submit_query(label = 'query_test',
+               input = Input,
+               type = 'STRUCTURE')
+               
+               
+Query
+── ClassyFire Query Object ──────────────────────────────── classyfireR v0.3.7 ── 
+Object Size: 27.6 Kb 
+ 
+2 structures classified 
+• MOL1 : InChIKey=NVJUHMXYKCUMQA-UHFFFAOYSA-N
+• MOL2 : InChIKey=CYZKJBZEIFWZSR-UHFFFAOYSA-N
+
+1 structures not classified 
+• MOL3 : CXN               
+
+
+
+unclassified(Query)
+
+ MOL3 
+"CXN" 
+```
+
+## Accessor Methods
+
+There are a series of accessor methods which will work with either object type to return results from a specific slot in the object. 
+
+```{r Accessor, echo=TRUE, eval=TRUE}
+
+classification(Classification)
+
+
+meta(Classification)
+
+
+chebi(Classification)
+
+```
+
+
+## Working with a local cache
+
+A local cache can be used to save queries too, which will speed up workflows where large numbers of entities are being classified each time, and will mean that the API only queries the server, when absolutely necessary. 
+
+A local cache can easily be created using the following command
+
+```{r, local_cache, echo=TRUE, eval=FALSE}
+ClassyFireDB <- RSQLite::dbConnect(RSQLite::SQLite(), 'ClassyFireCache.db')
+```
+
+Before running the `get_classifcation` function, a connection to the cache needs to be created.
+
+
+```{r, open_cache, echo=TRUE, eval=FALSE}
+ClassyFireCache <- open_cache(dbname = 'ClassyFireCache.db')
+```
+
+Then pass the cache variable as the `conn` argument in the `get_classification` function. 
+
+````{r, run_cache, echo=TRUE, eval=FALSE}
+get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N', conn = ClassyFireCache)
+```
+
+
+## Acknowledgements
+
+If you use `classyfireR` you should cite the [ClassyFire](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0174-y) publication
+
+> ___Djoumbou Feunang Y, Eisner R, Knox C, Chepelev L, Hastings J, Owen G, Fahy E, Steinbeck C, Subramanian S, Bolton E, Greiner R, and Wishart DS___. ClassyFire: Automated Chemical Classification With A Comprehensive, Computable Taxonomy. Journal of Cheminformatics, 2016, 8:61.
+
+> __DOI:__ [10.1186/s13321-016-0174-y](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-016-0174-y)
+
