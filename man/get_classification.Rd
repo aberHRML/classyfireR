@@ -4,16 +4,21 @@
 \alias{get_classification}
 \title{Get Entity Classification}
 \usage{
-get_classification(inchi_key)
+get_classification(inchi_key, conn = NULL)
 }
 \arguments{
 \item{inchi_key}{a character string of a valid InChIKey}
+
+\item{conn}{a DBIConnection object, as produced by dbConnect}
 }
 \value{
 a \code{ClassyFire} S4 object.
 }
 \description{
-Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'
+Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'.
+The optional local cache function enables classification requests with less waiting time.
+Furthermore, there will be fewer traffic on the classyFire servers. For best high efficiency
+there is an option for creating a SQLight database to cache results.
 }
 \examples{
 \dontrun{
