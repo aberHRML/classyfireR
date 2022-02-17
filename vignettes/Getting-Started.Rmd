@@ -135,7 +135,7 @@ ClassyFireCache <- open_cache(dbname = 'ClassyFireCache.db')
 
 Then pass the cache variable as the `conn` argument in the `get_classification` function. 
 
-````{r, run_cache, echo=TRUE, eval=FALSE}
+```{r, run_cache, echo=TRUE, eval=FALSE}
 get_classification('BRMWTNUJHUMWMS-LURJTMIESA-N', conn = ClassyFireCache)
 ```
 
