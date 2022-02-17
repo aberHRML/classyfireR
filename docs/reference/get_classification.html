@@ -40,7 +40,10 @@
 
 
 <meta property="og:title" content="Get Entity Classification — get_classification" />
-<meta property="og:description" content="Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'" />
+<meta property="og:description" content="Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'.
+The optional local cache function enables classification requests with less waiting time.
+Furthermore, there will be fewer traffic on the classyFire servers. For best high efficiency
+there is an option for creating a SQLight database to cache results." />
 
 
 
@@ -72,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">classyfireR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.8</span>
       </span>
     </div>
 
@@ -95,7 +98,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/Introduction_to_classyfireR.html">Introduction to classyfireR</a>
+      <a href="../articles/Getting-Started.html">Getting Stated with classyfireR</a>
     </li>
   </ul>
 </li>
@@ -129,10 +132,13 @@
     </div>
 
     <div class="ref-description">
-    <p>Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'</p>
+    <p>Retrieve entity classification from `http://classyfire.wishartlab.com/entities/'.
+The optional local cache function enables classification requests with less waiting time.
+Furthermore, there will be fewer traffic on the classyFire servers. For best high efficiency
+there is an option for creating a SQLight database to cache results.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_classification</span><span class='op'>(</span><span class='va'>inchi_key</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_classification</span><span class='op'>(</span><span class='va'>inchi_key</span>, conn <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,6 +146,10 @@
     <tr>
       <th>inchi_key</th>
       <td><p>a character string of a valid InChIKey</p></td>
+    </tr>
+    <tr>
+      <th>conn</th>
+      <td><p>a DBIConnection object, as produced by dbConnect</p></td>
     </tr>
     </table>
 
