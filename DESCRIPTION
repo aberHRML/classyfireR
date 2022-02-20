@@ -1,14 +1,14 @@
 Package: classyfireR
 Type: Package
-Title: R Interface to the ClassyFire REST API
+Title: R Interface to the 'ClassyFire' REST API
 Version: 0.3.8
-Date: 2022-02-17
+Date: 2022-02-20
 Authors@R: c(
     person("Tom", "Wilson", , "tpw2@aber.ac.uk", c("aut", "cre"),  comment = c(ORCID = "0000-0003-3112-4682")),
     person("Jasen", "Finch", , "jsf9@aber.ac.uk", "aut"),
     person("Gordon", "Getzinger", ,"gordon.getzinger@duke.edu", "ctb"),
     person("Florian", "Schmidt",,"florianxschmidt@web.de", "ctb"))
-Description: Access to the ClassyFire REST API <http://classyfire.wishartlab.com>. Retrieve existing entity classifications and submit new entities for classification. 
+Description: Access to the 'ClassyFire' REST API <http://classyfire.wishartlab.com>. Retrieve existing entity classifications and submit new entities for classification. 
 Depends:
   magrittr
 Imports: 
@@ -36,7 +36,7 @@ License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://github.com/aberHRML/classyfireR
 BugReports: https://github.com/aberHRML/classyfireR/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
 Collate: 
     'allGenerics.R'

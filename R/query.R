@@ -48,6 +48,10 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
       tidyjson::spread_all()
 
 
+    if(nrow(json_parse) == 0){
+      return(message(crayon::red(cli::symbol$cross, 'No Successful Classifications')))
+    }
+
     json_tib <- json_parse %>%
       dplyr::as_tibble() %>%
       dplyr::group_by(inchikey)
@@ -79,9 +83,6 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
                       into = c("Level", "TYPE"),
                       sep = "\\.") %>%
       dplyr::select(-TYPE)
-
-
-
 
     DirectParents <- json_tib %>%
       dplyr::select(inchikey, dplyr::starts_with("direct_parent.")) %>%

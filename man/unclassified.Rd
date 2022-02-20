@@ -12,6 +12,9 @@ unclassified(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a character string of \code{inputs} that were not successfully classified
+}
 \description{
 Get the identifiers of any inputs that were not classified
 }

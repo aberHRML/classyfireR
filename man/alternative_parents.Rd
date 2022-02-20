@@ -15,6 +15,11 @@ alternative_parents(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a \code{tbl_df} of alternative parents
+
+a \code{tbl_df} of alternative parents
+}
 \description{
 Get the alternative_parents
 

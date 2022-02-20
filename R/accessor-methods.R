@@ -7,6 +7,7 @@
 #' @rdname classification
 #' @description Get the `ClassyFire` classification results
 #' @param object a `ClassyFire` S4 object
+#' @return a `tbl_df` of classifications
 #' @export
 
 setMethod('classification', signature = 'ClassyFire',
@@ -18,6 +19,7 @@ setMethod('classification', signature = 'ClassyFire',
 #' @rdname classification
 #' @description Get the `ClassyFire` classification results
 #' @param object a `Query` S4 object
+#' @return a `tbl_df` of classifications
 #' @export
 
 setMethod('classification', signature = 'Query',
@@ -29,6 +31,7 @@ setMethod('classification', signature = 'Query',
 #' @rdname meta
 #' @description Get the `ClassyFire` meta data
 #' @param object a `ClassyFire` S4 object
+#' @return a list of meta data
 #' @export
 
 setMethod('meta', signature = 'ClassyFire',
@@ -40,7 +43,9 @@ setMethod('meta', signature = 'ClassyFire',
 #' @rdname meta
 #' @description Get the `ClassyFire` meta data
 #' @param object a `Query` S4 object
+#' @return a list of meta data
 #' @export
+
 setMethod('meta', signature = 'Query',
           function(object) {
             object@meta
@@ -51,6 +56,7 @@ setMethod('meta', signature = 'Query',
 #' @rdname description
 #' @description Get the `ClassyFire` description
 #' @param object a `ClassyFire` S4 object
+#' @return a character string of the classification description
 #' @export
 
 setMethod('description', signature = 'ClassyFire',
@@ -62,8 +68,9 @@ setMethod('description', signature = 'ClassyFire',
 #' @rdname description
 #' @description Get the `ClassyFire` description
 #' @param object a `Query` S4 object
+#' @return a character string of the classification description
 #' @export
-#'
+
 setMethod('description', signature = 'Query',
           function(object) {
             object@description
@@ -74,6 +81,7 @@ setMethod('description', signature = 'Query',
 #' @rdname chebi
 #' @description Get the predicted ChEBI identifications
 #' @param object a `ClassyFire` S4 object
+#' @return a character vector of ChEBI terms
 #' @export
 
 setMethod('chebi', signature = 'ClassyFire',
@@ -85,8 +93,9 @@ setMethod('chebi', signature = 'ClassyFire',
 #' @rdname chebi
 #' @description Get the predicted ChEBI identifications
 #' @param object a `Query` S4 object
+#' @return a character vector of ChEBI terms
 #' @export
-#'
+
 setMethod('chebi', signature = 'Query',
           function(object) {
             object@predicted_chebi
@@ -96,6 +105,7 @@ setMethod('chebi', signature = 'Query',
 #' @rdname descriptors
 #' @description Get the external descriptors
 #' @param object a `ClassyFire` S4 object
+#' @return a `tbl_df` of available external descriptors
 #' @export
 
 setMethod('descriptors', signature = 'ClassyFire',
@@ -107,6 +117,7 @@ setMethod('descriptors', signature = 'ClassyFire',
 #' @rdname descriptors
 #' @description Get the external descriptors
 #' @param object a `Query` S4 object
+#' @return a `tbl_df` of available external descriptors
 #' @export
 
 setMethod('descriptors', signature = 'Query',
@@ -118,6 +129,7 @@ setMethod('descriptors', signature = 'Query',
 #' @rdname alternative_parents
 #' @description Get the alternative_parents
 #' @param object a `ClassyFire` S4 object
+#' @return a `tbl_df` of alternative parents
 #' @export
 
 setMethod('alternative_parents', signature = 'ClassyFire',
@@ -129,6 +141,7 @@ setMethod('alternative_parents', signature = 'ClassyFire',
 #' @rdname alternative_parents
 #' @description Get the alternative_parents
 #' @param object a `Query` S4 object
+#' @return a `tbl_df` of alternative parents
 #' @export
 
 setMethod('alternative_parents', signature = 'Query',
@@ -141,6 +154,7 @@ setMethod('alternative_parents', signature = 'Query',
 #' @rdname direct_parent
 #' @description Get the direct_parent
 #' @param object a `ClassyFire` S4 object
+#' @return a list of the direct parent
 #' @export
 
 setMethod('direct_parent', signature = 'ClassyFire',
@@ -152,6 +166,7 @@ setMethod('direct_parent', signature = 'ClassyFire',
 #' @rdname direct_parent
 #' @description Get the direct_parent
 #' @param object a `Query` S4 object
+#' @return a list of the direct parent
 #' @export
 
 setMethod('direct_parent', signature = 'Query',
@@ -163,6 +178,7 @@ setMethod('direct_parent', signature = 'Query',
 #' @rdname unclassified
 #' @description Get the identifiers of any inputs that were not classified
 #' @param object a `Query` S4 object
+#' @return a character string of `inputs` that were not successfully classified
 #' @export
 
 setMethod('unclassified', signature = 'Query',

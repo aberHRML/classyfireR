@@ -15,6 +15,11 @@ descriptors(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a \code{tbl_df} of available external descriptors
+
+a \code{tbl_df} of available external descriptors
+}
 \description{
 Get the external descriptors
 

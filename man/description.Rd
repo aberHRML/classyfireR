@@ -15,6 +15,11 @@ description(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a character string of the classification description
+
+a character string of the classification description
+}
 \description{
 Get the \code{ClassyFire} description
 

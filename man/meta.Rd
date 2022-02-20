@@ -15,6 +15,11 @@ meta(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a list of meta data
+
+a list of meta data
+}
 \description{
 Get the \code{ClassyFire} meta data
 

@@ -1,6 +1,7 @@
 #' show-ClassyFire
 #' @rdname show
 #' @param object a `ClassyFire` S4 object
+#' @return NULL
 #' @importFrom methods show
 #' @export
 
