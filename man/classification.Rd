@@ -15,6 +15,11 @@ classification(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a \code{tbl_df} of classifications
+
+a \code{tbl_df} of classifications
+}
 \description{
 Get the \code{ClassyFire} classification results
 

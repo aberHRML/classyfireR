@@ -15,6 +15,11 @@ chebi(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a character vector of ChEBI terms
+
+a character vector of ChEBI terms
+}
 \description{
 Get the predicted ChEBI identifications
 

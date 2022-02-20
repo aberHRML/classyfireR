@@ -15,6 +15,11 @@ direct_parent(object)
 \arguments{
 \item{object}{a \code{Query} S4 object}
 }
+\value{
+a list of the direct parent
+
+a list of the direct parent
+}
 \description{
 Get the direct_parent
 
