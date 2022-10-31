@@ -162,8 +162,12 @@ open_cache <- function(dbname=":memory:"){
   conn <- RSQLite::dbConnect(RSQLite::SQLite(), dbname)
 
   RSQLite::dbExecute(conn,"CREATE TABLE IF NOT EXISTS 'classyfire' (
-          InChikey CHAR(27) PRIMARY KEY,
+          InChiKey CHAR(27) PRIMARY KEY,
           InChi TEXT,
           Classification TEXT)")
+
+  RSQLite::dbExecute(conn,
+                     "CREATE INDEX IF NOT EXISTS 'idx_inchi_key' ON classyfire (InChiKey)")
+
   return(conn)
 }
