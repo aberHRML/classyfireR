@@ -88,3 +88,27 @@ parse_external_desc <- function(x)
 
   return(external_desc)
 }
+
+
+
+#' Check if ClassyFire API Server is available
+#'
+#' @return a numeric value. 0 if the server is not accessible. 1 if the server is accessible.
+#' @keywords internal
+
+
+is_server_there <- function()
+{
+
+  response <- httr::GET(
+    'http://classyfire.wishartlab.com/entities/BRMWTNUJHUMWMS-LURJTMIESA-N.json',
+    quiet = T
+  )
+
+  if (response$status_code == 200) {
+    return(1)
+  } else{
+    return(0)
+  }
+}
+
