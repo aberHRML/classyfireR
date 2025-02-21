@@ -22,36 +22,38 @@ parse_json_output <- function(json_res)
       intermediate_nodes = json_res[['intermediate_nodes']],
       direct_parent = json_res[['direct_parent']]
     )
-
+  
   if (length(list_output$intermediate_nodes) == 0) {
     list_output$intermediate_nodes <- NULL
   }
-
+  
   list_output <- list_output[!sapply(list_output, is.null)]
-
+  
   if (length(list_output) > 0) {
-    class_tibble <- purrr::map(1:length(list_output),  ~ {
-      l <- list_output[[.]]
-      tibble::tibble(
-        Level = names(list_output)[.],
-        Classification = l$name,
-        CHEMONT = l$chemont_id
+    # Convert list_output into a data frame by iterating over each element
+    class_tibble <- do.call(rbind, lapply(seq_along(list_output), function(i) {
+      l <- list_output[[i]]
+      data.frame(
+        Level = names(list_output)[i],  # Extract the name of the list element as Level
+        Classification = l$name,  # Extract the classification name
+        CHEMONT = l$chemont_id,  # Extract the chemical ontology ID
+        stringsAsFactors = FALSE  # Ensure character columns remain characters
       )
-    }) %>%
-      dplyr::bind_rows() %>%
-      dplyr::filter(!duplicated(Classification))
-
-    nIntermediate <- class_tibble %>%
-      dplyr::filter(Level == 'intermediate_nodes') %>%
-      nrow()
-
-    class_tibble$Level[class_tibble$Level == 'intermediate_nodes'] <-
-      purrr::map_chr(5:(5 + (nIntermediate - 1)),  ~ {
-        stringr::str_c('level ', .)
-      })
-    class_tibble$Level[class_tibble$Level == 'direct_parent'] <-
-      stringr::str_c('level ', 5 + nIntermediate)
-
+    }))
+    
+    # Remove duplicate classifications
+    class_tibble <- class_tibble[!duplicated(class_tibble$Classification), ]
+    
+    # Count the number of intermediate nodes
+    nIntermediate <- sum(class_tibble$Level == "intermediate_nodes")
+    
+    # Rename intermediate nodes dynamically
+    class_tibble$Level[class_tibble$Level == "intermediate_nodes"] <- 
+      paste0("level ", seq_len(nIntermediate) + 4)
+    
+    # Rename direct_parent level based on the number of intermediate nodes
+    class_tibble$Level[class_tibble$Level == "direct_parent"] <- 
+      paste0("level ", 5 + nIntermediate)
   } else {
     class_tibble <- tibble()
   }
@@ -80,7 +82,7 @@ parse_external_desc <- function(x)
   }
 
   external_desc <-
-    tibble(
+    tibble::tibble(
       source = x$external_descriptors$source,
       source_id = x$external_descriptors$source_id,
       annotations = unlist(external_ann)
