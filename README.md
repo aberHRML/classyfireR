@@ -20,7 +20,7 @@ install.packages('classyfireR')
 Or the latest development version can be installed form GitHub using the `remotes` package
 
 ```R
-remotes::install_github('aberHRML/classyfireR', build_vignettes = TRUE')
+remotes::install_github('aberHRML/classyfireR', build_vignettes = TRUE)
 ```
 
 ### Usage
