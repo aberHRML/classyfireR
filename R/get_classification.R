@@ -43,11 +43,11 @@ get_classification <- function(inchi_key, conn=NULL)
     message(crayon::green(clisymbols::symbol$tick, 'cached: ', inchi_key))
     return(object)
   } else {
-    entity_url <- 'https://cfb.fiehnlab.ucdavis.edu/entities/'
+    entity_url <- .classyfire_entity_base_url()
     
     entity_query <- paste0(entity_url, inchi_key, '.json')
     
-    response <- httr::RETRY(
+    response <- .cf_retry(
       verb = "GET",
       url = entity_query,
       times = 10,
@@ -61,10 +61,11 @@ get_classification <- function(inchi_key, conn=NULL)
     
     if (response$status_code == 404) {
       message(crayon::red(clisymbols::symbol$cross, inchi_key))
+      return(invisible(NULL))
     }
     
     if (response$status_code == 200) {
-      text_content <- httr::content(response, 'text')
+      text_content <- .cf_content(response, 'text')
       
       if (text_content == '{}') {
         message(crayon::red(clisymbols::symbol$cross, inchi_key))
@@ -138,6 +139,14 @@ get_classification <- function(inchi_key, conn=NULL)
       }
       return(object)
     }
+
+    stop(
+      sprintf(
+        "ClassyFire request failed for %s with HTTP status %s.",
+        inchi_key,
+        response$status_code
+      )
+    )
   }
 }
 

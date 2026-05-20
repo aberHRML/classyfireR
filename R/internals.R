@@ -92,6 +92,36 @@ parse_external_desc <- function(x)
 }
 
 
+.classyfire_entity_base_url <- function() {
+  "https://cfb.fiehnlab.ucdavis.edu/entities/"
+}
+
+
+.classyfire_query_base_url <- function() {
+  "https://cfb.fiehnlab.ucdavis.edu/queries"
+}
+
+
+.cf_get <- function(...) {
+  httr::GET(...)
+}
+
+
+.cf_post <- function(...) {
+  httr::POST(...)
+}
+
+
+.cf_retry <- function(...) {
+  httr::RETRY(...)
+}
+
+
+.cf_content <- function(...) {
+  httr::content(...)
+}
+
+
 
 #' Check if ClassyFire API Server is available
 #'
@@ -102,8 +132,11 @@ parse_external_desc <- function(x)
 is_server_there <- function()
 {
 
-  response <- httr::GET(
-    'http://classyfire.wishartlab.com/entities/BRMWTNUJHUMWMS-LURJTMIESA-N.json',
+  response <- .cf_get(
+    paste0(
+      .classyfire_entity_base_url(),
+      "BRMWTNUJHUMWMS-LURJTMIESA-N.json"
+    ),
     quiet = T
   )
 
@@ -113,4 +146,3 @@ is_server_there <- function()
     return(0)
   }
 }
-

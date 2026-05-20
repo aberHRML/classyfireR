@@ -13,16 +13,16 @@
 #' submit_query(label = 'query_test', input = input, type = 'STRUCTURE')
 #' }
 submit_query <- function(label, input, type = 'STRUCTURE') {
-  base_url <- 'http://classyfire.wishartlab.com/queries'
+  base_url <- .classyfire_query_base_url()
   query_input <-
     paste(names(input), input, sep = '\t', collapse = '\n')
   q <- rjson::toJSON(list(
     label = label,
     query_input = query_input,
-    query_type = 'STRUCTURE'
+    query_type = type
   ))
 
-  resp <- httr::POST(
+  resp <- .cf_post(
     url = base_url,
     body = q,
     httr::content_type_json(),
@@ -30,14 +30,14 @@ submit_query <- function(label, input, type = 'STRUCTURE') {
     httr::timeout(getOption('timeout'))
   )
 
-  post_cont <- httr::content(resp)
+  post_cont <- .cf_content(resp)
 
   url <- paste0(base_url, '/', post_cont$id, ".json")
 
-  resp <- httr::RETRY("GET",
-                      url = url,
-                      encode = "json",
-                      times = 100)
+  resp <- .cf_retry("GET",
+                    url = url,
+                    encode = "json",
+                    times = 100)
 
   if (resp$status_code == 200) {
     json_res <- get_query(query_id = post_cont$id, format = 'json')
@@ -158,11 +158,11 @@ get_query <- function(query_id, format = c("json", "sdf", "csv")) {
     match.arg(format,
               choices =  c("json", "sdf", "csv"),
               several.ok = F)
-  base_url <- 'http://classyfire.wishartlab.com/queries/'
+  base_url <- paste0(.classyfire_query_base_url(), "/")
   url <- paste0(base_url, query_id, ".", format)
-  resp <- httr::GET(url = url, httr::accept_json())
+  resp <- .cf_get(url = url, httr::accept_json())
   if (resp$status_code == 200) {
-    cont <- httr::content(resp, 'text')
+    cont <- .cf_content(resp, 'text')
   } else {
     cont <- NA
   }
