@@ -122,6 +122,38 @@ parse_external_desc <- function(x)
 }
 
 
+.cf_status_code <- function(response) {
+  status_code <- response$status_code
+
+  if (length(status_code) != 1 || is.na(status_code)) {
+    return("unknown")
+  }
+
+  as.character(status_code)
+}
+
+
+.cf_expect_status <- function(response, ok = 200, context = "ClassyFire request", url = NULL) {
+  status_code <- response$status_code
+
+  if (length(status_code) == 1 && !is.na(status_code) && status_code %in% ok) {
+    return(invisible(response))
+  }
+
+  msg <- sprintf(
+    "%s failed with HTTP status %s.",
+    context,
+    .cf_status_code(response)
+  )
+
+  if (!is.null(url)) {
+    msg <- sprintf("%s URL: %s", msg, url)
+  }
+
+  stop(msg, call. = FALSE)
+}
+
+
 
 #' Check if ClassyFire API Server is available
 #'
