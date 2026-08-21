@@ -2,8 +2,9 @@ test_that("parse_json_output renames intermediate levels and removes duplicates"
   json_res <- list(
     kingdom = list(name = "Organic compounds", chemont_id = "CHEMONTID:0000000"),
     superclass = list(name = "Lipids and lipid-like molecules", chemont_id = "CHEMONTID:0000001"),
-    intermediate_nodes = list(
-      list(name = "Fatty Acyls", chemont_id = "CHEMONTID:0000002")
+    intermediate_nodes = data.frame(
+      name = "Fatty Acyls",
+      chemont_id = "CHEMONTID:0000002"
     ),
     direct_parent = list(
       name = "Primary alcohols",

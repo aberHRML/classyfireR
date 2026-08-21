@@ -31,9 +31,11 @@ entity_fixture_json <- function(
       ),
       predicted_chebi_terms = c("CHEBI:15743", "CHEBI:30879"),
       external_descriptors = list(
-        source = "HMDB",
-        source_id = "HMDB00001",
-        annotations = list(c("annot 1", "annot 2"))
+        list(
+          source = "HMDB",
+          source_id = "HMDB00001",
+          annotations = c("annot 1", "annot 2")
+        )
       ),
       description = "Example compound"
     ),

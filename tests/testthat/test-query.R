@@ -1,5 +1,5 @@
 query_fixture_json <- function() {
-  jsonlite::toJSON(
+  as.character(jsonlite::toJSON(
     list(
       entities = list(
         list(
@@ -31,7 +31,7 @@ query_fixture_json <- function() {
       )
     ),
     auto_unbox = TRUE
-  )
+  ))
 }
 
 test_that("get_query returns text for successful requests", {
@@ -44,13 +44,16 @@ test_that("get_query returns text for successful requests", {
   expect_equal(classyfireR::get_query(123, format = "json"), "query-body")
 })
 
-test_that("get_query returns NA for non-200 responses", {
+test_that("get_query raises an explicit error for non-200 responses", {
   testthat::local_mocked_bindings(
     .cf_get = function(...) list(status_code = 500),
     .env = asNamespace("classyfireR")
   )
 
-  expect_true(is.na(classyfireR::get_query(123, format = "csv")))
+  expect_error(
+    classyfireR::get_query(123, format = "csv"),
+    "ClassyFire query 123 retrieval failed with HTTP status 500\\."
+  )
 })
 
 test_that("submit_query uses the requested type and returns a Query object", {
@@ -82,6 +85,37 @@ test_that("submit_query uses the requested type and returns a Query object", {
   expect_s4_class(result, "Query")
   expect_equal(classyfireR::meta(result)$identifier, "mol1")
   expect_equal(classyfireR::unclassified(result), c(mol2 = "CCC"))
+})
+
+test_that("submit_query raises an explicit error when submission fails", {
+  testthat::local_mocked_bindings(
+    .cf_post = function(...) list(status_code = 503),
+    .env = asNamespace("classyfireR")
+  )
+
+  expect_error(
+    classyfireR::submit_query("query_test", c(mol1 = "CCO")),
+    "ClassyFire query submission failed with HTTP status 503\\."
+  )
+})
+
+test_that("submit_query raises an explicit error when polling fails", {
+  testthat::local_mocked_bindings(
+    .cf_post = function(...) structure(list(status_code = 201), class = "mock_post"),
+    .cf_content = function(resp, ...) {
+      if (inherits(resp, "mock_post")) {
+        return(list(id = 123))
+      }
+      stop("Unexpected response object")
+    },
+    .cf_retry = function(...) list(status_code = 504),
+    .env = asNamespace("classyfireR")
+  )
+
+  expect_error(
+    classyfireR::submit_query("query_test", c(mol1 = "CCO")),
+    "ClassyFire query 123 polling failed with HTTP status 504\\."
+  )
 })
 
 test_that("submit_query reports when no entities are classified", {
